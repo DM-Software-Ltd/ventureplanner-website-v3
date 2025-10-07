@@ -1,0 +1,90 @@
+{% load static %}
+
+<!-- Our Project Section -->
+<div class="our-project-silver">
+    <div class="container">
+        <div class="row section-row">
+            <div class="col-lg-12">
+                <!-- Section Title Start -->
+                <div style="max-width: 800px" class="section-title section-title-center">
+                    <h3 class="wow fadeInUp">Example Plans</h3>
+                    <h2 class="text-effect" data-cursor="-opaque">
+                        Explore Our Data-Driven Blueprints, Tailored for Every Stage of Growth
+                    </h2>
+                </div>
+                <!-- Section Title End -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Project Item Start -->
+                <div class="project-item-silver wow fadeInUp">
+                    <div class="project-image-silver">
+                        <div class="project-img-silver">
+                            <a href="{% url 'project-single' %}" data-cursor-text="View">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/project-image-1-silver.jpg' %}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="project-btn-silver">
+                            <a href="{% url 'project-single' %}">
+                                <img src="{% static 'images/arrow-primary.svg' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-content-silver">
+                        <p>Go-to-Market Strategy</p>
+                        <h3>
+                            <a href="{% url 'project-single' %}">
+                                A 6-Month Plan to Acquire the First 1,000 Customers
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                <!-- Project Item End -->
+            </div>
+
+            <div class="col-md-6">
+                <!-- Project Item Start -->
+                <div class="project-item-silver wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="project-image-silver">
+                        <div class="project-img-silver">
+                            <a href="{% url 'project-single' %}" data-cursor-text="View">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/project-image-2-silver.jpg' %}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="project-btn-silver">
+                            <a href="{% url 'project-single' %}">
+                                <img src="{% static 'images/arrow-primary.svg' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-content-silver">
+                        <p>Growth & SEO</p>
+                        <h3>
+                            <a href="{% url 'project-single' %}">
+                                E-commerce Overhaul - A Plan to Double Organic Traffic
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                <!-- Project Item End -->
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="section-footer-text wow fadeInUp" data-wow-delay="0.4s">
+                <p>
+                    Your roadmap to success is waiting -
+                    <a href="{% url 'contact' %}">Create Your Marketing Plan Now!</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

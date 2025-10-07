@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% block title %}About - Venture Planner{% endblock %}
+
 {% block content %}
-<h1>About Us</h1>
-<p>We are awesome.</p>
+{% include "partials/sitewide/generic-hero.html" %}
+{% include "partials/about-us-overview-partial.html" %}
+{% include "partials/our-approach-partial.html" %}
+{% include "partials/why-choose-elite-partial.html" %}
+{% include "partials/intro-video-partial.html" %}
+{% include "partials/our-team-partial.html" %}
+{% include "partials/testimonials-partial.html" %}
+{% include "partials/how-it-works-partial.html" %}
+{% include "partials/our-achievements-partial.html" %}
+{% include "partials/faqs-partial.html" %}
 {% endblock %}

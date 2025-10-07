@@ -1,0 +1,111 @@
+{% load static %}
+<div class="hero bg-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Hero Box Start -->
+                <div class="hero-box">
+                    <!-- Hero Content Start -->
+                    <div class="hero-content dark-section">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">THE FUTURE OF PLANNING IS HERE</h3>
+                            <h1 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Create Professional
+                                Business & Marketing Plans with AI <img src="{% static 'images/hero-title-image.jpg' %}" alt=""></h1>
+                            <p class="wow fadeInUp" data-wow-delay="0.4s">Leverage our advanced AI to analyze market
+                                data, forecast financials, and write persuasive plan sections, giving you a competitive
+                                edge in a fraction of the time.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Hero List Start -->
+                        <div class="hero-list wow fadeInUp" data-wow-delay="0.6s">
+                            <ul>
+                                <li>Advanced Forecasting & Insights</li>
+                                <li>Data-Driven Strategic Roadmaps</li>
+                            </ul>
+                        </div>
+                        <!-- Hero List End -->
+
+                        <!-- Hero Button Start -->
+                        <div class="hero-btn wow fadeInUp" data-wow-delay="0.8s">
+                            <a href="{% url 'contact' %}" class="btn-default">Start Your Business Plan</a>
+                            <a href="{% url 'services' %}" class="btn-default btn-highlighted">Start Your Marketing Plan</a>
+                        </div>
+                        <!-- Hero Button End -->
+                    </div>
+                    <!-- Hero Content End -->
+
+                    <!-- Hero Image Start -->
+                    <div class="hero-image">
+                        <!-- Hero Image Start -->
+                        <div class="hero-img">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/hero-image.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Hero Image End -->
+
+                        <!-- Google Rating Box Start -->
+                        <div class="google-rating-box wow fadeInUp" data-wow-delay="0.2s">
+                            <!-- Google Rating Content Start -->
+                            <div class="google-rating-content">
+                                <p>A perfect balance of comfort and productvity</p>
+                            </div>
+                            <!-- Google Rating Content End -->
+
+                            <!-- Satisfy Client Images Start -->
+                            <div class="satisfy-client-images">
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-1.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-2.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-3.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-4.jpg' %}"alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image add-more">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                            <!-- Satisfy Client Images End -->
+
+                            <!-- Google Review Content Start -->
+                            <div class="google-review-content">
+                                <p>Google Rating</p>
+                                <div class="raview-rating-box">
+                                    <p>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </p>
+                                    <p>(5.0)</p>
+                                </div>
+                            </div>
+                            <!-- Google Review Content End -->
+                        </div>
+                        <!-- Google Rating Box End -->
+                    </div>
+                    <!-- Hero Image End -->
+                </div>
+                <!-- Hero Box End -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "partials/hero-listbox-partial.html" %}

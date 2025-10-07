@@ -1,0 +1,120 @@
+{% load static %}
+
+<!-- Our Core Value Section -->
+<div class="our-core-value-silver">
+    <div class="container">
+        <div class="row section-row">
+            <div class="col-lg-12">
+                <div class="section-title section-title-center">
+                    <h3 class="wow fadeInUp">{{ section_subtitle|default:"Our Creative Engine" }}</h3>
+                    <h2 class="text-effect" data-cursor="-opaque">
+                        {{ section_title|default:"Create Campaign-Ready Creatives" }}
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for block in core_values %}
+            <div class="col-lg-4 col-md-6">
+                <div class="core-value-item-{{ block.style|default:'1' }}-silver wow fadeInUp"
+                     {% if block.delay %}data-wow-delay="{{ block.delay }}"{% endif %}>
+                    {% if block.client %}
+                    <div class="core-value-client-detail-silver">
+                        <div class="core-value-client-img-silver">
+                            <figure>
+                                <img src="{{ block.client.image.url }}" alt="{{ block.client.image.alt }}">
+                            </figure>
+                        </div>
+                        <div class="core-value-client-content-silver">
+                            {% for line in block.client.text %}
+                            <p>{{ line }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if block.image %}
+                    <div class="core-value-item-{{ block.style|default:'1' }}-img-silver">
+                        <figure>
+                            <img src="{{ block.image.url }}" alt="{{ block.image.alt }}">
+                        </figure>
+                    </div>
+                    {% endif %}
+
+                    {% if block.title %}
+                    <div class="core-value-content-silver">
+                        <h3>{{ block.title }}</h3>
+                        <p>{{ block.text }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if block.counters %}
+                    <div class="core-value-list-silver">
+                        {% for counter in block.counters %}
+                        <div class="core-value-counter-item-silver">
+                            <h2><span class="counter">{{ counter.value }}</span>{{ counter.suffix|default:"" }}</h2>
+                            <p>{{ counter.label }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if block.list %}
+                    <div class="core-value-list-silver">
+                        <ul>
+                            {% for item in block.list %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    {% if block.commitment %}
+                    <div class="core-Commitment-title-silver">
+                        <h3>
+                            {{ block.commitment.text_before }}
+                            <span class="Commitment-title-img-1">
+                                {% for img in block.commitment.people %}
+                                    <img src="{{ img.url }}" alt="{{ img.alt }}">
+                                {% endfor %}
+                            </span>
+                            {{ block.commitment.text_middle }}
+                            <span class="Commitment-title-img-2">
+                                <img src="{{ block.commitment.logo.url }}" alt="{{ block.commitment.logo.alt }}">
+                            </span>
+                            {{ block.commitment.text_after }}
+                        </h3>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if footer %}
+        <div class="row">
+            <div class="col-lg-12 order-4">
+                <div class="section-footer-text section-satisfy-img wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="satisfy-client-images-silver">
+                        {% for client in footer.clients %}
+                        <div class="satisfy-client-image-silver">
+                            <figure class="image-anime">
+                                <img src="{{ client.url }}" alt="{{ client.alt }}">
+                            </figure>
+                        </div>
+                        {% endfor %}
+                        <div class="satisfy-client-image-silver add-more">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                    <p>
+                        <a href="{{ footer.link_url|default:'contact.html' }}">{{ footer.link_text|default:'Get started' }}</a>
+                        {{ footer.text|default:"with our free subscription. No card details required" }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

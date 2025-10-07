@@ -1,0 +1,130 @@
+{% load static %}
+<footer class="main-footer bg-section dark-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Footer Header Start -->
+                <div class="footer-header">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Join our community of moden professional
+                            today</h2>
+                    </div>
+                    <!-- Section Title End -->
+
+                    <!-- Contact Us Circle Start -->
+                    <div class="contact-us-circle">
+                        <a href="{% url 'contact' %}">
+                            <img src="{% static 'images/contact-us-circle.svg' %}" alt="">
+                        </a>
+                    </div>
+                    <!-- Contact Us Circle End -->
+                </div>
+                <!-- Footer Header End -->
+            </div>
+
+            <div class="col-xl-5 col-lg-8">
+                <!-- About Footer Start -->
+                <div class="about-footer footer-links">
+                    <!-- About Footer Content Start -->
+                    <div class="about-footer-content">
+                        <p>Our mission is to redefine the way people work - by offering inspiring spaces, strong
+                            community support.</p>
+                    </div>
+                    <!-- About Footer Content End -->
+
+                    <!-- Footer Contact Links Start -->
+                    <div class="footer-contact-links">
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-phone-primary.svg' %}" alt="">
+                            </div>
+                            <div class="footer-contact-content">
+                                <h3>Phone Number</h3>
+                                <p><a href="tel:+123456789">+ (123) 456-789</a></p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+
+                        <!-- Footer Contact Item Start -->
+                        <div class="footer-contact-item">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-mail-primary.svg' %}" alt="">
+                            </div>
+                            <div class="footer-contact-content">
+                                <h3>Email Address</h3>
+                                <p><a href="mailto:info@domainname.com">info@domainname.com</a></p>
+                            </div>
+                        </div>
+                        <!-- Footer Contact Item End -->
+                    </div>
+                    <!-- Footer Contact Links End -->
+                </div>
+                <!-- About Footer End -->
+            </div>
+
+            <div class="col-xl-3 col-lg-4">
+                <!-- Footer Social Link Start -->
+                <div class="footer-social-links footer-links">
+                    <h3>Follow On Socials</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+                <!-- Footer Social Link End -->
+            </div>
+
+            <div class="col-xl-4">
+                <!-- Footer Newsletter Form Start -->
+                <div class="footer-newsletter-form footer-links">
+                    <h3>Subscribe To Our Newsletter</h3>
+                    <form id="newslettersForm" action="#" method="POST">
+                        <div class="form-group">
+                            <input type="email" name="mail" class="form-control" id="mail"
+                                   placeholder="Enter Your E-mail Address *" required>
+                            <button type="submit" class="newsletter-btn"><img src="{% static 'images/arrow-primary.svg' %}" alt="">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Footer Newsletter Form End -->
+            </div>
+
+            <div class="col-lg-12">
+                <!-- Footer CTA Box Start -->
+                <div class="footer-cta-box">
+                    <!-- Footer Logo Start -->
+                    <div class="footer-logo">
+                        <img src="{% static 'images/footer-logo.svg' %}" alt="">
+                    </div>
+                    <!-- Footer Logo End -->
+
+                    <!-- Footer Menu Start -->
+                    <div class="footer-menu">
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a> </li>
+                            <li><a href="{% url 'about' % }">About Us</a></li>
+                            <li><a href="{% url 'services' % }">services</a></li>
+                            <li><a href="{% url 'blog' % }">Blog</a></li>
+                            <li><a href="{% url 'contact' % }">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Menu End -->
+                </div>
+                <!-- Footer CTA Box End -->
+            </div>
+
+            <div class="col-lg-12">
+                <!-- Footer Copyright Text Start -->
+                <div class="footer-copyright-text">
+                    <p>Copyright © 2025 All Rights Reserved.</p>
+                </div>
+                <!-- Footer Copyright Text End -->
+            </div>
+        </div>
+    </div>
+</footer>
