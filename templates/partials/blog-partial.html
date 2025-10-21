@@ -21,147 +21,40 @@
                 <!-- Section Title Content End -->
             </div>
         </div>
-
         <div class="row">
-            <!-- Post Item List Start -->
             <div class="post-item-list">
-                <!-- Post Item Start -->
+
+                {% for post in latest_posts %}
                 <div class="post-item wow fadeInUp">
-                    <!-- Post Featured Image Start-->
                     <div class="post-featured-image">
-                        <a href="{% url 'blog-single' %}" data-cursor-text="View">
+                        {# This link will need to be updated later to point to the specific post #}
+                        <a href="{% url 'blog_single' post.pk %}" data-cursor-text="View">
                             <figure class="image-anime">
-                                <img src="{% static 'images/post-1.jpg' %}" alt="">
+                                <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
                             </figure>
                         </a>
                         <div class="post-item-tags">
-                            <a href="{% url 'blog-single' %}">WorkSmart</a>
+                            {% for tag in post.tags.all|slice:":1" %} {# Shows the first tag #}
+                            <a href="{% url 'blog_single' post.pk %}">{{ tag.title }}</a>
+                            {% endfor %}
                         </div>
                     </div>
-                    <!-- Post Featured Image End -->
-
-                    <!-- Post Item Body Start -->
                     <div class="post-item-body">
-                        <!-- Post Item Content Start -->
                         <div class="post-item-content">
-                            <h2><a href="{% url 'blog-single' %}">5 Ways to Maximize Productivity in a Co-Working Space</a>
-                            </h2>
+                            <h2><a href="{% url 'blog_single' post.pk %}">{{ post.title }}</a></h2>
                         </div>
-                        <!-- Post Item Content End -->
-
-                        <!-- Post Item Readmore Button Start-->
                         <div class="post-item-btn">
-                            <a href="{% url 'blog-single' %}" class="readmore-btn">read more</a>
+                            <a href="{% url 'blog_single' post.pk %}" class="readmore-btn">read more</a>
                         </div>
-                        <!-- Post Item Readmore Button End-->
                     </div>
-                    <!-- Post Item Body End -->
                 </div>
-                <!-- Post Item End -->
+                {% empty %}
+                <p>No blog posts have been published yet.</p>
+                {% endfor %}
 
-                <!-- Post Item Start -->
-                <div class="post-item wow fadeInUp" data-wow-delay="0.2s">
-                    <!-- Post Featured Image Start-->
-                    <div class="post-featured-image">
-                        <a href="{% url 'blog-single' %}" data-cursor-text="View">
-                            <figure class="image-anime">
-                                <img src="{% static 'images/post-2.jpg' %}" alt="">
-                            </figure>
-                        </a>
-                        <div class="post-item-tags">
-                            <a href="{% url 'blog-single' %}">StartupLife</a>
-                        </div>
-                    </div>
-                    <!-- Post Featured Image End -->
-
-                    <!-- Post Item Body Start -->
-                    <div class="post-item-body">
-                        <!-- Post Item Content Start -->
-                        <div class="post-item-content">
-                            <h2><a href="{% url 'blog-single' %}">The Future of Work Why Flexibles Spaces Are the New
-                                Normal</a></h2>
-                        </div>
-                        <!-- Post Item Content End -->
-
-                        <!-- Post Item Readmore Button Start-->
-                        <div class="post-item-btn">
-                            <a href="{% url 'blog-single' %}" class="readmore-btn">read more</a>
-                        </div>
-                        <!-- Post Item Readmore Button End-->
-                    </div>
-                    <!-- Post Item Body End -->
-                </div>
-                <!-- Post Item End -->
-
-                <!-- Post Item Start -->
-                <div class="post-item wow fadeInUp" data-wow-delay="0.4s">
-                    <!-- Post Featured Image Start-->
-                    <div class="post-featured-image">
-                        <a href="{% url 'blog-single' %}" data-cursor-text="View">
-                            <figure class="image-anime">
-                                <img src="{% static 'images/post-3.jpg' %}" alt="">
-                            </figure>
-                        </a>
-                        <div class="post-item-tags">
-                            <a href="{% url 'blog-single' %}">Office Design</a>
-                        </div>
-                    </div>
-                    <!-- Post Featured Image End -->
-
-                    <!-- Post Item Body Start -->
-                    <div class="post-item-body">
-                        <!-- Post Item Content Start -->
-                        <div class="post-item-content">
-                            <h2><a href="{% url 'blog-single' %}">5 Productivity Hacks to Maximize Your Co-Working
-                                Experience</a></h2>
-                        </div>
-                        <!-- Post Item Content End -->
-
-                        <!-- Post Item Readmore Button Start-->
-                        <div class="post-item-btn">
-                            <a href="{% url 'blog-single' %}" class="readmore-btn">read more</a>
-                        </div>
-                        <!-- Post Item Readmore Button End-->
-                    </div>
-                    <!-- Post Item Body End -->
-                </div>
-                <!-- Post Item End -->
-
-                <!-- Post Item Start -->
-                <div class="post-item wow fadeInUp" data-wow-delay="0.6s">
-                    <!-- Post Featured Image Start-->
-                    <div class="post-featured-image">
-                        <a href="{% url 'blog-single' %}" data-cursor-text="View">
-                            <figure class="image-anime">
-                                <img src="{% static 'images/post-4.jpg' %}" alt="">
-                            </figure>
-                        </a>
-                        <div class="post-item-tags">
-                            <a href="{% url 'blog-single' %}">Startup Life</a>
-                        </div>
-                    </div>
-                    <!-- Post Featured Image End -->
-
-                    <!-- Post Item Body Start -->
-                    <div class="post-item-body">
-                        <!-- Post Item Content Start -->
-                        <div class="post-item-content">
-                            <h2><a href="{% url 'blog-single' %}">Sustainable Workspaces Building a Greener Future Together</a>
-                            </h2>
-                        </div>
-                        <!-- Post Item Content End -->
-
-                        <!-- Post Item Readmore Button Start-->
-                        <div class="post-item-btn">
-                            <a href="{% url 'blog-single' %}" class="readmore-btn">read more</a>
-                        </div>
-                        <!-- Post Item Readmore Button End-->
-                    </div>
-                    <!-- Post Item Body End -->
-                </div>
-                <!-- Post Item End -->
             </div>
-            <!-- Post Item List End -->
         </div>
     </div>
 </div>
+
+

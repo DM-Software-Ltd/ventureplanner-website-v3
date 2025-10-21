@@ -1,0 +1,362 @@
+
+    const SHARED_FAQ_DATA = [
+    {
+        "title": "Getting Started",
+        "questions": [
+    {
+        "question": "What is an online business plan creation and forecasting service?",
+        "answer": "Our online business plan creation and forecasting service is a sophisticated digital tool designed to assist entrepreneurs, business owners, and consultants in developing comprehensive business plans and financial forecasts. By leveraging the latest advancements in artificial intelligence, the platform streamlines the planning process, making it more efficient and effective."
+    },
+    {
+        "question": "How do I sign up for the service?",
+        "answer": "To sign up for our service, simply navigate to our website and click on the 'Start Free Trial' button. You will be guided through a straightforward account creation process. Once you've set up your account, you can start using our service to craft your business plan and forecasts."
+    },
+    {
+        "question": "Is there a trial period for the service?",
+        "answer": "Yes, we offer a unique free trial period that allows you to fully explore the capabilities of our service. Unlike traditional time-limited trials, ours enables you to complete two comprehensive chapters of a business plan, giving you a substantial preview of our platform's functionality."
+    },
+    {
+        "question": "What kind of business plans can I create with this service?",
+        "answer": "Our versatile service caters to a wide array of business planning needs. Whether you're crafting an in-depth plan for a new startup, developing strategies for business growth and expansion, or preparing documentation for investors or loan applications, our platform has the tools to support your objectives."
+    },
+    {
+        "question": "Can I customise the business plan?",
+        "answer": "Absolutely. Our platform is designed with flexibility in mind, allowing you to tailor your business plan to fit your specific needs. You can modify sections, add personalised content, and adjust financial projections to ensure your plan accurately reflects your business vision."
+    },
+    {
+        "question": "Can I collaborate with my team on the plan?",
+        "answer": "Yes, collaboration is key to a successful business plan. Our service includes features that enable you to work together with your team members. You can share access, gather feedback, and make collective decisions to create a robust and cohesive business plan."
+    },
+    {
+        "question": "Can I export my business plan to other formats?",
+        "answer": "Yes, you have the flexibility to export your business plan into various formats, including PDF and Word documents. This ensures that you can easily share your plan with stakeholders and advisors in a format that is convenient for them."
+    },
+    {
+        "question": "What kind of support do you offer if I have questions?",
+        "answer": "We are committed to providing exceptional customer support. If you have any questions or need assistance, you can reach out to us via email or schedule a video call. Our knowledgeable support team is here to help you navigate any challenges you may encounter."
+    },
+    {
+        "question": "Can I access the service from my mobile device?",
+        "answer": "Yes, our platform is designed to be mobile-friendly, allowing you to access our service from a variety of devices, including smartphones and tablets. This ensures that you can work on your business plan anytime, anywhere."
+    },
+    {
+        "question": "Can I use the service for multiple businesses?",
+        "answer": "Yes, if you are a consultant or managing multiple businesses, our consultant subscription plan allows you to create, manage, and maintain separate business plans for each entity within your account, providing a centralised and organised approach to your planning needs."
+    },
+    {
+        "question": "How do I know if the service is right for my business?",
+        "answer": "The best way to determine if our service meets your needs is to take advantage of our free trial. This hands-on experience will allow you to assess our features and decide if they align with your business planning and forecasting requirements."
+    },
+    {
+        "question": "Can I get a refund if I'm not satisfied with the service?",
+        "answer": "We stand behind the quality of our service with a satisfaction guarantee. If you are not satisfied, we offer a refund policy under certain conditions. Please review our terms of service for detailed information regarding our refund policy."
+    }
+        ]
+    },
+    {
+        "title": "Collaboration",
+        "questions": [
+    {
+        "question": "How can I invite team members to collaborate on my business plan?",
+        "answer": "To invite team members, navigate to the 'Users' section within your dashboard. Here, you can send an invitation link directly to their email or add them by entering their email addresses. Once they accept the invitation, they will join your project as collaborators."
+    },
+    {
+        "question": "Is there a limit to the number of collaborators I can have on a single plan?",
+        "answer": "You can invite a maximum of 20 users to work on your plan."
+    },
+    {
+        "question": "Can collaborators access all features of the business plan tool?",
+        "answer": "Collaborators' access to features within the business plan tool can be tailored to their role in the project. As the owner of the business plan, you have the flexibility to set permissions that define whether a collaborator can view, edit, or comment on specific sections of the plan."
+    },
+    {
+        "question": "How do I manage permissions for different collaborators?",
+        "answer": "Permissions can be managed in the 'Settings' area of your business plan. Here, you can assign roles, such as 'Read Only', 'Viewer', or 'Commenter', and customize access rights for each collaborator to ensure they have the appropriate level of interaction with your business plan."
+    },
+    {
+        "question": "Can I collaborate with someone who doesn't have an account?",
+        "answer": "All collaborators must have a registered account to ensure secure access to the business plan. Note that they do not have to pay for an account. You can invite potential collaborators to sign up for an account, after which they can be added to your project seamlessly."
+    },
+    {
+        "question": "How are changes by collaborators tracked in the system?",
+        "answer": "Our system is designed to support collaboration, however it does not track individual changes. We are however planning to add this feature in the future. "
+    },
+    {
+        "question": "How do I resolve conflicts if two collaborators edit the same section simultaneously?",
+        "answer": "Our platform is equipped with advanced conflict resolution features that manage concurrent edits. In short collaborators cannot work on the same 'Section' of the business plan at the same time."
+    },
+    {
+        "question": "Can I revert changes made by a collaborator?",
+        "answer": "You cannot revert individual changes, however, our platform includes a version history feature that allows you to revert to previous versions of your business plan. This is useful if you need to undo changes made by a collaborator or if you wish to review the plan's development over time."
+    },
+    {
+        "question": "Is it possible to collaborate with external advisors or consultants?",
+        "answer": "Definitely. You can add external advisors or consultants as collaborators by granting them specific permissions tailored to their advisory role. This enables them to contribute their expertise while maintaining the integrity and confidentiality of your business plan."
+    },
+    {
+        "question": "What should I do if a collaborator leaves the project or company?",
+        "answer": "If a collaborator is no longer part of the project or company, it's important to promptly remove their access to the business plan. You can do this through the 'Users' section in the settings pages."
+    },
+    {
+        "question": "How can I provide feedback to collaborators on their contributions?",
+        "answer": "We are currently working on a feature to add feedback directly within the platform. Currently, you can reach out to collaborators via email for more comprehensive feedback."
+    }
+        ]
+    },
+    {
+        "title": "Business Planning",
+        "questions": [
+    {
+        "question": "What is a business plan?",
+        "answer": "A business plan is a comprehensive document that presents a business's objectives, strategies for achieving them, in-depth market analysis, financial projections, and detailed operational plans. It serves as a roadmap for your business's future and is often used to attract investors and guide decision-making."
+    },
+    {
+        "question": "Why do I need a business plan?",
+        "answer": "A business plan is crucial for several reasons: it helps you to articulate your vision and strategy, provides a blueprint for managing your business, is a key document for securing loans or investment capital, and assists in identifying potential challenges and opportunities. It also serves as a tool to measure progress against your goals."
+    },
+    {
+        "question": "How long should my business plan be?",
+        "answer": "The optimal length of a business plan can vary depending on the complexity of the business and the purpose of the plan. A typical business plan is between 15 to 25 pages, ensuring it is detailed enough to cover all critical components while remaining succinct to maintain the reader's interest."
+    },
+    {
+        "question": "Can I create different types of business plans with your service?",
+        "answer": "Certainly, our service is equipped to support a variety of business plans tailored to different needs, such as startup plans for new ventures, strategic plans for long-term visioning, operational plans for day-to-day activities, and growth or expansion plans for scaling your business."
+    },
+    {
+        "question": "Do you provide templates for business plans?",
+        "answer": "No, the AI will pose a series of questions, gathering information on your vision, goals and ambitions. Then our sophisticated AI then analyses your inputs and generates tailored suggestions and strategies for you to consider. Finally each section of your plan is generated incorporating a variety of visual elements such as charts, graphics, and tables."
+    },
+    {
+        "question": "Can I share my business plan with others?",
+        "answer": "Yes, our platform features secure sharing options that enable you to collaborate with partners, team members, investors, or advisors by granting them access to your business plan while maintaining control over who sees your sensitive information."
+    },
+    {
+        "question": "How do I know what information to include in my business plan?",
+        "answer": "Our interactive service simplifies the process by guiding you through each section of the business plan, prompting you to answer relevant questions and providing examples and tips to ensure you include comprehensive and essential information."
+    },
+    {
+        "question": "Can I edit my business plan after creating it?",
+        "answer": "Absolutely, you have the flexibility to update and refine your business plan as often as needed. Our platform allows for unlimited edits, so you can adapt your plan to reflect new insights, changes in the market, or shifts in your business strategy."
+    },
+    {
+        "question": "Is my business plan confidential?",
+        "answer": "We take your privacy seriously. Your business plan is stored securely on our platform and is accessible only to you and any individuals you explicitly authorize. We implement robust security measures to protect your confidential information."
+    },
+    {
+        "question": "Do you offer financial forecasting tools?",
+        "answer": "Yes, our service includes advanced financial forecasting tools that leverage the latest AI technology to help you create detailed, realistic financial projections. These tools can assist in budgeting, cash flow analysis, and predicting future financial performance."
+    },
+    {
+        "question": "Can I include visuals and charts in my business plan?",
+        "answer": "Definitely, our platform supports the integration of various visual elements such as graphs, charts, and infographics to help you convey complex data in a clear and impactful way, making your business plan more engaging and easier to understand."
+    },
+    {
+        "question": "How do I conduct market analysis for my business plan?",
+        "answer": "Our service provides comprehensive resources and step-by-step guidance on conducting a thorough market analysis. This includes identifying your target market, analysing industry trends, assessing the competitive landscape, and understanding customer needs and behaviors."
+    },
+    {
+        "question": "What if I've never written a business plan before?",
+        "answer": "Our service is user-friendly and designed to assist entrepreneurs at all levels, including those with no prior experience in writing a business plan. With intuitive prompts, helpful examples, and expert advice available, you'll be able to create a professional business plan with confidence."
+    },
+    {
+        "question": "Can I export my business plan to different formats?",
+        "answer": "Yes, you can export your completed business plan to a variety of formats, including PDF and Word, allowing for easy sharing, presentation, and printing. This ensures you can distribute your plan in the format that best suits your needs."
+    },
+    {
+        "question": "How often should I update my business plan?",
+        "answer": "It's advisable to review and update your business plan at least annually or whenever there are significant changes in your business environment, such as new competitors, market shifts, or internal growth. Regular updates ensure that your plan remains relevant and aligned with your business's current situation."
+    },
+    {
+        "question": "What kind of support do you offer for writing a business plan?",
+        "answer": "We provide comprehensive support to our users, including customer service for technical issues and access to a network of business planning experts who can offer personalised advice, feedback, and recommendations to enhance your business plan."
+    },
+    {
+        "question": "Do you offer any guarantees for success with my business plan?",
+        "answer": "While we equip you with the tools, insights, and support to create a comprehensive business plan, the success of your business depends on various factors, including the quality of execution, market conditions, and your ability to adapt to changes. We cannot guarantee success, but we strive to give you the best foundation possible."
+    }
+        ]
+    },
+    {
+        "title": "Forecasting",
+        "questions": [
+    {
+        "question": "What is financial forecasting?",
+        "answer": "Financial forecasting is a strategic planning tool that involves estimating a business's future financial outcomes by making informed assumptions. It helps businesses anticipate revenues, expenses, and capital needs, and make informed decisions about resource allocation, growth strategies, and risk management."
+    },
+    {
+        "question": "How accurate are the forecasts?",
+        "answer": "Our forecasts are generated using standard accounting practices that incorporate a wide range of variables and business data. We continuously refine our models to improve accuracy, but it's essential to view forecasts as guides rather than guarantees and to remain adaptable to changing circumstances."
+    },
+    {
+        "question": "Can I create multiple forecasts?",
+        "answer": "Yes, our platform is designed to support the creation of multiple forecasts, enabling you to simulate various business scenarios. This feature is particularly useful for stress testing your business against different economic conditions, assessing the impact of strategic decisions, and preparing for a range of possible futures."
+    },
+    {
+        "question": "How far into the future can I forecast?",
+        "answer": "Our forecasting tool is flexible and can generate projections for different time periods (1 - 5 years). The appropriate forecasting period will depend on your business objectives, the nature of your industry, and the level of detail required for your planning purposes."
+    },
+    {
+        "question": "Can I adjust my forecasts?",
+        "answer": "Definitely. Our tool is dynamic, allowing you to revise your forecasts as you gain new insights, encounter changing market conditions, or experience shifts in your business operations. Regular adjustments ensure that your forecasts remain relevant and aligned with your current business trajectory."
+    },
+    {
+        "question": "What kind of data do I need to provide for forecasting?",
+        "answer": "To generate a robust forecast, you should provide comprehensive financial  information about your business model, revenue streams, cost drivers, staffing requirements and any assumptions regarding market trends."
+    },
+    {
+        "question": "Can I export my forecasts?",
+        "answer": "Yes, you can export your forecasts as part of the business plan in Word or PDF format. In the future we may add export options such as Excel or CSV for further analysis or presentation, though this is not possible currently."
+    },
+    {
+        "question": "How often should I update my forecasts?",
+        "answer": "Forecasting is not a one-time activity; it's a continuous process. We recommend updating your forecasts at least on a quarterly basis, or more frequently if your business is rapidly changing or if you operate in a volatile industry. Regular updates ensure that your forecasts reflect the most current information and help you stay proactive in your decision-making."
+    },
+    {
+        "question": "What happens if my actuals are different from my forecasts?",
+        "answer": "It's quite normal for there to be discrepancies between forecasted figures and actual results, as forecasts are, by nature, estimations based on the best available data at the time. When your actuals differ from your forecasts, it's important to analyze the reasons behind these variances. This analysis can provide valuable insights into market conditions, operational challenges, or areas where your business model may need adjustment. Use these differences as a learning tool to continuously improve your forecasting methods and business strategy. Our platform also offers features to help you adjust your forecasts in real time, ensuring they remain as accurate and useful as possible."
+    },
+    {
+        "question": "Can I share my forecasts with my team?",
+        "answer": "Absolutely! Collaboration is key to successful business planning. Our service includes functionality that enables you to share your forecasts with team members, advisors, or any stakeholders you choose. You can control access levels and permissions to ensure that sensitive information remains secure while fostering a collaborative environment for planning and decision-making."
+    },
+    {
+        "question": "What if I don't have any historical data?",
+        "answer": "Starting a new business without historical data can be challenging, but it's not an insurmountable obstacle. Our service provides you with the ability to leverage averages, and educated assumptions to create a solid foundation for your forecasts.  As your business grows and you begin to collect your own data, you can refine your forecasts for greater accuracy."
+    },
+    {
+        "question": "What is scenario planning and can I do that with your tool?",
+        "answer": "Scenario planning is a strategic planning method that allows you to explore and prepare for multiple possible futures. By using our tool, you can create various 'what-if' scenarios, such as best-case, worst-case, and most likely outcomes based on different assumptions and external factors. This can help you anticipate potential challenges and opportunities, enabling you to make more informed decisions. Our platform's intuitive interface makes it easy to adjust variables and instantly see the impact on your forecasts."
+    },
+    {
+        "question": "Can I use your forecasting tool for cash flow management?",
+        "answer": "Yes, our forecasting tool is designed to be a comprehensive solution for cash flow management. By accurately predicting future cash inflows and outflows, you can plan for short-term and long-term financial needs, avoid liquidity issues, and make strategic decisions about investments, expenses, and funding. Our tool also allows for scenario analysis, which can be particularly useful in managing cash flow under varying business conditions."
+    },
+    {
+        "question": "What support do you offer if I have questions about my forecast?",
+        "answer": "We are committed to providing exceptional support to ensure you get the most out of our forecasting tool. Our customer service team is available to answer any questions you may have about creating, interpreting, or refining your forecasts. We offer support through multiple channels, including email, live chat, and phone, to provide timely and helpful assistance. Additionally, our platform includes a comprehensive help center with tutorials, guides, and best practices to enhance your forecasting experience."
+    }
+        ]
+    },
+    {
+        "title": "Account Management",
+        "questions": [
+    {
+        "question": "Can I cancel my subscription at any time?",
+        "answer": "Absolutely. We believe in providing you with complete control over your subscription. You can cancel your subscription at any time without incurring any penalties or additional fees. Your subscription will remain active until the end of the current billing cycle."
+    },
+    {
+        "question": "How do I update my account information?",
+        "answer": "To update your account information, log in to your account and navigate to the 'Account Settings' section. From there, you can modify your personal details, change your password, and update your billing information to ensure uninterrupted service."
+    },
+    {
+        "question": "Can I add additional users to my account?",
+        "answer": "Yes, our platform is designed to facilitate collaboration. You can add additional users to your account by visiting the 'Business Settings' section within your user account. Here, you can invite new users and manage existing team member access levels."
+    },
+    {
+        "question": "How do I retrieve a forgotten password?",
+        "answer": "If you've forgotten your password, don't worry. Simply click on the 'Forgot Password' link on the login page and enter your email address. We'll send you instructions on how to reset your password so you can regain access to your account promptly."
+    },
+    {
+        "question": "How do I renew my subscription?",
+        "answer": "Your subscription is set to renew automatically to ensure you have continuous access to our services."
+    },
+    {
+        "question": "How do I deactivate my account?",
+        "answer": "We're sorry to see you go. If you need to deactivate your account, please reach login to your user account and cancel the subscription in the 'Account Settings' menu."
+    },
+    {
+        "question": "Can I export my data from your service?",
+        "answer": "Yes, data portability is important. You can export your business plans and forecasts in multiple formats, such as PDF or Word directly from our platform. This allows you to share your work with stakeholders or continue working on it outside our service. At the moment you cannot export the financial data to Excel, however, this is a feature that we may add in the future."
+    },
+    {
+        "question": "How can I contact customer support?",
+        "answer": "Our customer support team is here to help you with any questions or issues. You can reach out to us via email at support@ventureplanner.ai."
+    },
+    {
+        "question": "Are there any account usage limits?",
+        "answer": "Usage limits vary depending on the subscription plan you choose. We offer a range of plans to suit different business sizes and needs. For specific details on account limits, please visit our pricing page."
+    },
+    {
+        "question": "Can I have multiple business plans under one account?",
+        "answer": "Yes, our service is designed to support entrepreneurs and businesses at various stages of growth. With a 'Consultant Subscription' you can create and manage multiple business plans within a single account, making it easier to handle different projects or scenarios in one place."
+    }
+        ]
+    },
+    {
+        "title": "Privacy & Security",
+        "questions": [
+    {
+        "question": "How do you protect my personal information?",
+        "answer": "We implement robust security measures including industry-standard encryption and advanced firewall systems to safeguard your personal information. Our security protocols are regularly updated to combat new threats and ensure that your data remains secure against unauthorized access, disclosure, or tampering."
+    },
+    {
+        "question": "Who has access to my business plan and data?",
+        "answer": "Your business plan and data are strictly confidential. Access is limited to you and, when necessary, authorised members of our team who are bound by confidentiality agreements. These team members only access your data for the purpose of providing customer support, performing maintenance, or addressing technical issues."
+    },
+    {
+        "question": "Will my business plan be shared with third parties?",
+        "answer": "Absolutely not. Your business plan and personal data are your own. We will not share them with any third parties unless we have received your explicit consent or are required by law to do so. Your privacy is our top priority."
+    },
+    {
+        "question": "What happens to my data if I cancel my subscription?",
+        "answer": "Should you decide to cancel your subscription, we will initiate a secure deletion process for your data. After a designated grace period, which allows for any final account settlements or data exports, your information will be permanently erased from our servers in accordance with our data retention policy."
+    },
+    {
+        "question": "Is my data backed up in case of an emergency?",
+        "answer": "Yes, we conduct regular, encrypted backups of all user data to multiple secure locations. This redundancy ensures that in the event of an emergency, such as a system failure or natural disaster, your data can be swiftly restored with minimal disruption to your service."
+    },
+    {
+        "question": "Do you comply with GDPR and other data protection regulations?",
+        "answer": "Yes, we adhere strictly to the General Data Protection Regulation (GDPR) and other applicable data protection laws. We take your privacy rights seriously and have implemented policies and procedures to ensure that your personal data is handled in a lawful, fair, and transparent manner."
+    },
+    {
+        "question": "What should I do if I suspect a security breach in my account?",
+        "answer": "If you suspect any unauthorized activity or a security breach, please contact us without delay. Our team will act promptly to secure your account, investigate the incident, and take the necessary steps to prevent any further unauthorized access."
+    },
+    {
+        "question": "How can I delete my account and all associated data?",
+        "answer": "To delete your account and all associated data, please reach out to our support team. We will provide you with the necessary steps to verify your identity and ensure that your request is processed securely and efficiently."
+    }
+        ]
+    },
+    {
+        "title": "Technical Support",
+        "questions": [
+    {
+        "question": "How do I report a bug I encountered on the website?",
+        "answer": "If you encounter a bug, please raise a support ticket by clicking on the 'Support Icon' link located in the bottom right hand corner of our website or navigate to the dedicated support section at ventureplanner.ai. Alternatively, you can email our support team at support@ventureplanner.ai with a detailed description of the issue, including the steps to reproduce the bug, and any relevant screenshots. We appreciate your help in improving our service"
+    },
+    {
+        "question": "Is there a direct line to contact technical support?",
+        "answer": "No, support requests should be submitted or emailed, we can then schedule a telephone or video call if necessary."
+    },
+    {
+        "question": "How quickly does technical support respond to support requests?",
+        "answer": "We prioritise addressing all support tickets promptly. Our dedicated team aims to respond to bug reports within 24 hours. For critical issues that significantly impact your experience, we strive to provide an initial response and a plan of action even sooner."
+    },
+    {
+        "question": "What should I do if I can't log in to my account?",
+        "answer": "If you're having trouble logging in, please click on the 'Forgot Password' link on the login page to reset your password. If you continue to experience issues or if you suspect your account has been compromised, please contact our support team immediately for secure and personalised assistance."
+    },
+    {
+        "question": "How can I suggest a new feature for the platform?",
+        "answer": "Your feedback is invaluable to us. To suggest a new feature, please email your suggestions directly to our product development team at info@ventureplanner.ai. We review all submissions and consider them for future updates."
+    },
+    {
+        "question": "What browsers are supported by your website?",
+        "answer": "Our website is designed to work seamlessly with the latest versions of major browsers, including Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge. We recommend keeping your browser up to date to ensure the best performance and security."
+    },
+    {
+        "question": "I found a typo or incorrect information on the website, who do I tell?",
+        "answer": "If you spot a typo or any incorrect information, please don't hesitate to inform our support team by emailing us at info@ventureplanner.ai. We are committed to accuracy and will make the necessary corrections promptly."
+    },
+    {
+        "question": "Can I access technical support outside of business hours?",
+        "answer": "Our support team is available around the clock for critical issues that require immediate attention. For general inquiries, we are available during standard business hours. You can always leave us a message or email, and we will get back to you as soon as possible."
+    },
+    {
+        "question": "What should I do if I'm experiencing slow performance on the website?",
+        "answer": "If the website is running slowly, first ensure that your internet connection is stable and fast enough for web services. Clearing your browser's cache and cookies can also improve performance. If the issue persists, try accessing our website from a different browser or device. Should none of these steps resolve the problem, please contact our support team for further assistance."
+    }
+        ]
+    }
+    ];

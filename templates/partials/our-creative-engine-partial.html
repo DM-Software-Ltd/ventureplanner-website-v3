@@ -1,120 +1,134 @@
 {% load static %}
-
-<!-- Our Core Value Section -->
 <div class="our-core-value-silver">
     <div class="container">
         <div class="row section-row">
             <div class="col-lg-12">
+                <!-- Section Title Start -->
                 <div class="section-title section-title-center">
-                    <h3 class="wow fadeInUp">{{ section_subtitle|default:"Our Creative Engine" }}</h3>
-                    <h2 class="text-effect" data-cursor="-opaque">
-                        {{ section_title|default:"Create Campaign-Ready Creatives" }}
-                    </h2>
+                    <h3 class="wow fadeInUp">Our Creative Engine</h3>
+                    <h2 class="text-effect" data-cursor="-opaque">Create Campaign-Ready Creatives</h2>
                 </div>
+                <!-- Section Title End -->
             </div>
         </div>
 
         <div class="row">
-            {% for block in core_values %}
             <div class="col-lg-4 col-md-6">
-                <div class="core-value-item-{{ block.style|default:'1' }}-silver wow fadeInUp"
-                     {% if block.delay %}data-wow-delay="{{ block.delay }}"{% endif %}>
-                    {% if block.client %}
+                <!-- Core Value Item-2 Start -->
+                <div class="core-value-item-2-silver wow fadeInUp" data-wow-delay="0.2s">
                     <div class="core-value-client-detail-silver">
                         <div class="core-value-client-img-silver">
                             <figure>
-                                <img src="{{ block.client.image.url }}" alt="{{ block.client.image.alt }}">
+                                <img src="{% static 'images/core-value-client-image-silver.jpg' %}" alt="">
                             </figure>
                         </div>
                         <div class="core-value-client-content-silver">
-                            {% for line in block.client.text %}
-                            <p>{{ line }}</p>
-                            {% endfor %}
+                            <p>Powered by AI</p>
+                            <p>Guided by You</p>
                         </div>
                     </div>
-                    {% endif %}
+                    <div class="core-value-content-silver">
+                        <h3>Generate Limitless Ideas</h3>
+                        <p>Say goodbye to creative blocks. Our platform takes your chosen direction and instantly
+                            generates a vast array of unique concepts, powerful headlines, and engaging hooks.</p>
+                    </div>
+                    <div class="core-value-list-silver">
+                        <div class="core-value-counter-item-silver">
+                            <h2><span class="counter">80</span>+</h2>
+                            <p>Creative Styles</p>
+                        </div>
+                        <div class="core-value-counter-item-silver">
+                            <h2><span class="counter">26</span></h2>
+                            <p>Marketing Channels</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Core Value Item-2 End -->
+            </div>
 
-                    {% if block.image %}
-                    <div class="core-value-item-{{ block.style|default:'1' }}-img-silver">
+            <div class="col-lg-4 col-md-6">
+                <!-- Core Value Item-1 Start -->
+                <div class="core-value-item-1-silver wow fadeInUp">
+                    <div class="core-value-item-1-img-silver">
                         <figure>
-                            <img src="{{ block.image.url }}" alt="{{ block.image.alt }}">
+                            <img src="{% static 'images/core-value-image-1-silver.jpg' %}" alt="">
                         </figure>
                     </div>
-                    {% endif %}
-
-                    {% if block.title %}
                     <div class="core-value-content-silver">
-                        <h3>{{ block.title }}</h3>
-                        <p>{{ block.text }}</p>
+                        <h3>Production Ready Assets</h3>
+                        <p>Transform your favourite ideas into structured, tangible assets ready for your team to
+                            execute.</p>
                     </div>
-                    {% endif %}
-
-                    {% if block.counters %}
-                    <div class="core-value-list-silver">
-                        {% for counter in block.counters %}
-                        <div class="core-value-counter-item-silver">
-                            <h2><span class="counter">{{ counter.value }}</span>{{ counter.suffix|default:"" }}</h2>
-                            <p>{{ counter.label }}</p>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-
-                    {% if block.list %}
                     <div class="core-value-list-silver">
                         <ul>
-                            {% for item in block.list %}
-                            <li>{{ item }}</li>
-                            {% endfor %}
+                            <li>Draft persuasive ad and social content</li>
+                            <li>Build email and messaging journeys</li>
+                            <li>Develop detailed video scripts</li>
+                            <li>Create storyboards and image concepts</li>
                         </ul>
                     </div>
-                    {% endif %}
+                </div>
+                <!-- Core Value Item-1 End -->
+            </div>
 
-                    {% if block.commitment %}
+            <div class="col-lg-4">
+                <!-- Core Value Item-3 Start -->
+                <div class="core-value-item-3-silver wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="core-value-item-2-img-silver">
+                        <figure>
+                            <img src="{% static 'images/core-value-image-2-silver.jpg' %}" alt="">
+                        </figure>
+                    </div>
                     <div class="core-Commitment-title-silver">
-                        <h3>
-                            {{ block.commitment.text_before }}
+                        <h3>Ready to build your next campaign
                             <span class="Commitment-title-img-1">
-                                {% for img in block.commitment.people %}
-                                    <img src="{{ img.url }}" alt="{{ img.alt }}">
-                                {% endfor %}
-                            </span>
-                            {{ block.commitment.text_middle }}
+                                <img src="{% static 'images/author-1.jpg' %}" alt="">
+                                <img src="{% static 'images/author-2.jpg' %}" alt="">
+                                <img src="{% static 'images/author-3.jpg' %}" alt="">
+                                <img src="{% static 'images/author-4.jpg' %}" alt="">
+                            </span> Get Creative with
                             <span class="Commitment-title-img-2">
-                                <img src="{{ block.commitment.logo.url }}" alt="{{ block.commitment.logo.alt }}">
+                                <img src="{% static 'images/core-value-commitment-title-img-silver.jpg' %}" alt="">
                             </span>
-                            {{ block.commitment.text_after }}
+                            Venture Planner Today
                         </h3>
                     </div>
-                    {% endif %}
                 </div>
+                <!-- Core Value Item-3 End -->
             </div>
-            {% endfor %}
         </div>
 
-        {% if footer %}
         <div class="row">
             <div class="col-lg-12 order-4">
+                <!-- Section Footer Text Start -->
                 <div class="section-footer-text section-satisfy-img wow fadeInUp" data-wow-delay="0.6s">
+                    <!-- Satisfy Client Images Start -->
                     <div class="satisfy-client-images-silver">
-                        {% for client in footer.clients %}
                         <div class="satisfy-client-image-silver">
                             <figure class="image-anime">
-                                <img src="{{ client.url }}" alt="{{ client.alt }}">
+                                <img src="{% static 'images/author-1.jpg' %}"  alt="">
                             </figure>
                         </div>
-                        {% endfor %}
+                        <div class="satisfy-client-image-silver">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/author-2.jpg' %}"  alt="">
+                            </figure>
+                        </div>
+                        <div class="satisfy-client-image-silver">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/author-3.jpg' %}"  alt="">
+                            </figure>
+                        </div>
                         <div class="satisfy-client-image-silver add-more">
                             <i class="fa-solid fa-plus"></i>
                         </div>
                     </div>
-                    <p>
-                        <a href="{{ footer.link_url|default:'contact.html' }}">{{ footer.link_text|default:'Get started' }}</a>
-                        {{ footer.text|default:"with our free subscription. No card details required" }}
-                    </p>
+                    <!-- Satisfy Client Images End -->
+
+                    <p><a href="{% url 'contact'  %}">Get started</a> with our free subscription. No card details required</p>
                 </div>
+                <!-- Section Footer Text End -->
             </div>
         </div>
-        {% endif %}
     </div>
 </div>

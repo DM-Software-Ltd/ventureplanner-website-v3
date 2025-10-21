@@ -1,4 +1,5 @@
 from django.urls import resolve
+from django.conf import settings
 
 def breadcrumbs(request):
     try:
@@ -19,7 +20,8 @@ def breadcrumbs(request):
         "business_plans": "Business Plans",
         "case_study": "Case Study",
         "case_study_single": "How Businesses Achieve Growth Using...",
-        "page_not_found": "Page Not Found",  # <-- added for 404s
+        "faq": "Frequently Asked Questions",
+        "page_not_found": "Page Not Found",
     }
 
     # Trails use only *URL names*, not display text
@@ -32,7 +34,7 @@ def breadcrumbs(request):
         "marketing_plans": ["index", "services"],
         "business_plans": ["index", "services"],
         "case_study_single": ["index", "case_study"],
-        # no trail for 404 (just shows itself)
+        "faq": ["index"],
     }
 
     crumbs = []
@@ -52,4 +54,12 @@ def breadcrumbs(request):
     return {
         "page_title": titles.get(view_name, "Page"),
         "breadcrumbs": crumbs,
+    }
+
+def turnstile_keys(request):
+    """
+    Makes the Cloudflare Turnstile site key globally available to all templates.
+    """
+    return {
+        'TURNSTILE_SITE_KEY': settings.TURNSTILE_SITE_KEY,
     }

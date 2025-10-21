@@ -10,8 +10,10 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">THE FUTURE OF PLANNING IS HERE</h3>
-                            <h1 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Create Professional
-                                Business & Marketing Plans with AI <img src="{% static 'images/hero-title-image.jpg' %}" alt=""></h1>
+                            <h1 class="plan-non-type-text" data-wow-delay="0.2s" data-cursor="-opaque">Professional<br/>
+                                <span class="plan-type-text" data-text="Business Plans, Financial Plans, Marketing Plans"></span>
+                            </h1>
+
                             <p class="wow fadeInUp" data-wow-delay="0.4s">Leverage our advanced AI to analyze market
                                 data, forecast financials, and write persuasive plan sections, giving you a competitive
                                 edge in a fraction of the time.</p>
@@ -29,20 +31,97 @@
 
                         <!-- Hero Button Start -->
                         <div class="hero-btn wow fadeInUp" data-wow-delay="0.8s">
-                            <a href="{% url 'contact' %}" class="btn-default">Start Your Business Plan</a>
-                            <a href="{% url 'services' %}" class="btn-default btn-highlighted">Start Your Marketing Plan</a>
+                            <a href="{% url 'contact' %}" class="btn-default">Start Your Plan Today</a>
+<!--                            <a href="{% url 'services' %}" class="btn-default btn-highlighted">Start Your Marketing Plan</a>-->
                         </div>
                         <!-- Hero Button End -->
                     </div>
                     <!-- Hero Content End -->
 
                     <!-- Hero Image Start -->
-                    <div class="hero-image">
+                    <div class="hero-image" style="overflow: hidden; border-radius: 40px; background: #dfe7f2; border: 2px solid #eaeaea;">
                         <!-- Hero Image Start -->
                         <div class="hero-img">
-                            <figure class="image-anime">
-                                <img src="{% static 'images/hero-image.jpg' %}" alt="">
-                            </figure>
+
+<!--                            <div class="button-group sort-by-button-group">-->
+<!--                                <button class="button is-checked" data-sort-value="color,number" />color, number</button>-->
+<!--                                <button class="button" data-sort-value="number,color" />number, color</button>-->
+<!--                            </div>-->
+
+                            <div class="grid">
+                                <div class="item" data-color="yellow" data-number="3">
+                                    <p class="number">3</p>
+                                </div>
+                                <div class="item" data-color="blue" data-number="2">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_2.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="blue" data-number="1">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_2.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="yellow" data-number="3">
+                                    <p class="number">3</p>
+                                </div>
+                                <div class="item" data-color="yellow" data-number="2">
+                                    <p class="number">2</p>
+                                </div>
+                                <div class="item" data-color="blue" data-number="3">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_2.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="yellow" data-number="3">
+                                    <p class="number">3</p>
+                                </div>
+                                <div class="item" data-color="red" data-number="2">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_3.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="red" data-number="3">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_3.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="blue" data-number="3">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_2.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="yellow" data-number="1">
+                                    <p class="number">1</p>
+                                </div>
+                                <div class="item" data-color="yellow" data-number="2">
+                                    <p class="number">2</p>
+                                </div>
+                                <div class="item" data-color="yellow" data-number="3">
+                                    <p class="number">3</p>
+                                </div>
+                                <div class="item" data-color="blue" data-number="2">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_2.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="blue" data-number="1">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_2.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="yellow" data-number="3">
+                                    <p class="number">3</p>
+                                </div>
+                                <div class="item" data-color="yellow" data-number="2">
+                                    <p class="number">2</p>
+                                </div>
+                                <div class="item" data-color="blue" data-number="3">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_2.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="yellow" data-number="3">
+                                    <p class="number">3</p>
+                                </div>
+                                <div class="item stamp" data-color="red" data-number="2">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_123.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="red" data-number="3">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_3.svg' %}" alt="">
+                                </div>
+                                <div class="item stamp" data-color="blue" data-number="3">
+                                    <img src="{% static 'images/VP_Homepage_hero_doc_12.svg' %}" alt="">
+                                </div>
+                                <div class="item" data-color="yellow" data-number="1">
+                                    <p class="number">1</p>
+                                </div>
+                                <div class="item" data-color="yellow" data-number="2">
+                                    <p class="number">2</p>
+                                </div>
+                            </div>
                         </div>
                         <!-- Hero Image End -->
 
@@ -107,5 +186,168 @@
         </div>
     </div>
 </div>
+
+<style>
+
+    /* ---- button ---- */
+
+    .button {
+        display: inline-block;
+        padding: 0.5em 1.0em;
+        margin-bottom: 10px;
+        background: #EEE;
+        border: none;
+        border-radius: 7px;
+        background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+        color: #222;
+        font-family: sans-serif;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #8CF;
+        color: #222;
+    }
+
+    .button:active,
+    .button.is-checked {
+        background-color: #28F;
+    }
+
+    .button.is-checked {
+        color: white;
+    }
+
+    .button:active {
+        box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+    }
+
+    /* ---- button-group ---- */
+
+    .button-group:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .button-group .button {
+        float: left;
+        border-radius: 0;
+        margin-left: 0;
+        margin-right: 1px;
+    }
+
+    .button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
+    .button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
+
+    /* ---- grid ---- */
+
+
+    .hero-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .grid {
+        transform: rotate(20deg) scale(1.5);
+    }
+
+
+    .item {
+        float: left;
+        // width: calc((720px - (5px * 2 * 4)) / 4);
+        width: calc((78.5% - (5px * 2 * 4)) / 4); /* 4 columns within 720px grid minus gaps */
+        margin: 5px;
+        position: relative;
+        background: #888;
+        overflow: hidden;
+        border-radius: 6px;
+    }
+
+    /* Maintain 1:1.414 (A4 paper) aspect ratio */
+    .item::before {
+        content: "";
+        display: block;
+        padding-top: calc(141.4%); /* height = 1.414 × width */
+    }
+
+    /* Center number vertically and horizontally */
+    .item .number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        font-size: 2.5rem;
+        color: #fff;
+        text-align: center;
+    }
+
+    .item img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: 0;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    /* Colors */
+    .item[data-color="red"] { background: transparent!important; }
+    .item[data-color="blue"] { background: transparent!important; }
+    .item[data-color="yellow"] { background: goldenrod; }
+
+    .stamp {
+        background: transparent!important;
+        border: 2px solid #d9d9d9;
+    }
+
+    /* Optional hover effect */
+    .item:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    .plan-non-type-text {
+        position: relative; /* Needed for the border/cursor */
+        color: #fbc024; /* Choose a highlight color, or keep it the same as the surrounding text */
+        padding-right: 15px; /* Space for the cursor */
+        font-weight: 300!important;
+    }
+
+    /* --- New CSS for Typewriter Effect --- */
+    .plan-type-text {
+        position: relative; /* Needed for the border/cursor */
+        color: #fbc024; /* Choose a highlight color, or keep it the same as the surrounding text */
+        padding-right: 15px; /* Space for the cursor */
+        font-weight: bold;
+    }
+
+    /* Create the Blinking Cursor */
+    .plan-type-text::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px; /* Cursor thickness */
+        height: 90%; /* Cursor height */
+        background-color: currentColor; /* Matches the text color */
+        animation: blink-cursor 1s step-end infinite;
+    }
+
+    @keyframes blink-cursor {
+        from, to { visibility: visible; }
+        50% { visibility: hidden; }
+    }
+
+</style>
 
 {% include "partials/hero-listbox-partial.html" %}

@@ -4,8 +4,8 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Logo Start -->
-                <a class="navbar-brand" href="{% static 'home' %}">
-                    <img src="{% static 'images/logo-white.svg' %}" alt="Logo">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src="{% static 'images/logo-inverted.svg' %}" alt="Logo">
                 </a>
                 <!-- Logo End -->
 
@@ -13,42 +13,39 @@
                 <div class="collapse navbar-collapse main-menu">
                     <div class="nav-menu-wrapper">
                         <ul class="navbar-nav mr-auto" id="menu">
-                            <li class="nav-item"><a class="nav-link" href="{% static 'home' %}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% static 'about' %}">About Us</a>
-                            <li class="nav-item"><a class="nav-link" href="{% static 'business-plans' %}">Business Plans</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% static 'marketing-plans' %}">Marketing Plans</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'business-plans' %}">Business Plans</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'marketing-plans' %}">Marketing Plans</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="{% static 'blog' %}">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
                             <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
                                 <ul>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'service-single' %}">Service
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'service-single' %}">Service
                                         Details</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'blog-single' %}">Blog Details</a>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'case-study' %}">Case Study</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'case-study-single' %}">Case Study
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'case-study' %}">Case Study</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'case-study-single' %}">Case Study
                                         Details</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'team' %}">Our Team</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'team-single' %}">Team Details</a>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'team' %}">Our Team</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'team-single' %}">Team Details</a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'pricing' %}">Pricing Plan</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'testimonials' %}">Testimonials</a>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'pricing' %}">Pricing Plan</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'testimonials' %}">Testimonials</a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'image-gallery' %}">Image Gallery</a>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'image-gallery' %}">Image Gallery</a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'video-gallery' %}">Video Gallery</a>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'video-gallery' %}">Video Gallery</a>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="{% static 'faqs' %}">FAQs</a></li>
-                                    <li class="nav-item"><a class="nav-link"href="{% static '404' %}">404</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQs</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="{% static 'contact' %}">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
                         </ul>
                     </div>
 
                     <!-- Header Btn Start -->
                     <div class="header-btn">
-                        <a class="btn-default-elite btn-highlighted-elite" href="{% static 'contact' %}">Contact Us</a>
+                        <a class="btn-default" href="https://app.ventureplanner.ai/business_register">Start Free Trial</a>
                     </div>
                     <!-- Header Btn End -->
                 </div>

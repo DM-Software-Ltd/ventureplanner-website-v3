@@ -14,12 +14,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# ventureplanner3/urls.py
 from django.contrib import admin
 from django.urls import path, include
-
-handler404 = 'pages.views.custom_404'
+from django.conf import settings # Add this
+from django.conf.urls.static import static # Add this
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('pages.urls')),  # include app URLs
+    path('', include('pages.urls')),
 ]
+
+# Add this for serving media files in development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
