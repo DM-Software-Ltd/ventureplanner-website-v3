@@ -13303,3 +13303,62 @@ i[class*="fi-tr"].yellow {
     color: var(--accent-color);
 }
 
+
+/* ============================================================================
+   SEO Heading Hierarchy Fix - Homepage Hero Section
+   ============================================================================
+   DOM order: H1 → H2 → P (correct for SEO)
+   Visual order: H2 → H1 → P (matches original design)
+   Method: Flexbox with order property to reverse H1/H2 visual appearance
+   ========================================================================= */
+
+/* Make section-title a flex container to control visual order */
+.hero-content .section-title {
+    display: flex;
+    flex-direction: column;
+}
+
+/* H1 appears first in DOM but should appear second visually (order: 2) */
+.hero-content .section-title h1 {
+    order: 2;
+}
+
+/* H2 appears second in DOM but should appear first visually (order: 1) */
+.hero-content .section-title h2 {
+    order: 1;
+}
+
+/* Paragraph should appear last (order: 3) */
+.hero-content .section-title p {
+    order: 3;
+}
+
+/* Hero section H2 should look like the original H3 */
+.hero-content .section-title h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    border: 2px solid var(--dark-divider-color);
+    border-radius: 40px;
+    padding: 7px 15px 7px 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-family: inherit;
+    letter-spacing: normal;
+    cursor: default;
+}
+
+/* Add the decorative dot before the H2 (same as H3 had) */
+.hero-content .section-title h2::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--accent-color);
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+}

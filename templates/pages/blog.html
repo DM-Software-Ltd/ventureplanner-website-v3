@@ -1,6 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Blog - Venture Planner{% endblock %}
+{% block title %}Blog - Venture Planner{% if page_obj.number > 1 %} - Page {{ page_obj.number }}{% endif %}{% endblock %}
+
+{% block meta_description %}Read our latest insights on business planning, strategy, and growth. Expert advice to help your venture succeed.{% endblock %}
+
+{% block canonical_url %}{{ request.scheme }}://{{ request.get_host }}{% url 'blog' %}{% if page_obj.number == 1 %}{% else %}?page={{ page_obj.number }}{% endif %}{% endblock %}
+
 {% block content %}
+<!-- Pagination SEO Tags -->
+{% if page_obj.has_previous %}
+<link rel="prev" href="{{ request.scheme }}://{{ request.get_host }}{% url 'blog' %}{% if page_obj.previous_page_number > 1 %}?page={{ page_obj.previous_page_number }}{% endif %}">
+{% endif %}
+{% if page_obj.has_next %}
+<link rel="next" href="{{ request.scheme }}://{{ request.get_host }}{% url 'blog' %}?page={{ page_obj.next_page_number }}">
+{% endif %}
 <div class="page-blog">
     <div class="container">
         <div class="row">
@@ -12,23 +24,23 @@
                     <div class="post-item wow fadeInUp">
                         <div class="post-featured-image">
                             {# This link will go to the single post page later #}
-                            <a href="{% url 'blog_single' post.pk %}" data-cursor-text="View">
+                            <a href="{% url 'blog_single' post.slug %}" data-cursor-text="View">
                                 <figure class="image-anime">
-                                    <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
+                                    <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" loading="lazy">
                                 </figure>
                             </a>
                             <div class="post-item-tags">
                                 {% for tag in post.tags.all|slice:":1" %} {# Shows the first tag #}
-                                <a href="{% url 'blog_single' post.pk %}">{{ tag.title }}</a>
+                                <a href="{% url 'blog_single' post.slug %}">{{ tag.title }}</a>
                                 {% endfor %}
                             </div>
                         </div>
                         <div class="post-item-body">
                             <div class="post-item-content">
-                                <h2><a href="{% url 'blog_single' post.pk %}">{{ post.title }}</a></h2>
+                                <h2><a href="{% url 'blog_single' post.slug %}">{{ post.title }}</a></h2>
                             </div>
                             <div class="post-item-btn">
-                                <a href="{% url 'blog_single' post.pk %}" class="readmore-btn">read more</a>
+                                <a href="{% url 'blog_single' post.slug %}" class="readmore-btn">read more</a>
                             </div>
                         </div>
                     </div>

@@ -1,17 +1,16 @@
 # pages/views.py
 
 import logging
-from django.shortcuts import render
-from .models import Blog
-from django.core.paginator import Paginator
-# Add these imports at the top of your pages/views.py file
-from django.shortcuts import render, redirect
+import requests
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
+from django.core.paginator import Paginator
 from django.conf import settings
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
-from .forms import ContactForm # Import the form we just created
-from django.shortcuts import get_object_or_404
+from django.http import JsonResponse, HttpResponse
+from .models import Blog
+from .forms import ContactForm
 
 # This line creates the logger object. It was missing before.
 logger = logging.getLogger(__name__)
@@ -113,9 +112,8 @@ def contact(request):
 def blog(request):
     logger.debug("--- Blog view started ---")
 
-    # TEMPORARY CHANGE: Use .all() to show drafts and confirm all 36 posts are there.
-    # Change this back to .filter(draft=False) when you're ready to go live.
-    all_posts_list = Blog.objects.all()
+    # Filter to only show published posts
+    all_posts_list = Blog.objects.filter(draft=False)
 
     paginator = Paginator(all_posts_list, 8)
     page_number = request.GET.get('page')
@@ -140,8 +138,8 @@ def faq(request):
     return render(request, "pages/faq.html")
 
 
-def blog_single(request, pk):
-    post = get_object_or_404(Blog, pk=pk)
+def blog_single(request, slug):
+    post = get_object_or_404(Blog, slug=slug, draft=False)
     context = { 'post': post }
 
     return render(request, "pages/blog-single.html", context)
@@ -188,3 +186,14 @@ def project_single(request):
 
 def custom_404(request, exception):
     return render(request, "pages/404.html", status=404)
+
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /admin/",
+        "Disallow: /support/submit/",
+        "",
+        f"Sitemap: {request.scheme}://{request.get_host()}/sitemap.xml",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")

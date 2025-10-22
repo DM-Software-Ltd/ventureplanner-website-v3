@@ -17,11 +17,19 @@ Including another URLconf
 # ventureplanner3/urls.py
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings # Add this
-from django.conf.urls.static import static # Add this
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from pages.sitemaps import BlogSitemap, StaticViewSitemap
+
+sitemaps = {
+    'blog': BlogSitemap,
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('', include('pages.urls')),
 ]
 

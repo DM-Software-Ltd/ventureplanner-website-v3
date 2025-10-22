@@ -2,13 +2,14 @@
 
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
 
 class BlogCategory(models.Model):
     title = models.CharField(max_length=100, unique=True)
     sub_title = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
-        db_table = 'blog_blogcategory'
+        db_table = 'pages_blogcategory'
         verbose_name_plural = "Blog Categories"
 
     def __str__(self):
@@ -19,7 +20,7 @@ class BlogTag(models.Model):
     sub_title = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
-        db_table = 'blog_blogtag'
+        db_table = 'pages_blogtag'
 
     def __str__(self):
         return self.title
@@ -30,7 +31,7 @@ class BlogAuthor(models.Model):
     description = models.TextField(null=True, blank=True, help_text='Author description')
 
     class Meta:
-        db_table = 'blog_blogauthor'
+        db_table = 'pages_blogauthor'
 
     def __str__(self):
         return self.name
@@ -39,9 +40,11 @@ class Blog(models.Model):
     draft = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=timezone.now)
-    # slug = models.SlugField(max_length=255, unique=True, help_text='E.g. how-to-build-a-castle')
+    slug = models.SlugField(max_length=255, unique=True, blank=True, help_text='E.g. how-to-build-a-castle')
     title = models.CharField(max_length=300)
     sub_title = models.TextField(blank=True)
+    meta_description = models.CharField(max_length=160, blank=True, help_text='SEO meta description (160 characters max)')
+    meta_keywords = models.CharField(max_length=255, blank=True, help_text='SEO keywords, comma-separated')
     article = models.TextField()
     image = models.ImageField(upload_to='static/blog/images/')
     thumbnail = models.ImageField(upload_to='static/blog/thumbnails/')
@@ -51,11 +54,22 @@ class Blog(models.Model):
     reading_time = models.CharField(max_length=50, help_text="E.g. '5 min read'")
 
     class Meta:
-        db_table = 'blog_blog'
+        db_table = 'pages_blog'
         ordering = ['id']
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
+            while Blog.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
+        super().save(*args, **kwargs)
 
 class BlogComment(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
@@ -66,7 +80,7 @@ class BlogComment(models.Model):
     author_name = models.CharField(max_length=500)
 
     class Meta:
-        db_table = 'blog_blogcomment'
+        db_table = 'pages_blogcomment'
 
     def __str__(self):
         return f'Comment by {self.author_name} on {self.blog.title}'

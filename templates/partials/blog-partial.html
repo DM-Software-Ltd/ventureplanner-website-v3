@@ -30,7 +30,7 @@
                         {# This link will need to be updated later to point to the specific post #}
                         <a href="{% url 'blog_single' post.pk %}" data-cursor-text="View">
                             <figure class="image-anime">
-                                <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
+                                <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" loading="lazy">
                             </figure>
                         </a>
                         <div class="post-item-tags">
