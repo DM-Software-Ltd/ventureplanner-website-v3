@@ -907,44 +907,66 @@
 	});
 
 	/* ----------------------------------------------------
-   Isotope + Typewriter (Fully Synced)
-   - Isotope sort changes every 5000ms
-   - Typewriter starts typing right when Isotope shuffles
-   - Deletes before next shuffle
+   Isotope + Typewriter Sync (with "plan" suffix)
+   - Sorts by data-plan-type weight
+   - Typewriter says "marketing plan", "financial plan", etc.
 ---------------------------------------------------- */
 
-	var $grid = $('.grid').isotope({
+// --- Cycle logic ---
+	const centerTypes = ['marketing', 'financial', 'business'];
+	let currentIndex = 0;
+	let currentCenterType = centerTypes[currentIndex]; // must exist before Isotope init
+
+// --- Assign numeric weights ---
+	function getWeightForType(types, center) {
+		if (types.includes(center)) return 0;
+		if (center === 'marketing') {
+			if (types.includes('financial')) return 1;
+			if (types.includes('business')) return 2;
+		} else if (center === 'financial') {
+			if (types.includes('business')) return 1;
+			if (types.includes('marketing')) return 2;
+		} else if (center === 'business') {
+			if (types.includes('financial')) return 1;
+			if (types.includes('marketing')) return 2;
+		}
+		return 3;
+	}
+
+// --- Initialize Isotope ---
+	const $grid = $('.grid').isotope({
 		itemSelector: '.item',
 		layoutMode: 'masonry',
 		getSortData: {
-			color: '[data-color]',
-			number: '[data-number]'
+			planWeight: function (itemElem) {
+				const attr = $(itemElem).attr('data-plan-type');
+				if (!attr) return 999;
+				try {
+					const types = JSON.parse(attr.replace(/'/g, '"'));
+					return getWeightForType(types, currentCenterType);
+				} catch (e) {
+					return 999;
+				}
+			}
 		},
-		sortBy: ['color', 'number'],
+		sortBy: 'planWeight',
 		transitionDuration: '1.2s'
 	});
 
-	$grid.isotope('ignore', $('.pinned'));
-
-	let sortOptions = [
-		['color', 'number'],
-		['number', 'color']
-	];
-	let currentIndex = 0;
-
+// --- Typewriter setup ---
 	const $span = $(".plan-type-text");
-	const words = $span.length ? $span.attr("data-text").split(", ").map(w => w.trim()) : [];
-	let wordIndex = 0;
 	let isDeleting = false;
 	let currentText = "";
 	let typeTimeout = null;
 
-	// Timing constants
-	const CYCLE = 5000;       // total sync cycle (matches isotope)
+// These are the full phrases
+	const phrases = ['Marketing Plans', 'Financial Plans', 'Business Plans'];
+
+// Timing constants
+	const CYCLE = 5000;      // must match isotope interval
 	const TYPE_TIME = 1800;
 	const DELETE_TIME = 1700;
 	const HOLD_TIME = 800;
-	const GAP_TIME = CYCLE - (TYPE_TIME + DELETE_TIME + HOLD_TIME);
 
 	function getTypingDelay(wordLength, phase) {
 		if (phase === "type") return TYPE_TIME / wordLength;
@@ -952,51 +974,61 @@
 		return 50;
 	}
 
-	function typeNextLetter() {
+	function typeNextLetter(phrase) {
 		if (!$span.length) return;
 
-		const word = words[wordIndex];
 		const step = isDeleting ? -1 : 1;
 		const nextLength = currentText.length + step;
-		currentText = word.substring(0, nextLength);
+		currentText = phrase.substring(0, nextLength);
 		$span.text(currentText);
 
-		const doneTyping = !isDeleting && currentText === word;
+		const doneTyping = !isDeleting && currentText === phrase;
 		const doneDeleting = isDeleting && currentText === "";
 
 		if (doneTyping) {
 			typeTimeout = setTimeout(() => {
 				isDeleting = true;
-				typeNextLetter();
+				typeNextLetter(phrase);
 			}, HOLD_TIME);
 		} else if (doneDeleting) {
+			// stop until the next sort triggers
 			isDeleting = false;
-			wordIndex = (wordIndex + 1) % words.length;
-			// Stop until Isotope triggers again
-			currentText = "";
 			clearTimeout(typeTimeout);
 		} else {
-			const delay = getTypingDelay(word.length, isDeleting ? "delete" : "type");
-			typeTimeout = setTimeout(typeNextLetter, delay);
+			const delay = getTypingDelay(phrase.length, isDeleting ? "delete" : "type");
+			typeTimeout = setTimeout(() => typeNextLetter(phrase), delay);
 		}
 	}
 
-	function changeSortAndTriggerTypewriter() {
-		// Shuffle isotope layout
-		$grid.isotope({ sortBy: sortOptions[currentIndex] });
-		currentIndex = (currentIndex + 1) % sortOptions.length;
+// --- Function to change sort + trigger typing ---
+	function changeSortFocus() {
+		currentCenterType = centerTypes[currentIndex];
+		currentIndex = (currentIndex + 1) % centerTypes.length;
 
-		// Immediately start new typewriter sequence
+		// update Isotope sort
+		$grid.isotope('updateSortData').isotope({ sortBy: 'planWeight' });
+
+		// --- Background Color Transition (HSL) ---
+		const colorMap = {
+			business: 'hsl(47, 89%, 81%)',
+			marketing: 'hsl(354, 100%, 91%)',
+			financial: 'hsl(217, 33%, 80%)'
+		};
+
+		// Smooth transition for hero background
+		$('.hero-image').css('background-color', colorMap[currentCenterType]);
+
+		// --- Typewriter Effect ---
+		const phrase = phrases[centerTypes.indexOf(currentCenterType)];
 		clearTimeout(typeTimeout);
 		isDeleting = false;
 		currentText = "";
-		typeNextLetter();
+		typeNextLetter(phrase);
 	}
 
-	// Initial shuffle and start typewriter
-	changeSortAndTriggerTypewriter();
 
-	// Repeat every 5s (exactly synced)
-	setInterval(changeSortAndTriggerTypewriter, CYCLE);
+// --- Start the cycle ---
+	changeSortFocus();
+	setInterval(changeSortFocus, CYCLE);
 
 })(jQuery);

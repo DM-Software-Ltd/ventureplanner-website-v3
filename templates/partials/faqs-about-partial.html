@@ -22,11 +22,7 @@
 
                 <div class="col-xl-6">
                     <div class="faqs-content">
-                        <div class="section-title">
-                            <h3 class="wow fadeInUp">Frequently asked questions</h3>
-                            <h2 class="text-effect" data-cursor="-opaque">Answers to help you make the most of our spaces</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.2s">Explore the voices of freelancers, startups, and creatives who thrive in shared workspaces. Learn how co-working nurtures innovation, builds community.</p>
-                        </div>
+                        {% include 'partials/sitewide/section-title.html' with subtitle="Frequently asked questions" title="Answers to help you make the most of our spaces" paragraph="Explore the voices of freelancers, startups, and creatives who thrive in shared workspaces. Learn how co-working nurtures innovation, builds community." paragraph_delay="0.2s" %}
                         <div class="our-faqs-btn wow fadeInUp" data-wow-delay="0.4s">
                             <a href="{% url 'faq' %}" class="btn-default">View all FAQs</a>
                         </div>
