@@ -900,9 +900,66 @@
 		$swiperWrapper.empty().html(slidesHtml);
 	}
 
+	function renderMarketingTestimonials() {
+		// Ensure the global data object exists and the target wrapper is in the DOM
+		if (typeof TESTEMONIAL_DATA === 'undefined' || !$('.testimonial-slider-silver .swiper-wrapper').length) {
+			return;
+		}
+
+		const $swiperWrapper = $('.testimonial-slider-silver .swiper-wrapper');
+		let slidesHtml = '';
+
+		// Build the HTML for all testimonial slides using the marketing/silver design
+		TESTEMONIAL_DATA.forEach(function(testimonial) {
+			// Generate star rating icons based on starRating property
+			let ratingHtml = '';
+			for (let i = 0; i < 5; i++) {
+				if (i < Math.floor(testimonial.starRating)) {
+					// Full star icon
+					ratingHtml += '<i class="fa-solid fa-star"></i>';
+				} else if (i < testimonial.starRating) {
+					// Half star icon
+					ratingHtml += '<i class="fa-solid fa-star-half-stroke"></i>';
+				} else {
+					// Empty star icon (not shown in this design, but kept for completeness)
+					ratingHtml += '<i class="fa-regular fa-star"></i>';
+				}
+			}
+
+			// Build the slide structure for marketing testimonials (silver theme)
+			slidesHtml += `
+                <div class="swiper-slide">
+                    <div class="testimonial-item-silver">
+                        <div class="testimonial-item-header-silver">
+                            <div class="testimonial-rating-silver">
+                                ${ratingHtml}
+                            </div>
+                            <div class="testimonial-content-silver">
+                                <p>"${testimonial.text}"</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-body-silver">
+                            <div class="author-content-silver">
+                                <h3>${testimonial.name}</h3>
+                                <p>${testimonial.role}</p>
+                            </div>
+                            <div class="testimonial-quote-silver">
+                                <img src="/static/images/testimonial-quote-silver.svg" alt="Decorative image" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+		});
+
+		// Clear existing content and inject the new slides
+		$swiperWrapper.empty().html(slidesHtml);
+	}
+
 	// Call the rendering function on window load to ensure all scripts (including the data) are ready
 	$window.on('load', function(){
 		renderTestimonials();
+		renderMarketingTestimonials();
 		$(".preloader").fadeOut(600);
 	});
 
