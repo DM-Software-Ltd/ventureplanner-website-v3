@@ -1,0 +1,17 @@
+<!-- Section Title Start -->
+<div class="section-title{% if center %} section-title-center{% endif %}"{% if extra_classes %} style="{{ extra_classes }}"{% endif %}>
+    {% if subtitle %}
+    <div class="subtitle wow fadeInUp"{% if subtitle_delay %} data-wow-delay="{{ subtitle_delay }}"{% endif %}>{{ subtitle }}</div>
+    {% endif %}
+    {% if title %}
+    {% if title_tag == 'h1' %}
+    <h1 class="{% if title_class %}{{ title_class }}{% else %}text-effect{% endif %}" data-cursor="-opaque">{{ title|safe }}</h1>
+    {% else %}
+    <h2 class="{% if title_class %}{{ title_class }}{% else %}text-effect{% endif %}" data-cursor="-opaque">{{ title|safe }}</h2>
+    {% endif %}
+    {% endif %}
+    {% if paragraph %}
+    <p class="wow fadeInUp"{% if paragraph_delay %} data-wow-delay="{{ paragraph_delay }}"{% endif %}>{{ paragraph|safe }}</p>
+    {% endif %}
+</div>
+<!-- Section Title End -->
