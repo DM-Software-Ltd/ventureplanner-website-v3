@@ -22,24 +22,24 @@
                 {% for post in latest_posts %}
                 <div class="post-item wow fadeInUp">
                     <div class="post-featured-image">
-                        {# This link will need to be updated later to point to the specific post #}
-                        <a href="{% url 'blog_single' post.pk %}" data-cursor-text="View">
+                        {# Link uses slug for SEO-friendly URLs #}
+                        <a href="{% url 'blog_single' post.slug %}" data-cursor-text="View">
                             <figure class="image-anime">
                                 <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" loading="lazy">
                             </figure>
                         </a>
                         <div class="post-item-tags">
                             {% for tag in post.tags.all|slice:":1" %} {# Shows the first tag #}
-                            <a href="{% url 'blog_single' post.pk %}">{{ tag.title }}</a>
+                            <a href="{% url 'blog_single' post.slug %}">{{ tag.title }}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="post-item-body">
                         <div class="post-item-content">
-                            <h2><a href="{% url 'blog_single' post.pk %}">{{ post.title }}</a></h2>
+                            <h2><a href="{% url 'blog_single' post.slug %}">{{ post.title }}</a></h2>
                         </div>
                         <div class="post-item-btn">
-                            <a href="{% url 'blog_single' post.pk %}" class="readmore-btn">read more</a>
+                            <a href="{% url 'blog_single' post.slug %}" class="readmore-btn">read more</a>
                         </div>
                     </div>
                 </div>

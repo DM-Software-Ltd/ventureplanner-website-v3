@@ -9,7 +9,7 @@ class BlogCategory(models.Model):
     sub_title = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
-        db_table = 'pages_blogcategory'
+        db_table = 'blog_blogcategory'
         verbose_name_plural = "Blog Categories"
 
     def __str__(self):
@@ -20,7 +20,7 @@ class BlogTag(models.Model):
     sub_title = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
-        db_table = 'pages_blogtag'
+        db_table = 'blog_blogtag'
 
     def __str__(self):
         return self.title
@@ -31,7 +31,7 @@ class BlogAuthor(models.Model):
     description = models.TextField(null=True, blank=True, help_text='Author description')
 
     class Meta:
-        db_table = 'pages_blogauthor'
+        db_table = 'blog_blogauthor'
 
     def __str__(self):
         return self.name
@@ -54,7 +54,7 @@ class Blog(models.Model):
     reading_time = models.CharField(max_length=50, help_text="E.g. '5 min read'")
 
     class Meta:
-        db_table = 'pages_blog'
+        db_table = 'blog_blog'
         ordering = ['id']
 
     def __str__(self):
@@ -80,7 +80,7 @@ class BlogComment(models.Model):
     author_name = models.CharField(max_length=500)
 
     class Meta:
-        db_table = 'pages_blogcomment'
+        db_table = 'blog_blogcomment'
 
     def __str__(self):
         return f'Comment by {self.author_name} on {self.blog.title}'

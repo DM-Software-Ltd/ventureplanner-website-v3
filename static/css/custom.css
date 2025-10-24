@@ -955,11 +955,11 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     position: absolute;
     bottom: 50px;
     left: 50px;
-    background-color: var(--divider-color);
+    background-color: #33333344;
     border-radius: 40px;
     padding: 30px;
     max-width: 300px;
-    backdrop-filter: saturate(180%) blur(40px);
+    backdrop-filter: saturate(180%) blur(30px);
     -webkit-backdrop-filter: saturate(180%) blur(40px);
     z-index: 2;
 }
@@ -2669,12 +2669,13 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 }
 
 .testimonial-company-logo {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
 }
 
 .testimonial-company-logo img {
     width: 100%;
-    max-width: 164px;
+    max-width: 82px;
+    border-radius: 50%;
 }
 
 .testimonial-content h3 {
@@ -5924,7 +5925,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     }
 
     .testimonial-company-logo {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
     .testimonial-author {
@@ -6538,7 +6539,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     }
 
     .testimonial-company-logo {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .testimonial-content h3 {
@@ -6942,6 +6943,11 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     border: none;
     transition: all 0.4s ease-in-out;
     z-index: 0;
+}
+
+.btn-default-elite,
+.main-header:has(.header-sticky.active) .nav-link {
+    color: var(--white-color);
 }
 
 .btn-default-elite:hover,
@@ -8171,8 +8177,6 @@ header.main-header:has(.header-sticky.active) .navbar {
 }
 
 .what-do-image-box-1-elite {
-    background: var(--white-color);
-    border-radius: 40px;
     text-align: center;
     padding: 50px 30px;
 }
@@ -8204,15 +8208,15 @@ header.main-header:has(.header-sticky.active) .navbar {
     text-align: center;
     gap: 30px;
     border-radius: 40px;
-    overflow: hidden;
 }
 
 .what-we-do-item-elite-1 {
     background: var(--primary-color);
-    padding: 40px;
+    padding: 20px 10px 40px 10px;
 }
 
 .what-we-do-item-elite-2 {
+    overflow: hidden;
     background: var(--accent-color);
     padding: 40px 40px 0;
 }
@@ -8240,12 +8244,19 @@ header.main-header:has(.header-sticky.active) .navbar {
 .what-we-do-item-image-elite figure {
     display: block;
     border-radius: 40px;
+    position: relative;
 }
 
 .what-we-do-item-image-elite img {
     width: 100%;
-    max-width: 240px;
-    border-radius: 40px;
+}
+
+.what-we-do-item-image-elite img.absolute {
+    position: absolute;
+    top: -20px;
+    left: 70%;
+    width: 22%;
+    transform: translate(-50%, -50%);
 }
 
 .how-it-works-elite {
@@ -10379,7 +10390,6 @@ header.main-header:has(.header-sticky.active) .navbar {
 
 .about-us-item-silver.box-2 {
     gap: 20px;
-    padding-top: 20px;
 }
 
 .about-us-image-box-silver {
@@ -10387,6 +10397,7 @@ header.main-header:has(.header-sticky.active) .navbar {
     border-radius: 40px;
     overflow: hidden;
     flex-grow: 1;
+    background-color: var(--primary-color);
 }
 
 .about-us-image-1-silver {
@@ -10405,17 +10416,17 @@ header.main-header:has(.header-sticky.active) .navbar {
     height: 100%;
 }
 
-.about-us-image-1-silver figure::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg, rgba(16, 43, 50, 0.00) 37.99%, var(--primary-color) 100%);
-    width: 100%;
-    height: 100%;
-}
+/*.about-us-image-1-silver figure::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    background: linear-gradient(180deg, rgba(16, 43, 50, 0.00) 37.99%, var(--primary-color) 100%);*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
 
 .about-us-image-1-silver figure img {
     width: 100%;
@@ -10424,14 +10435,17 @@ header.main-header:has(.header-sticky.active) .navbar {
 }
 
 .about-us-image-content-silver {
+    background-color: var(--primary-color);
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 40px;
     height: 100%;
-    padding: 30px;
+    padding: 30px 30px 0 30px;
     z-index: 1;
+    border-radius: 40px;
+    overflow: hidden;
 }
 
 .about-us-image-content-silver .about-us-image-heading-silver {
@@ -10455,13 +10469,19 @@ header.main-header:has(.header-sticky.active) .navbar {
     color: var(--white-color);
 }
 
-.about-us-image-info-silver ul {
+.about-us-image-info-silver ul,
+.about-us-item-list-silver ul {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
     margin: 0;
     padding: 0;
     list-style: none;
+    position: absolute;
+    bottom: 40px;
+    left: 30px;
+    width: 100%;
+    padding-right: 20px!important;
 }
 
 .about-us-image-info-silver ul li {
@@ -10479,7 +10499,7 @@ header.main-header:has(.header-sticky.active) .navbar {
     background: var(--accent-color) url('../images/about-item-3-bg-silver.png') no-repeat;
     background-position: top right;
     background-size: auto;
-    padding: 40px;
+    padding: 40px 40px 0 40px;
     border-radius: 40px;
     overflow: hidden;
 }
@@ -10496,17 +10516,20 @@ header.main-header:has(.header-sticky.active) .navbar {
 
 .about-us-image-2-silver {
     align-content: end;
-    width: 25%;
+    width: 32%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .about-us-image-2-silver figure {
     display: block;
-    margin: 0 -40px -40px -100px;
+    margin: 0 -40px 0 -120px;
 }
 
 .about-us-image-2-silver img {
     width: 100%;
-    max-width: 275px;
+    max-width: 520px;
     object-fit: cover;
 }
 
@@ -12193,14 +12216,6 @@ header.main-header:has(.header-sticky.active) .navbar {
         min-height: 400px;
     }
 
-    .about-us-item-silver.box-1,
-    .about-us-item-silver.box-3 {
-        padding: 30px;
-    }
-
-    .about-us-image-content-silver {
-        padding: 20px;
-    }
 
     .about-us-image-2-silver figure {
         margin: 0 -30px -30px -80px;
@@ -13337,6 +13352,7 @@ i[class*="fi-tr"].yellow {
 .hero-content .section-title h2 {
     position: relative;
     display: inline-block;
+    width: fit-content;
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
@@ -13362,3 +13378,4 @@ i[class*="fi-tr"].yellow {
     width: 6px;
     height: 6px;
 }
+
