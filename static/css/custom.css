@@ -3214,7 +3214,6 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 
 .approach-image img {
     width: 100%;
-    aspect-ratio: 1 / 0.5;
     object-fit: cover;
 }
 
@@ -10710,13 +10709,21 @@ header.main-header:has(.header-sticky.active) .navbar {
 .what-do-image-box-silver {
     display: flex;
     flex-wrap: wrap;
-    align-items: end;
     gap: 30px;
     margin-right: 15px;
+    background: url("{% static 'images/VP_MarketingPlan_Block3_1.png' %}") no-repeat center center/cover;
+    border-radius: 40px; /* Optional: adds a round corner to the entire box */
+    /* Ensure a fixed height so the background image is visible. */
+    min-height: 500px; /* Adjust this value as needed for the layout */
 }
 
 .what-do-image-item-1-silver {
     width: calc(43% - 15px);
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+    justify-content: space-between;
+    height: auto;
 }
 
 .what-do-client-box-silver {
@@ -10726,20 +10733,63 @@ header.main-header:has(.header-sticky.active) .navbar {
     border-radius: 40px;
     margin-bottom: 30px;
     padding: 30px;
+    flex: 2 ;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
 }
 
 .what-do-client-box-silver .satisfy-client-images-silver {
     margin-bottom: 30px;
 }
 
+.what-do-client-content-silver {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: auto;
+}
+
 .what-do-client-content-silver h2 {
-    font-size: 40px;
-    color: var(--accent-color);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--white-color);
 }
 
 .what-do-client-content-silver p {
     margin: 5px 0 0;
     color: var(--white-color);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.what-do-image-1-silver {
+    background: #eee;
+    background-position: top right;
+    background-size: auto;
+    border-radius: 40px;
+    padding: 30px;
+    padding-top: 110px;
+}
+
+.what-do-image-1-silver h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.what-do-image-1-silver p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.what-do-client-content-silver p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
 }
 
 .what-do-image-1-silver figure {
@@ -11325,7 +11375,7 @@ header.main-header:has(.header-sticky.active) .navbar {
 
 .why-choose-cta-box-silver {
     position: absolute;
-    background-color: var(--dark-divider-color);
+    background-color: var(--primary-color);
     border-radius: 40px;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);

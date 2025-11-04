@@ -9,7 +9,7 @@
                 <div class="why-choose-content-silver">
                     {% include 'partials/sitewide/section-title.html' with subtitle="Created by Experts" title="Marketing Strategy, Rooted in First Principles" paragraph="Venture Planner wasn't just built by developers; it was architected by marketing experts. Our platform embeds proven, textbook principles into its core, ensuring your strategy is built on a rock-solid foundation." paragraph_delay="0.2s" extra_classes="max-width: 550px" %}
 
-                    <div class="why-choose-list-silver">
+                    <div class="why-choose-list-silver" style="position: relative;">
                         <div class="why-choose-item-silver">
                             <div class="icon-box">
                                 <img src="{% static 'images/icon-why-choose-1-silver.svg' %}" alt="Decorative image"  loading="lazy">
@@ -37,6 +37,18 @@
                                 </p>
                             </div>
                         </div>
+
+                        <div class="why-choose-item-silver" style="
+                            position: absolute;
+                            top: 0;
+                            right: 15px;
+                            left: 15px;
+                            bottom: 0;
+                            width: 100%;
+                            transform: translate(calc(100% + 15px ), 0);
+                            z-index: 0;
+                        ">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,7 +58,7 @@
                 <div class="why-choose-image-box-silver">
                     <div class="why-choose-image-silver">
                         <figure class="image-anime">
-                            <img src="{% static 'images/why-choose-image-silver.jpg' %}" alt="Decorative image"  loading="lazy">
+                            <img src="{% static 'images/VP_MarketingPlan_Block8_1.png' %}" alt="Decorative image"  loading="lazy">
                         </figure>
                     </div>
 
