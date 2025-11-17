@@ -11,7 +11,7 @@
                     <div class="nav-menu-wrapper">
                         <ul class="navbar-nav mr-auto" id="menu">
                             <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'business-plans' %}">Business Plans</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'marketing-plans' %}">Marketing Plans</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
@@ -29,17 +29,20 @@
                                     <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQs</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
                         </ul>
                     </div>
 
                     <!-- Header Btn Start -->
-                    <div class="d-inline-flex flex-row gap-4 align-items-center">
-                        <a class="d-inline-flex flex-row gap-1 align-items-center nav-link" href="https://app.ventureplanner.ai/sign_in"> Login <i class="fi-tr-sign-in-alt fi"></i></a>
+
+                          <div class="header-btn me-3">
+                            <a class="btn-default btn-login btn-highlighted" href="https://app.ventureplanner.ai/sign_in">Login</a>
+                        </div>
+
                         <div class="header-btn">
                             <a class="btn-default" href="https://app.ventureplanner.ai/business_register">Start Free Trial</a>
                         </div>
-                    </div>
+
                     <!-- Header Btn End -->
                 </div>
                 <!-- Main Menu End -->

@@ -10,41 +10,38 @@
                     <svg width="0" height="0" viewBox="0 0 100 100" style="position: absolute;">
                         <defs>
                             <pattern id="perforation-pattern" patternUnits="userSpaceOnUse" width="4" height="6">
-                                <rect x="0" y="0" width="4" height="6" fill="white" />
-                                <rect x="3" y="0" width="1" height="6" fill="black" />
+                                <rect x="0" y="0" width="4" height="6" fill="white"/>
+                                <rect x="3" y="0" width="1" height="6" fill="black"/>
                             </pattern>
 
                             <mask id="ticket-mask">
-                                <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                                <rect x="0" y="0" width="100%" height="100%" fill="white"/>
 
-                                <rect x="calc(100% - 4px)" y="0" width="4px" height="100%" fill="url(#perforation-pattern)" />
+                                <rect x="calc(100% - 4px)" y="0" width="4px" height="100%"
+                                      fill="url(#perforation-pattern)"/>
 
-                                <circle cx="75%" cy="0" r="10" fill="black" />
+                                <circle cx="75%" cy="0" r="10" fill="black"/>
 
-                                <circle cx="75%" cy="100%" r="10" fill="black" />
+                                <circle cx="75%" cy="100%" r="10" fill="black"/>
                             </mask>
                         </defs>
                     </svg>
                     <div class="hero-info-item box-1 order-xl-1 order-lg-1 order-md-1 order-1 wow fadeInUp ">
-<!--                        &lt;!&ndash; Hero Info Header Start &ndash;&gt;-->
-<!--                        <div class="hero-info-header">-->
-<!--                            &lt;!&ndash; Video Play Button Start &ndash;&gt;-->
-<!--                            <div class="video-play-button bg-effect">-->
-<!--                                <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video"-->
-<!--                                   data-cursor-text="Play">-->
-<!--                                    <i class="fa-solid fa-play"></i>-->
-<!--                                </a>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; Video Play Button End &ndash;&gt;-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; Hero Info Header End &ndash;&gt;-->
-
-<!--                        &lt;!&ndash; Hero Info Content Start &ndash;&gt;-->
-<!--                        <div class="hero-info-content">-->
-<!--                            <h3>About Us</h3>-->
-<!--                            <p>Find out more about Venture Planner - the most advanced planning tool in the world.</p>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; Hero Info Content End &ndash;&gt;-->
+                        <span class="coupon-scissors">&#9988;</span>
+                        <div class="coupon-content">
+                            <p class="offer-tag">AUTUMN SPECIAL OFFER</p>
+                            <div class="offer-main">
+                                <div class="twenty-five">25
+                                </div>
+                                <div class="percent-off">
+                                    <div class="percent">%
+                                    </div>
+                                    <div class="off">OFF
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="offer-sub">Use code AUTUMN at checkout for 25% off first month.</p>
+                        </div>
                     </div>
                     <!-- Hero Info Item End -->
 
@@ -58,7 +55,6 @@
                                 <h3>Plans Created</h3>
                             </div>
                             <div class="hero-info-list">
-                                <p>The go-to planning tool trusted by professionals worldwide.</p>
                                 <ul>
                                     <li>For Founders</li>
                                     <li>For Marketers</li>
@@ -71,40 +67,14 @@
 
                         <!-- Hero Info Office Box Start -->
                         <div class="hero-info-office-box-2">
-                            <!-- Satisfy Client Images Start -->
-                            <div class="satisfy-client-images">
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-4.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image add-more">
-                                    <i class="fa-solid fa-plus"></i>
-                                </div>
-                            </div>
-                            <!-- Satisfy Client Images End -->
+                            <div>IMG on Right Here</div>
 
                             <!-- Hero Info Content Start -->
                             <div class="hero-info-content">
-                                <h2><span class="counter">98</span>%</h2>
-                                <h3>User Satisfaction</h3>
-                                <p>Users love our intuitive tools that make professional-grade planning accessible to
-                                    everyone.</p>
+                                <h2><span class="counter">10</span>+</h2>
+                                <h3>AI Models</h3>
+                                <p>We use state-of-the-art AI models from the industry's top providers, ensuring you
+                                    always get the most powerful insights for every task.</p>
                             </div>
                             <!-- Hero Info Content End -->
                         </div>
@@ -115,7 +85,7 @@
                     <div class="hero-info-item box-3 order-xl-3 order-lg-2 order-md-2 order-2 wow fadeInUp"
                          data-wow-delay="0.4s">
                         <div class="working-hours-header hero-info-content">
-                            <h3>For Agencies & Consultants</h3>
+                            <h3>Agencies & Consultants</h3>
                         </div>
                         <div class="working-hours-body hero-info-content">
                             <p>Equip your consultancy with the ultimate planning tool designed for collaboration and
@@ -123,7 +93,8 @@
                                 ease, and scale your services profitably.</p>
                         </div>
                         <div class="working-hours-btn">
-                            <a href="{% url 'consultants' %}" class="btn-default btn-highlighted">Explore Pro Features</a>
+                            <a href="{% url 'consultants' %}" class="btn-default btn-highlighted">Explore Pro
+                                Features</a>
                         </div>
                     </div>
                     <!-- Working Hours Item End -->

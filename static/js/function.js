@@ -749,21 +749,21 @@
 				accordionContent += `
                 <div class="accordion-item wow fadeInUp" data-wow-delay="${dataWowDelay}">
                    <h2 class="accordion-header" id="${headingId}">
-                      <button 
-                         class="accordion-button ${isFirstItemInGroup ? '' : 'collapsed'}" 
-                         type="button" 
-                         data-bs-toggle="collapse" 
-                         data-bs-target="#${collapseId}" 
-                         aria-expanded="${isFirstItemInGroup ? 'true' : 'false'}" 
+                      <button
+                         class="accordion-button ${isFirstItemInGroup ? '' : 'collapsed'}"
+                         type="button"
+                         data-bs-toggle="collapse"
+                         data-bs-target="#${collapseId}"
+                         aria-expanded="${isFirstItemInGroup ? 'true' : 'false'}"
                          aria-controls="${collapseId}"
                       >
                          Q${indexQ + 1}: ${question.question}
                       </button>
                    </h2>
-                   <div 
-                      id="${collapseId}" 
-                      class="accordion-collapse collapse ${isFirstItemInGroup ? 'show' : ''}" 
-                      aria-labelledby="${headingId}" 
+                   <div
+                      id="${collapseId}"
+                      class="accordion-collapse collapse ${isFirstItemInGroup ? 'show' : ''}"
+                      aria-labelledby="${headingId}"
                       data-bs-parent="#${accordionContainerId}"
                    >
                       <div class="accordion-body">
@@ -1067,9 +1067,9 @@
 
 		// --- Background Color Transition (HSL) ---
 		const colorMap = {
-			business: 'hsl(47, 89%, 81%)',
-			marketing: 'hsl(354, 100%, 91%)',
-			financial: 'hsl(217, 33%, 80%)'
+			business: 'hsl(40 54.5% 95.7%)',
+			marketing: 'hsl(353 40% 96.1%)',
+			financial: 'hsl(192 35.7% 94.5%)'
 		};
 
 		// Smooth transition for hero background

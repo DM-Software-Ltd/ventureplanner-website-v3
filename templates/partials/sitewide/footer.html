@@ -5,12 +5,13 @@
             <div class="col-lg-12">
                 <!-- Footer Header Start -->
                 <div class="footer-header">
-                    {% include 'partials/sitewide/section-title.html' with title="Let's Make a Plan" title_class="text-anime-style-3" %}
+                    {% include 'partials/sitewide/section-title.html' with title="We make businesses unstoppable." title_class="text-anime-style-3" %}
 
                     <!-- Contact Us Circle Start -->
                     <div class="contact-us-circle">
                         <a href="{% url 'contact' %}">
-                            <img src="{% static 'images/contact-us-circle.svg' %}" alt="Decorative image"  loading="lazy">
+                            <img src="{% static 'images/contact-us-circle.svg' %}" alt="Decorative image"
+                                 loading="lazy">
                         </a>
                     </div>
                     <!-- Contact Us Circle End -->
@@ -18,33 +19,24 @@
                 <!-- Footer Header End -->
             </div>
 
-            <div class="col-xl-5 col-lg-8">
+            <div class="col-xl-5 col-lg-6">
                 <!-- About Footer Start -->
                 <div class="about-footer footer-links">
                     <!-- About Footer Content Start -->
                     <div class="about-footer-content">
-                        <p>Transform your vision into a detailed plan using our cutting-edge platform. Just answer the questions, we'll do the rest.</p>
+                        <p>Our entire philosophy is built on one core belief: every great idea deserves a world-class
+                            strategy. We've distilled decades of strategic expertise into our AI, giving you the
+                            framework, insights, and confidence to turn ambition into achievement.</p>
                     </div>
                     <!-- About Footer Content End -->
 
                     <!-- Footer Contact Links Start -->
                     <div class="footer-contact-links">
                         <!-- Footer Contact Item Start -->
-<!--                        <div class="footer-contact-item">-->
-<!--                            <div class="icon-box">-->
-<!--                                <img src="{% static 'images/icon-phone-primary.svg' %}" alt="Decorative image"  loading="lazy">-->
-<!--                            </div>-->
-<!--                            <div class="footer-contact-content">-->
-<!--                                <h3>Phone Number</h3>-->
-<!--                                <p><a href="tel:+123456789">+ (123) 456-789</a></p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-                        <!-- Footer Contact Item End -->
-
-                        <!-- Footer Contact Item Start -->
                         <div class="footer-contact-item">
                             <div class="icon-box">
-                                <img src="{% static 'images/icon-mail-primary.svg' %}" alt="Decorative image"  loading="lazy">
+                                <img src="{% static 'images/icon-mail-primary.svg' %}" alt="Decorative image"
+                                     loading="lazy">
                             </div>
                             <div class="footer-contact-content">
                                 <h3>Email Address</h3>
@@ -58,34 +50,30 @@
                 <!-- About Footer End -->
             </div>
 
-            <div class="col-xl-3 col-lg-4">
+            <div class="col-6 col-xl-3 col-lg-3 offset-xl-1">
                 <!-- Footer Social Link Start -->
-                <div class="footer-social-links footer-links">
-                    <h3>Follow On Socials</h3>
+                <div class="footer-links-silver">
+                    <h3>Business Plans</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/people/Venture-Planner/100095147397445"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href="https://www.instagram.com/ventureplanner.ai/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"><i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="https://www.youtube.com/channel/UC89NTxVsP0vtDTJ2lOG7zJA"><i class="fa-brands fa-youtube"></i></a></li>
-                        <li><a href="https://www.linkedin.com/company/venture-planner"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                        <li><a href="service-single.html">Startup Business Plan</a></li>
+                        <li><a href="service-single.html">Growth / Expansion Business Plan</a></li>
+                        <li><a href="service-single.html">Internal Business Plan</a></li>
                     </ul>
                 </div>
                 <!-- Footer Social Link End -->
             </div>
 
-            <div class="col-xl-4">
-                <!-- Footer Newsletter Form Start -->
-<!--                <div class="footer-newsletter-form footer-links">-->
-<!--                    <h3>Subscribe To Our Newsletter</h3>-->
-<!--                    <form id="newslettersForm" action="#" method="POST">-->
-<!--                        <div class="form-group">-->
-<!--                            <input type="email" name="mail" class="form-control" id="mail"-->
-<!--                                   placeholder="Enter Your E-mail Address *" required>-->
-<!--                            <button type="submit" class="newsletter-btn"><img src="{% static 'images/arrow-primary.svg' %}" alt="Decorative image"  loading="lazy">-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
-                <!-- Footer Newsletter Form End -->
+            <div class="col-6 col-xl-3 col-lg-3">
+                <!-- Footer Social Link Start -->
+                <div class="footer-links-silver">
+                    <h3>Marketing Plans</h3>
+                    <ul>
+                        <li><a href="service-single.html">Multi Channel Marketing Plan</a></li>
+                        <li><a href="service-single.html">High-Level Strategic Marketing Plan</a></li>
+                        <li><a href="service-single.html">Single Chanel Marketing Plan</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Social Link End -->
             </div>
 
             <div class="col-lg-12">
@@ -93,18 +81,18 @@
                 <div class="footer-cta-box">
                     <!-- Footer Logo Start -->
                     <div class="footer-logo">
-                        <img src="{% static 'images/logo-inverted.svg' %}" alt="Decorative image" >
+                        <img src="{% static 'images/logo-inverted.svg' %}" alt="Decorative image">
                     </div>
                     <!-- Footer Logo End -->
 
                     <!-- Footer Menu Start -->
                     <div class="footer-menu">
                         <ul>
-                            <li><a href="{% url 'index' %}">Home</a> </li>
-                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
                             <li><a href="{% url 'services' %}">services</a></li>
                             <li><a href="{% url 'blog' %}">Blog</a></li>
-                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
                         </ul>
                     </div>
                     <!-- Footer Menu End -->
