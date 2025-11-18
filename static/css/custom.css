@@ -974,6 +974,10 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     height: 44px;
 }
 
+[class$="-elite"] > .satisfy-client-images .satisfy-client-image.add-more  {
+
+}
+
 .satisfy-client-image.add-more {
     width: 46px;
     height: 46px;
@@ -994,6 +998,21 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     font-size: 12px;
     color: var(--primary-color);
     transition: all 0.3s ease-in-out;
+}
+
+[class$="-elite"] > .satisfy-client-images .satisfy-client-image.add-more,
+.silver > .satisfy-client-images .satisfy-client-image.add-more {
+    background: var(--primary-color);
+}
+
+[class$="-elite"] > .satisfy-client-images .satisfy-client-image.add-more i,
+.silver > .satisfy-client-images .satisfy-client-image.add-more i  {
+    color: var(--accent-color);
+}
+
+[class$="-elite"] > .satisfy-client-images .satisfy-client-image.add-more h3 ,
+.silver > .satisfy-client-images .satisfy-client-image.add-more h3  {
+    color: var(--accent-color);
 }
 
 .google-review-content {
@@ -4766,7 +4785,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 /************************************/
 
 .page-testimonials {
-    padding: 100px 0 70px;
+    padding: 60px 0 70px;
 }
 
 .page-testimonials .testimonial-item {

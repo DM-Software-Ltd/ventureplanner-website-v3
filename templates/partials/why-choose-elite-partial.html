@@ -54,30 +54,9 @@
                         <!-- Why Choose Item Content End -->
 
                         <!-- Why Choose Body Start -->
-                        <div class="why-choose-body">
+                        <div class="why-choose-body silver">
                             <!-- Satisfy Client Images Start -->
-                            <div class="satisfy-client-images">
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-4.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                            </div>
+                            {% include "partials/satisfied-clients.html" %}
                             <!-- Satisfy Client Images End -->
 
                             <!-- Skills Progress Bar Start -->

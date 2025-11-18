@@ -16,26 +16,7 @@
                     <!-- Faqs Body Start -->
                     <div class="faqs-body-elite wow fadeInUp" data-wow-delay="0.6s">
                         <!-- Satisfy Client Images Start -->
-                        <div class="satisfy-client-images-elite">
-                            <div class="satisfy-client-image-elite">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/author-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </div>
-                            <div class="satisfy-client-image-elite">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/author-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </div>
-                            <div class="satisfy-client-image-elite">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/author-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </div>
-                            <div class="satisfy-client-image-elite add-more">
-                                <h3><span class="counter">15</span>K+</h3>
-                            </div>
-                        </div>
+                        {% include "partials/satisfied-clients.html" %}
                         <!-- Satisfy Client Images End -->
 
                         <!-- Faqs Body Content Start -->

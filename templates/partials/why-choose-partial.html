@@ -54,7 +54,7 @@
 
                                             <!-- Why Choose Button Start -->
                                             <div class="why-choose-btn-elite wow fadeInUp" data-wow-delay="1s">
-                                                <a href="https://app.ventureplanner.ai/business_register" class="btn-default-elite">Get Started Now</a>
+                                                <a href="https://app.ventureplanner.ai/business_register" class="btn-default">{{ MAIN_CTA_TEXT }}</a>
                                             </div>
                                             <!-- Why Choose Button End -->
                                         </div>
@@ -127,31 +127,7 @@
                         <!-- Why Choose Author Box Start -->
                         <div class="why-choose-author-box">
                             <!-- Satisfy Client Images Start -->
-                            <div class="satisfy-client-images">
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-4.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image add-more">
-                                    <h3><span>15</span>K+</h3>
-                                </div>
-                            </div>
+                            {% include "partials/satisfied-clients.html" %}
                             <!-- Satisfy Client Images End -->
                         </div>
                         <!-- Why Choose Author Box End -->
@@ -197,28 +173,7 @@
                         <!-- Why Choose Body Start -->
                         <div class="why-choose-body">
                             <!-- Satisfy Client Images Start -->
-                            <div class="satisfy-client-images">
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/author-4.jpg' %}" alt="Decorative image"  loading="lazy">
-                                    </figure>
-                                </div>
-                            </div>
+                            {% include "partials/satisfied-clients.html" %}
                             <!-- Satisfy Client Images End -->
 
                             <!-- Skills Progress Bar Start -->

@@ -21,6 +21,7 @@ def breadcrumbs(request):
         "case_study": "Case Study",
         "case_study_single": "How Businesses Achieve Growth Using...",
         "faq": "Frequently Asked Questions",
+        "testimonials": "Our Testimonials",
         "page_not_found": "Page Not Found",
     }
 
@@ -62,4 +63,9 @@ def turnstile_keys(request):
     """
     return {
         'TURNSTILE_SITE_KEY': settings.TURNSTILE_SITE_KEY,
+    }
+
+def global_text_fields(request):
+    return {
+        "MAIN_CTA_TEXT": "Try it yourself",
     }

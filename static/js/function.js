@@ -841,63 +841,94 @@
 		});
 	}
 
-	function renderTestimonials() {
-		// Ensure the global data object exists and the target wrapper is in the DOM
-		if (typeof TESTEMONIAL_DATA === 'undefined' || !$('.testimonial-slider .swiper-wrapper').length) {
-			return;
+	function generateTestimonialHTML(testimonial, options = {}) {
+		const {
+			layout = "slider",      // "slider" or "grid"
+			wowDelay = "0s"
+		} = options;
+
+		// ⭐ Star rating generator (shared)
+		let ratingHtml = "";
+		for (let i = 0; i < 5; i++) {
+			ratingHtml +=
+				i < Math.floor(testimonial.starRating)
+					? `<i class="fa fa-star"></i>`
+					: i < testimonial.starRating
+						? `<i class="fa fa-star-half-o"></i>`
+						: `<i class="fa fa-star-o"></i>`;
 		}
 
-		const $swiperWrapper = $('.testimonial-slider .swiper-wrapper');
-		let slidesHtml = '';
-
-		// Define placeholders for static content used in the template
-		// NOTE: Since your data has empty strings for images, we use placeholders
-		// derived from the template's structure.
-		const defaultCompanyLogo = "{% static 'images/default-company-logo.svg' %}";
-
-		// Build the HTML for all testimonial slides
-		TESTEMONIAL_DATA.forEach(function(testimonial) {
-			const companyLogo = testimonial.companyImgSrc || defaultCompanyLogo;
-
-			// Generate star rating icons based on starRating property
-			let ratingHtml = '';
-			for (let i = 0; i < 5; i++) {
-				if (i < Math.floor(testimonial.starRating)) {
-					// Full star icon (assuming a class like 'fa fa-star')
-					ratingHtml += '<i class="fa fa-star"></i>';
-				} else if (i < testimonial.starRating) {
-					// Half star icon
-					ratingHtml += '<i class="fa fa-star-half-o"></i>';
-				} else {
-					// Empty star icon
-					ratingHtml += '<i class="fa fa-star-o"></i>';
-				}
-			}
-
-			// Build the slide structure
-			slidesHtml += `
-                <div class="swiper-slide">
-                    <div class="testimonial-item">
-                        <div class="testimonial-company-logo">
-                            <img src="${testimonial.profileImgSrc}" alt="${testimonial.businessName} Logo">
-                        </div>
-                        <div class="testimonial-content">
-                            <h3>${testimonial.topLine}</h3>
-                            <p>"${testimonial.text}"</p>
-                            </div>
-                        <div class="testimonial-author">
-                            <div class="author-content">
-                                <h3>${testimonial.name}</h3>
-                                <p>${testimonial.role} - ${testimonial.businessName}</p>
-                            </div>
+		// Choose template
+		if (layout === "grid") {
+			return `
+            <div class="col-xl-4 col-md-6">
+                <div class="testimonial-item wow fadeInUp" data-wow-delay="${wowDelay}">
+                    <div class="testimonial-company-logo">
+                        <img src="${testimonial.profileImgSrc}" alt="${testimonial.businessName} Logo">
+                    </div>
+                    <div class="testimonial-content">
+                        <h3>${testimonial.topLine}</h3>
+                        <p>"${testimonial.text}"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-content">
+                            <h3>${testimonial.name}</h3>
+                            <p>${testimonial.role}</p>
                         </div>
                     </div>
                 </div>
-            `;
+            </div>
+        `;
+		}
+
+		// Slider template
+		return `
+        <div class="swiper-slide">
+            <div class="testimonial-item">
+                <div class="testimonial-company-logo">
+                    <img src="${testimonial.profileImgSrc}" alt="${testimonial.businessName} Logo">
+                </div>
+                <div class="testimonial-content">
+                    <h3>${testimonial.topLine}</h3>
+                    <p>"${testimonial.text}"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-content">
+                        <h3>${testimonial.name}</h3>
+                        <p>${testimonial.role} - ${testimonial.businessName}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+	}
+
+	function renderTestimonialsToSlider() {
+		if (!TESTEMONIAL_DATA) return;
+		const $wrap = $('.testimonial-slider .swiper-wrapper');
+		let html = "";
+
+		TESTEMONIAL_DATA.forEach(t => {
+			html += generateTestimonialHTML(t, { layout: "slider" });
 		});
 
-		// 3. Clear existing content and inject the new slides
-		$swiperWrapper.empty().html(slidesHtml);
+		$wrap.html(html);
+	}
+
+	function renderTestimonialsToGrid() {
+		if (!TESTEMONIAL_DATA) return;
+		const $grid = $('#testimonial-grid');
+		let html = "";
+
+		TESTEMONIAL_DATA.forEach((t, index) => {
+			const wowDelay = (index * 0.2).toFixed(1) + "s"; // 0s, 0.2s, 0.4s...
+			html += generateTestimonialHTML(t, {
+				layout: "grid",
+				wowDelay
+			});
+		});
+
+		$grid.html(html);
 	}
 
 	function renderMarketingTestimonials() {
@@ -958,7 +989,8 @@
 
 	// Call the rendering function on window load to ensure all scripts (including the data) are ready
 	$window.on('load', function(){
-		renderTestimonials();
+		if ($('#testimonial-grid').length) renderTestimonialsToGrid();
+		if ($('.testimonial-slider .swiper-wrapper').length) renderTestimonialsToSlider();
 		renderMarketingTestimonials();
 		$(".preloader").fadeOut(600);
 	});
