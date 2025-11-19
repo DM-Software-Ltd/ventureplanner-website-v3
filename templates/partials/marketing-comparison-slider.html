@@ -1,0 +1,31 @@
+{% load static %}
+<div class="intro-compare-box bg-section dark-section parallaxie">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {% include 'partials/sitewide/section-title.html' with subtitle="our testimonials" title=heading|default:"Go Beyond Theory. See How Our AI Helps You Master the Four Cornerstones of Marketing Success." %}
+                <div class="intro-video-content">
+                    <div class="comparison-slider wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="comparison-container">
+                            <img
+                                src="/static/images/VP_MarketingPlan_Block4_Strategic.png"
+                                class="comparison-img comparison-before"
+                                alt="Before"
+                            >
+                            <img
+                                src="/static/images/VP_MarketingPlan_Block4_Tactical.png"
+                                class="comparison-img comparison-after"
+                                alt="After"
+                            >
+                            <div class="comparison-handle">
+                                <span class="handle-icon">
+                                    <i class="fi fi fi-tr-arrows-alt-h small"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

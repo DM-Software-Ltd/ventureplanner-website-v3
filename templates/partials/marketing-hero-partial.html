@@ -2,12 +2,18 @@
 <div class="hero-silver bg-section dark-section parallaxie">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <!-- Hero Box Start -->
+            <div class="col-lg-12 position-relative">
+                <div class="carousel-container flex-grow-1 d-flex align-items-center justify-content-center py-5">
+                    <div class="container-fluid carousel-rotation-wrapper">
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Carousel Items will be dynamically generated and cloned here -->
+                        </div>
+                    </div>
+                </div>
                 <div class="hero-box-silver">
                     <!-- Hero Content Start -->
                     <div class="hero-content-silver">
-                        {% include 'partials/sitewide/section-title.html' with subtitle="Powered by AI" title="Professional Marketing Planning - Become Unstoppable" title_tag='h1' title_class="text-anime-style-3" paragraph="Generate exhaustive, multi-channel marketing strategies for digital marketing, direct response marketing, traditional advertising, SEO, public relations, and much, much more. We combine the speed of AI with a collaborative process to ensure your plan is 100% custom-built to match your unique goals, giving you a clear and actionable path to growth." paragraph_delay="0.2s" %}
+                        {% include 'partials/sitewide/section-title.html' with subtitle="Powered by AI" title="Professional Marketing Planning - Become Unstoppable" title_tag='h1' title_class="text-anime-style-3" paragraph="Generate exhaustive, multi-channel marketing strategies for digital marketing, direct response marketing, traditional advertising, SEO, public relations, and much, much more. ." paragraph_delay="0.2s" %}
 
                         <!-- Hero Body Start -->
                         <div class="hero-body-silver">
@@ -34,37 +40,6 @@
                         <!-- Hero Body End -->
                     </div>
                     <!-- Hero Content End -->
-
-                    <!-- Google Rating Box Start -->
-                    <div class="google-rating-box-silver wow fadeInUp" data-wow-delay="0.8s">
-                        <!-- Google Rating Content Start -->
-                        <div class="google-rating-content-silver">
-                            <p>“A perfect balance of comfort and productivity.”</p>
-                        </div>
-                        <!-- Google Rating Content End -->
-
-                        <!-- Satisfy Client Images Start -->
-                        {% include "partials/satisfied-clients.html" %}
-                        <!-- Satisfy Client Images End -->
-
-                        <!-- Google Review Content Start -->
-                        <div class="google-review-content-silver">
-                            <p>Google Rating</p>
-
-                            <div class="raview-rating-box-silver">
-                                <p>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </p>
-                                <p>(5.0)</p>
-                            </div>
-                        </div>
-                        <!-- Google Review Content End -->
-                    </div>
-                    <!-- Google Rating Box End -->
 
                     <!-- Hero Company Slider Box Start -->
                     <div class="hero-company-slider-box-silver">
@@ -125,3 +100,69 @@
         </div>
     </div>
 </div>
+
+<style>
+    .card-ratio-base {
+        height: 100%; /* Fallback */
+        transition: all 0.8s ease-in-out;
+        transform-origin: bottom;
+    }
+
+    .carousel-container {
+        position: absolute;
+        top: 0;
+        left: -50vw;
+        right: 0;
+        bottom: 0;
+        width: 150vw;
+    }
+
+    .carousel-rotation-wrapper {
+        overflow: hidden;
+        padding-top: 10vh;
+        padding-bottom: 2vh;
+        transform: rotate(15deg) translateY(-32vw) translateX(8.5vw) scale(0.9) translateZ(0);
+        transition: transform 0.8s ease;
+    }
+    .carousel-track {
+        display: flex;
+        transition: transform 0.8s ease-in-out;
+    }
+
+    .card-item {
+        flex-shrink: 0;
+        margin-right: 1.5rem;
+        background-color: #343a40;
+        color: #f8f9fa;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.8s ease-in-out;
+        border: 2px solid transparent;
+    }
+
+    .no-transition * {
+        transition: none !important;
+    }
+
+    .card-item.featured {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
+        transform: none;
+    }
+
+    .card-item img {
+        opacity: 1;
+        transition: opacity 0.8s ease-in-out;
+    }
+
+    .card-item.featured img {
+        opacity: 0;
+        //opacity: 1;
+    }
+</style>
+
