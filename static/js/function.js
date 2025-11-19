@@ -1031,199 +1031,159 @@
     ---------------------------------------------------- */
 
 	function initializeCustomCarousel() {
-
-		// Disable transitions during initial layout
-
-		const $track = $('#carouselTrack');
-		const $container = $('.carousel-rotation-wrapper');
-		$container.addClass('no-transition');
+		const $track = $("#carouselTrack");
 		const IMAGE_FILES = [
 			{
 				simple: "marketing-plan-market-collateral.svg",
 				detailed: "VP_MarketingPlan_Block1_EmailMarketingPlan.svg"
-			},{
+			},
+			{
 				simple: "business-plan-market-data.svg",
 				detailed: "VP_MarketingPlan_Block1_SEOPlan.svg"
-			},{
+			},
+			{
 				simple: "business-plan-financial-charts.svg",
 				detailed: "VP_MarketingPlan_Block1_SocialMediaPlan.svg"
-			},
+			}
 		];
-		let CARD_COUNT = 15; // original desired count
-		CARD_COUNT = Math.round(CARD_COUNT / IMAGE_FILES.length) * IMAGE_FILES.length;
+
 		const VISIBLE_SLOTS = 6;
-		const CLONE_COUNT = VISIBLE_SLOTS + 2;
+		const HEAD_CLONES = VISIBLE_SLOTS + 2;
+		const TAIL_CLONES = VISIBLE_SLOTS + 2;
 		const ASPECT_RATIO = 1.414;
-		const AUTO_ADVANCE_MS = 10000;
 		const ITEM_MARGIN_REM = 1.5;
 		const ITEM_MARGIN_PX = ITEM_MARGIN_REM * 16;
+		const AUTO_ADVANCE_MS = 5000;
+		const $container = $(".carousel-rotation-wrapper");
+		$container.addClass("no-transition");
 
 
-
-		let customCarouselIndex = 5; // Start with card #6 featured
+		let customCarouselIndex = HEAD_CLONES + 3;       // Start in the middle, keeps large card on the right
 		let itemWidth = 0;
 		let itemHeight = 0;
+		let CARD_COUNT = 15;
+		CARD_COUNT = Math.round(CARD_COUNT / IMAGE_FILES.length) * IMAGE_FILES.length;
 
-		/* ---------------------------
-           1. Generate Cards + Clones
-        --------------------------- */
 		function generateCards() {
-
-			let cardHtml = '';
-
+			let cards = "";
 			for (let i = 0; i < CARD_COUNT; i++) {
-
-				const imgFile = IMAGE_FILES[i % IMAGE_FILES.length];
-
-				cardHtml += `
-            <div class="card-item card-ratio-base" style="background-image: url('/static/images/${imgFile.detailed}')" data-index="${i}">
-                <img 
-                    src="/static/images/${imgFile.simple}" 
-                    alt="Document preview image"
-                    style="width:100%; height:100%; object-fit:cover; border-radius:0.75rem;"
-                >
-            </div>
-        `;
+				const img = IMAGE_FILES[i % IMAGE_FILES.length];
+				cards += `
+					<div class="card-item card-ratio-base" 
+						data-idx="${i}"
+						style="background-image:url('/static/images/${img.detailed}')">
+						<img src="/static/images/${img.simple}" />
+					</div>
+				`;
 			}
 
-			// Insert real cards
-			$track.html(cardHtml);
+			$track.html(cards);
 
-			// Clone leading items (for infinite loop)
-			const $clones = $track.children().slice(0, CLONE_COUNT).clone(true);
-			$clones.addClass('is-clone').removeAttr('data-index');
+			// Clone tail
+			const tailClones = $track.children().slice(-TAIL_CLONES).clone(true);
+			tailClones.addClass("is-clone");
+			$track.prepend(tailClones);
 
-			$track.append($clones);
+			// Clone head
+			const headClones = $track.children().slice(TAIL_CLONES, TAIL_CLONES + HEAD_CLONES).clone(true);
+			headClones.addClass("is-clone");
+			$track.append(headClones);
 		}
 
-
-		/* ---------------------------
-           2. Sizing & Layout
-        --------------------------- */
-		function calculateAndApplySizes() {
+		function resizeCards() {
 			const containerWidth = $container.width();
-			const BASE_CARD_FRACTION = 1 / VISIBLE_SLOTS;
+			const slotFraction = 1 / VISIBLE_SLOTS;
 
-			itemWidth = (((containerWidth / 160) * 100) * BASE_CARD_FRACTION) - ITEM_MARGIN_PX;
+			itemWidth = (((containerWidth / 160) * 100) * slotFraction) - ITEM_MARGIN_PX;
 			itemHeight = itemWidth * ASPECT_RATIO;
 
 			const featuredHeight = itemHeight * 2;
-			const halfExtraHeight = itemHeight / 2;
 
 			$track.children().each(function () {
 				$(this).css({
-					'min-width': itemWidth + 'px',
-					'width': itemWidth + 'px',
-					'height': itemHeight + 'px',
-					'margin-top': halfExtraHeight + 'px',
-					'margin-right': ITEM_MARGIN_REM + 'rem'
+					width: itemWidth + "px",
+					height: itemHeight + "px",
+					marginRight: ITEM_MARGIN_REM + "rem",
+					marginTop: (itemHeight / 2) + "px"
 				});
 			});
 
-			$container.css('padding-top', (featuredHeight / 2 + 20) + 'px');
-
-			// Sync to prevent unintended initial animation
-			void $track[0].offsetHeight;
-
-			updateCarousel(false);
+			$container.css("padding-top", (featuredHeight / 2 + 20) + "px");
 		}
 
-		/* ---------------------------
-           3. Update Carousel Position
-        --------------------------- */
 		function updateCarousel(animate = true) {
-			const $cards = $track.children();
+			const cards = $track.children();
 			const featuredWidth = itemWidth * 2;
 			const featuredHeight = itemHeight * 2;
-			const halfExtraHeight = itemHeight / 2;
 
-			const FEATURED_VISUAL_POSITION = 3;
-			let visualAnchorIndex = customCarouselIndex - FEATURED_VISUAL_POSITION;
-			if (visualAnchorIndex < 0) visualAnchorIndex = 0;
+			const FEATURED_VISUAL_POSITION = 3;   // The big card sits visually on the right
 
-			let finalTranslation = 0;
-
-			// 1. Update card sizes
-			$cards.each(function (i) {
-				const $card = $(this);
+			cards.each(function (i) {
 				const isFeatured = (i === customCarouselIndex);
+				$(this).toggleClass("featured", isFeatured);
 
-				const w = isFeatured ? featuredWidth : itemWidth;
-				const h = isFeatured ? featuredHeight : itemHeight;
-				const mt = isFeatured ? '0px' : (halfExtraHeight + 'px');
-
-				$card.toggleClass('featured', isFeatured);
-
-				$card.css({
-					width: w + 'px',
-					height: h + 'px',
-					'margin-top': mt,
+				$(this).css({
+					width: isFeatured ? featuredWidth : itemWidth,
+					height: isFeatured ? featuredHeight : itemHeight,
+					marginTop: isFeatured ? "0px" : (itemHeight / 2) + "px",
 					opacity: isFeatured ? 1 : 0.6,
 					zIndex: isFeatured ? 10 : 1
 				});
 			});
 
-			// 2. Compute translation
-			$cards.each(function (i) {
-				if (i < visualAnchorIndex) {
-					const isFeatured = (i === customCarouselIndex);
-					const widthHere = isFeatured ? featuredWidth : itemWidth;
-					finalTranslation += widthHere + ITEM_MARGIN_PX;
-				}
-			});
+			let shift = 0;
+			for (let i = 0; i < customCarouselIndex - FEATURED_VISUAL_POSITION; i++) {
+				const isFeatured = (i === customCarouselIndex);
+				const w = isFeatured ? featuredWidth : itemWidth;
+				shift += w + ITEM_MARGIN_PX;
+			}
 
-			// 3. Apply transform
-			const containerOffsetFix = ($container.width() * 0.35);
+			const viewportOffsetFix = ($container.width() * 0.35);
 
 			$track.css({
-				transition: animate ? 'transform 0.8s ease-in-out' : 'none',
-				transform: `translateX(calc(${containerOffsetFix}px - ${finalTranslation}px))`
+				transition: animate ? "transform 0.8s ease" : "none",
+				transform: `translateX(calc(${viewportOffsetFix}px - ${shift}px))`
 			});
 
-			// 4. Infinite loop snap
-			if (customCarouselIndex >= CARD_COUNT) {
-				setTimeout(() => {
-					customCarouselIndex -= CARD_COUNT;
-					updateCarousel(false);
-				}, 850);
+			if (customCarouselIndex >= CARD_COUNT + HEAD_CLONES) {
+				const naturalIndex = customCarouselIndex - CARD_COUNT;
+				customCarouselIndex = naturalIndex;
+				setTimeout(() => updateCarousel(false), 820);
+			}
+
+			if (customCarouselIndex < HEAD_CLONES) {
+				const naturalIndex = customCarouselIndex + CARD_COUNT;
+				customCarouselIndex = naturalIndex;
+				setTimeout(() => updateCarousel(false), 820);
 			}
 		}
-
-		/* ---------------------------
-           4. Initialize
-        --------------------------- */
-
 		generateCards();
-		void $track[0].offsetHeight;
-		calculateAndApplySizes();
+		resizeCards();
 
-		// Re-enable transitions after first paint
-		setTimeout(() => {
-			$container.removeClass('no-transition');
-		}, 50);
+		setTimeout(() => $container.removeClass("no-transition"), 50);
 
-		// Auto advance
+		updateCarousel(false);
 		let autoTimer = setInterval(() => {
 			customCarouselIndex++;
-			updateCarousel();
+			updateCarousel(true);
 		}, AUTO_ADVANCE_MS);
 
-		// Click-to-feature
-		$track.on('click', '.card-item:not(.featured)', function () {
+		$track.on("click", ".card-item:not(.featured)", function () {
 			customCarouselIndex = $(this).index();
-			updateCarousel();
+			updateCarousel(true);
 
 			clearInterval(autoTimer);
 			autoTimer = setInterval(() => {
 				customCarouselIndex++;
-				updateCarousel();
+				updateCarousel(true);
 			}, AUTO_ADVANCE_MS);
 		});
-
-		// Resize handler
-		$(window).on('resize', function () {
-			clearTimeout(window.carouselResizeTimer);
-			window.carouselResizeTimer = setTimeout(calculateAndApplySizes, 250);
+		$(window).on("resize", function () {
+			clearTimeout(window.__carousel_resize_timer);
+			window.__carousel_resize_timer = setTimeout(() => {
+				resizeCards();
+				updateCarousel(false);
+			}, 250);
 		});
 	}
 
