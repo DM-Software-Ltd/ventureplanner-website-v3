@@ -132,7 +132,7 @@ def for_agencies(request):
     return render(request, "pages/for-agencies.html")
 
 def service_single(request):
-    return render(request, "pages-single.html")
+    return render(request, "pages/service-single.html")
 
 def faq(request):
     return render(request, "pages/faq.html")

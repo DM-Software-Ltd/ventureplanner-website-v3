@@ -28,6 +28,7 @@ class StaticViewSitemap(Sitemap):
             'contact',
             'blog',
             'services',
+            'service-single',
             'for-agencies',
             'faq',
             'pricing',

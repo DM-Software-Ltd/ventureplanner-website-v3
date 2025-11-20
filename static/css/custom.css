@@ -58,9 +58,9 @@
     --divider-color: #102B3213;
     --dark-divider-color: #FFFFFF1A;
     --light-gray: #f7f7f7;
-    --light-green: #f7f7f7;
-    --light-orange: #f7f7f7;
-    --light-blue: #f7f7f7;
+    --light-green: #eaf3f1;
+    --light-orange: #faf6ee;
+    --light-blue: #ecf4f6;
     --light-red: #f9f1f2;
     --error-color: rgb(230, 87, 87);
     --default-font: "Sora", sans-serif;
@@ -3568,7 +3568,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 .page-single-sidebar {
     position: sticky;
     top: 130px;
-    margin-right: 20px;
+    margin-right: 80px;
 }
 
 .page-category-list {
@@ -3593,8 +3593,8 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 .page-category-list ul li {
     line-height: 1.5em;
     border-bottom: 2px solid var(--divider-color);
-    padding-bottom: 25px;
-    margin-bottom: 25px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .page-category-list ul li:last-child {
@@ -3643,24 +3643,10 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 
 .sidebar-cta-box {
     position: relative;
-    background: url('../images/sidebar-cta-box-image.jpg') no-repeat;
-    background-position: center center;
-    background-size: cover;
+    background: var(--primary-color);
     border-radius: 40px;
-    padding: 120px 40px 40px;
+    padding: 40px;
     overflow: hidden;
-}
-
-.sidebar-cta-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(180deg, rgba(16, 43, 50, 0.00) 3.15%, rgba(16, 43, 50, 0.90) 59.32%);
-    height: 100%;
-    width: 100%;
 }
 
 .sidebar-cta-content,
@@ -3727,6 +3713,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     border-radius: 40px;
     margin-bottom: 40px;
     overflow: hidden;
+    background: var(--light-orange);
 }
 
 .page-single-image figure {
@@ -3737,10 +3724,6 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     width: 100%;
     aspect-ratio: 1 / 0.506;
     object-fit: cover;
-}
-
-.service-entry {
-    margin-bottom: 60px;
 }
 
 .service-entry p {
@@ -3764,6 +3747,10 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 
 .service-entry h3:last-child {
     margin-bottom: 0;
+}
+
+.service-entry h5 {
+    line-height: 2.5rem;
 }
 
 .service-entry ul {
@@ -3815,6 +3802,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 .solution-body-image figure {
     display: block;
     border-radius: 40px;
+    padding-right: 25%;
 }
 
 .solution-body-image img {
@@ -4003,11 +3991,11 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 80px;
 }
 
 .service-feature-image-box,
-.service-feature-counter-box {
+.service-feature-detail-box {
     width: calc(50% - 15px);
 }
 
@@ -4060,7 +4048,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     color: var(--white-color);
 }
 
-.service-feature-counter-box {
+.service-feature-detail-box {
     display: flex;
     flex-wrap: wrap;
     border: 2px solid var(--divider-color);
@@ -4068,7 +4056,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     padding: 30px;
 }
 
-.service-feature-counter {
+.service-feature-detail {
     width: calc(35% - 20px);
     align-content: center;
     border-right: 2px solid var(--divider-color);
@@ -4076,12 +4064,12 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     padding-right: 20px;
 }
 
-.service-feature-counter h2 {
+.service-feature-detail h2 {
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
-.service-feature-counter-content {
+.service-feature-detail-content {
     width: 65%;
     align-content: center;
 }
@@ -5250,6 +5238,10 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     .hero-info-office-box-1:before {
         right: -15px;
     }
+
+    .page-single-sidebar {
+        margin: 0;
+    }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -5573,9 +5565,6 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
         padding: 50px 30px;
     }
 
-    .page-single-sidebar {
-        margin: 0;
-    }
 
     .page-category-list h3,
     .page-category-list ul {
