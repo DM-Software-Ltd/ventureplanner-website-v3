@@ -3728,11 +3728,22 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     margin-top: 30px;
 }
 
-.page-single-image {
+.page-single-top {
+    background: var(--secondary-color);
     border-radius: 40px;
     margin-bottom: 40px;
     overflow: hidden;
-    background: var(--light-orange);
+}
+
+.page-single-top h5 {
+    line-height: 2.5rem;
+    padding: 3rem
+}
+
+.page-single-image {
+
+
+
 }
 
 .page-single-image figure {
@@ -3741,7 +3752,6 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 
 .page-single-image img {
     width: 100%;
-    aspect-ratio: 1 / 0.506;
     object-fit: cover;
 }
 
@@ -3766,10 +3776,6 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 
 .service-entry h3:last-child {
     margin-bottom: 0;
-}
-
-.service-entry h5 {
-    line-height: 2.5rem;
 }
 
 .service-entry ul {
@@ -3912,6 +3918,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     border-bottom: 2px solid var(--divider-color);
     margin-bottom: 30px;
     padding-bottom: 30px;
+    align-items: center;
 }
 
 .service-feature-item:last-child {
@@ -3964,6 +3971,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 
 .service-feature-item-content {
     width: calc(100% - 70px);
+
 }
 
 .service-feature-image {
