@@ -1095,7 +1095,7 @@
 			const containerWidth = $container.width();
 			const slotFraction = 1 / VISIBLE_SLOTS;
 
-			itemWidth = (((containerWidth / 160) * 100) * slotFraction) - ITEM_MARGIN_PX;
+			itemWidth = (((containerWidth / 220) * 100) * slotFraction) - ITEM_MARGIN_PX;
 			itemHeight = itemWidth * ASPECT_RATIO;
 
 			const featuredHeight = itemHeight * 2;
@@ -1105,7 +1105,6 @@
 					width: itemWidth + "px",
 					height: itemHeight + "px",
 					marginRight: ITEM_MARGIN_REM + "rem",
-					marginTop: (itemHeight / 2) + "px"
 				});
 			});
 
@@ -1114,9 +1113,6 @@
 
 		function updateCarousel(animate = true) {
 			const cards = $track.children();
-			const featuredWidth = itemWidth * 2;
-			const featuredHeight = itemHeight * 2;
-
 			const FEATURED_VISUAL_POSITION = 3;   // The big card sits visually on the right
 
 			cards.each(function (i) {
@@ -1124,9 +1120,7 @@
 				$(this).toggleClass("featured", isFeatured);
 
 				$(this).css({
-					width: isFeatured ? featuredWidth : itemWidth,
-					height: isFeatured ? featuredHeight : itemHeight,
-					marginTop: isFeatured ? "0px" : (itemHeight / 2) + "px",
+					transform: isFeatured ? 'scale(2.5)' : 'scale(1)',
 					opacity: isFeatured ? 1 : 0.6,
 					zIndex: isFeatured ? 10 : 1
 				});

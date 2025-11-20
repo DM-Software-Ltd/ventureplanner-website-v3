@@ -13570,7 +13570,6 @@ i[class*="fi-tr"].yellow {
 }
 
 .carousel-rotation-wrapper {
-    overflow: hidden;
     padding-top: 10vh;
     padding-bottom: 2vh;
     -webkit-transform:  rotate(15deg) translateY(-32vw) translateX(8.5vw) scale(0.9) translateZ(0)  translate3d(0, 0, 0);
@@ -13608,6 +13607,7 @@ i[class*="fi-tr"].yellow {
     cursor: pointer;
     transition: all 0.8s ease-in-out;
     border: 2px solid transparent;
+    transform-origin: center center;
 }
 
 .no-transition * {
