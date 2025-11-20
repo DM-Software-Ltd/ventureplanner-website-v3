@@ -1020,6 +1020,7 @@
 		if ($('#testimonial-grid').length) renderTestimonialsToGrid();
 		if ($('.testimonial-slider .swiper-wrapper').length) renderTestimonialsToSlider();
 		renderMarketingTestimonials();
+		renderMarketingPlans();
 		$(".preloader").fadeOut(600);
 	});
 
@@ -1306,12 +1307,68 @@
 		currentText = "";
 		typeNextLetter(phrase);
 	}
+	function defaultPlanTemplate(plan) {
+		return `
+            <div class="plan-option ${plan.type || "marketing"}">
+                <div class="plan-option__inner">
 
+                    <!-- Left Visual -->
+                    <div class="plan-option__inner--render">
+                        <img src="${plan.thumb || "/static/images/business-plan-financial-charts.svg"}" alt="${plan.label}">
+
+                        ${plan.popular ? `
+                            <div class="popular-badge">
+                                <div class="badge-text">Popular</div>
+                            </div>
+                        ` : ""}
+                    </div>
+
+                    <!-- Right Panel -->
+                    <div class="plan-option__inner--overlay">
+                        <div class="plan-option__inner--overlay__title">
+                            ${plan.label}
+                            ${plan.subTitle ? `<span class="fw-light d-block">${plan.subTitle}</span>` : ""}
+                        </div>
+
+                        <div class="plan-option__inner--overlay__for">
+                            ${plan.shortDescription}
+                        </div>
+
+                        <div class="plan-option__inner--overlay__time">
+
+                            <div class="plans-time-needed">
+                                <i class="fi fi-tr-pending"></i>${plan.estimatedTime}
+                            </div>
+                        </div>
+
+                        <div class="plan-option__inner--overlay__icon">
+                            <img class="icon" src="/static/images/icon-mp.svg" alt="marketing plan icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+	}
+
+	function renderMarketingPlans(options = {}) {
+		const {
+			containerSelector = '.right-panel-grid',
+			data = window.MARKETING_PLAN_DATA,
+			template = defaultPlanTemplate
+		} = options;
+
+		const container = document.querySelector(containerSelector);
+		if (!container) return;
+		if (!data || !Array.isArray(data) || data.length === 0) return;
+
+		container.innerHTML = ""; // clear static cards
+
+		data.forEach(plan => container.insertAdjacentHTML("beforeend", template(plan)));
+	}
 
 	if ($("#carouselTrack").length) {
 		initializeCustomCarousel();
 	}
 	changeSortFocus();
 	setInterval(changeSortFocus, CYCLE);
-
 })(jQuery);
