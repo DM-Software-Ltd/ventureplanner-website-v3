@@ -78,28 +78,7 @@
                                     <h3>Dianne Russell</h3>
                                     <p>Freelancer</p>
                                 </div>
-                                <div class="satisfy-client-images-elite">
-                                    <div class="satisfy-client-image-elite">
-                                        <figure class="image-anime">
-                                            <img src="{% static 'images/author-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image-elite">
-                                        <figure class="image-anime">
-                                            <img src="{% static 'images/author-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image-elite">
-                                        <figure class="image-anime">
-                                            <img src="{% static 'images/author-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image-elite">
-                                        <figure class="image-anime">
-                                            <img src="{% static 'images/author-4.jpg' %}" alt="Decorative image"  loading="lazy">
-                                        </figure>
-                                    </div>
-                                </div>
+                                {% include "partials/satisfied-clients.html" %}
                             </div>
                         </div>
                         <!-- About Testimonial Box End -->
@@ -139,8 +118,8 @@
                         <!-- About Contact Body End -->
 
                         <!-- About Contact Button Start -->
-                        <div class="about-contact-btn-elite">
-                            <a href="{% url 'contact' %}" class="btn-default-elite">contact us</a>
+                        <div class="about-contact-btn">
+                            <a href="{% url 'contact' %}" class="btn-default">contact us</a>
                         </div>
                         <!-- About Contact Button End -->
                     </div>

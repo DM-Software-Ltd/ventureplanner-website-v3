@@ -2,45 +2,33 @@
 <div class="hero-silver bg-section dark-section parallaxie">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <!-- Hero Box Start -->
+            <div class="col-lg-12 position-relative">
+                <div class="carousel-container flex-grow-1 d-flex align-items-center justify-content-center py-5">
+                    <div class="container-fluid carousel-rotation-wrapper">
+                        <div class="carousel-track" id="carouselTrack">
+
+                            <!-- Carousel Items will be dynamically generated and cloned here -->
+
+                        </div>
+                    </div>
+                </div>
                 <div class="hero-box-silver">
                     <!-- Hero Content Start -->
                     <div class="hero-content-silver">
-                        {% include 'partials/sitewide/section-title.html' with subtitle="Powered by AI" title="Professional Marketing Planning - Become Unstoppable" title_tag='h1' title_class="text-anime-style-3" paragraph="Generate exhaustive, multi-channel marketing strategies for digital marketing, direct response marketing, traditional advertising, SEO, public relations, and much, much more. We combine the speed of AI with a collaborative process to ensure your plan is 100% custom-built to match your unique goals, giving you a clear and actionable path to growth." paragraph_delay="0.2s" %}
+                        {% include 'partials/sitewide/section-title.html' with subtitle="Powered by AI" title="Professional Marketing Planning - Become Unstoppable" title_tag='h1' title_class="text-anime-style-3" paragraph="Generate exhaustive, multi-channel marketing strategies for digital marketing, direct response marketing, traditional advertising, SEO, public relations, and much, much more. ." paragraph_delay="0.2s" %}
 
                         <!-- Hero Body Start -->
                         <div class="hero-body-silver">
                             <!-- Hero Button Start -->
                             <div class="hero-btn-silver wow fadeInUp" data-wow-delay="0.4s">
-                                <a href="contact.html" class="btn-default-silver btn-highlighted-silver">Start Your
-                                    Marketing Plan</a>
+                                <a href="contact.html" class="btn-default-silver btn-highlighted-silver">{{ MAIN_CTA_TEXT }}</a>
                             </div>
                             <!-- Hero Button End -->
 
                             <!-- Satisfy Client Box Start -->
                             <div class="satisfy-client-box-silver wow fadeInUp" data-wow-delay="0.6s">
                                 <!-- Satisfy Client Images Start -->
-                                <div class="satisfy-client-images-silver">
-                                    <div class="satisfy-client-image-silver">
-                                        <figure class="image-anime">
-                                            <img src="{% static 'images/author-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image-silver">
-                                        <figure class="image-anime">
-                                            <img src="{% static 'images/author-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image-silver">
-                                        <figure class="image-anime">
-                                            <img src="{% static 'images/author-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image-silver add-more">
-                                        <i class="fa fa-solid fa-plus"></i>
-                                    </div>
-                                </div>
+                                {% include "partials/satisfied-clients.html" %}
                                 <!-- Satisfy Client Images End -->
 
                                 <!-- Satisfy Client Content Start -->
@@ -54,61 +42,6 @@
                         <!-- Hero Body End -->
                     </div>
                     <!-- Hero Content End -->
-
-                    <!-- Google Rating Box Start -->
-                    <div class="google-rating-box-silver wow fadeInUp" data-wow-delay="0.8s">
-                        <!-- Google Rating Content Start -->
-                        <div class="google-rating-content-silver">
-                            <p>“A perfect balance of comfort and productivity.”</p>
-                        </div>
-                        <!-- Google Rating Content End -->
-
-                        <!-- Satisfy Client Images Start -->
-                        <div class="satisfy-client-images-silver">
-                            <div class="satisfy-client-image-silver">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/author-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </div>
-                            <div class="satisfy-client-image-silver">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/author-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </div>
-                            <div class="satisfy-client-image-silver">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/author-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </div>
-                            <div class="satisfy-client-image-silver">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/author-4.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </div>
-                            <div class="satisfy-client-image-silver add-more">
-                                <i class="fa fa-solid fa-plus"></i>
-                            </div>
-                        </div>
-                        <!-- Satisfy Client Images End -->
-
-                        <!-- Google Review Content Start -->
-                        <div class="google-review-content-silver">
-                            <p>Google Rating</p>
-
-                            <div class="raview-rating-box-silver">
-                                <p>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </p>
-                                <p>(5.0)</p>
-                            </div>
-                        </div>
-                        <!-- Google Review Content End -->
-                    </div>
-                    <!-- Google Rating Box End -->
 
                     <!-- Hero Company Slider Box Start -->
                     <div class="hero-company-slider-box-silver">

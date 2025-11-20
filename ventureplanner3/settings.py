@@ -58,6 +58,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'pages.context_processors.breadcrumbs',
                 'pages.context_processors.turnstile_keys',
+                "pages.context_processors.global_text_fields",
             ],
         },
     },

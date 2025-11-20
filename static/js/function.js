@@ -451,6 +451,34 @@
 		});
 	}
 
+	if ($(".comparison-container").length) {
+		const container = document.querySelector(".comparison-container");
+		const afterImg = container.querySelector(".comparison-after");
+		const handle = container.querySelector(".comparison-handle");
+		let isDragging = false;
+
+		function moveHandle(x) {
+			const rect = container.getBoundingClientRect();
+			let position = x - rect.left;
+			position = Math.max(0, Math.min(position, rect.width));
+			handle.style.left = position + "px";
+			const percentage = (position / rect.width) * 100;
+			afterImg.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+		}
+
+		handle.addEventListener("mousedown", () => isDragging = true);
+		window.addEventListener("mouseup", () => isDragging = false);
+		window.addEventListener("mousemove", e => {
+			if (isDragging) moveHandle(e.clientX);
+		});
+
+		handle.addEventListener("touchstart", () => isDragging = true);
+		window.addEventListener("touchend", () => isDragging = false);
+		window.addEventListener("touchmove", e => {
+			if (isDragging) moveHandle(e.touches[0].clientX);
+		});
+	}
+
 	/* Service Item List Start */
 	var $service_item_list = $('.services-list');
 	if ($service_item_list.length) {
@@ -841,63 +869,94 @@
 		});
 	}
 
-	function renderTestimonials() {
-		// Ensure the global data object exists and the target wrapper is in the DOM
-		if (typeof TESTEMONIAL_DATA === 'undefined' || !$('.testimonial-slider .swiper-wrapper').length) {
-			return;
+	function generateTestimonialHTML(testimonial, options = {}) {
+		const {
+			layout = "slider",      // "slider" or "grid"
+			wowDelay = "0s"
+		} = options;
+
+		// ⭐ Star rating generator (shared)
+		let ratingHtml = "";
+		for (let i = 0; i < 5; i++) {
+			ratingHtml +=
+				i < Math.floor(testimonial.starRating)
+					? `<i class="fa fa-star"></i>`
+					: i < testimonial.starRating
+						? `<i class="fa fa-star-half-o"></i>`
+						: `<i class="fa fa-star-o"></i>`;
 		}
 
-		const $swiperWrapper = $('.testimonial-slider .swiper-wrapper');
-		let slidesHtml = '';
-
-		// Define placeholders for static content used in the template
-		// NOTE: Since your data has empty strings for images, we use placeholders
-		// derived from the template's structure.
-		const defaultCompanyLogo = "{% static 'images/default-company-logo.svg' %}";
-
-		// Build the HTML for all testimonial slides
-		TESTEMONIAL_DATA.forEach(function(testimonial) {
-			const companyLogo = testimonial.companyImgSrc || defaultCompanyLogo;
-
-			// Generate star rating icons based on starRating property
-			let ratingHtml = '';
-			for (let i = 0; i < 5; i++) {
-				if (i < Math.floor(testimonial.starRating)) {
-					// Full star icon (assuming a class like 'fa fa-star')
-					ratingHtml += '<i class="fa fa-star"></i>';
-				} else if (i < testimonial.starRating) {
-					// Half star icon
-					ratingHtml += '<i class="fa fa-star-half-o"></i>';
-				} else {
-					// Empty star icon
-					ratingHtml += '<i class="fa fa-star-o"></i>';
-				}
-			}
-
-			// Build the slide structure
-			slidesHtml += `
-                <div class="swiper-slide">
-                    <div class="testimonial-item">
-                        <div class="testimonial-company-logo">
-                            <img src="${testimonial.profileImgSrc}" alt="${testimonial.businessName} Logo">
-                        </div>
-                        <div class="testimonial-content">
-                            <h3>${testimonial.topLine}</h3>
-                            <p>"${testimonial.text}"</p>
-                            </div>
-                        <div class="testimonial-author">
-                            <div class="author-content">
-                                <h3>${testimonial.name}</h3>
-                                <p>${testimonial.role} - ${testimonial.businessName}</p>
-                            </div>
+		// Choose template
+		if (layout === "grid") {
+			return `
+            <div class="col-xl-4 col-md-6">
+                <div class="testimonial-item wow fadeInUp" data-wow-delay="${wowDelay}">
+                    <div class="testimonial-company-logo">
+                        <img src="${testimonial.profileImgSrc}" alt="${testimonial.businessName} Logo">
+                    </div>
+                    <div class="testimonial-content">
+                        <h3>${testimonial.topLine}</h3>
+                        <p>"${testimonial.text}"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-content">
+                            <h3>${testimonial.name}</h3>
+                            <p>${testimonial.role}</p>
                         </div>
                     </div>
                 </div>
-            `;
+            </div>
+        `;
+		}
+
+		// Slider template
+		return `
+        <div class="swiper-slide">
+            <div class="testimonial-item">
+                <div class="testimonial-company-logo">
+                    <img src="${testimonial.profileImgSrc}" alt="${testimonial.businessName} Logo">
+                </div>
+                <div class="testimonial-content">
+                    <h3>${testimonial.topLine}</h3>
+                    <p>"${testimonial.text}"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-content">
+                        <h3>${testimonial.name}</h3>
+                        <p>${testimonial.role} - ${testimonial.businessName}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+	}
+
+	function renderTestimonialsToSlider() {
+		if (!TESTEMONIAL_DATA) return;
+		const $wrap = $('.testimonial-slider .swiper-wrapper');
+		let html = "";
+
+		TESTEMONIAL_DATA.forEach(t => {
+			html += generateTestimonialHTML(t, { layout: "slider" });
 		});
 
-		// 3. Clear existing content and inject the new slides
-		$swiperWrapper.empty().html(slidesHtml);
+		$wrap.html(html);
+	}
+
+	function renderTestimonialsToGrid() {
+		if (!TESTEMONIAL_DATA) return;
+		const $grid = $('#testimonial-grid');
+		let html = "";
+
+		TESTEMONIAL_DATA.forEach((t, index) => {
+			const wowDelay = (index * 0.2).toFixed(1) + "s"; // 0s, 0.2s, 0.4s...
+			html += generateTestimonialHTML(t, {
+				layout: "grid",
+				wowDelay
+			});
+		});
+
+		$grid.html(html);
 	}
 
 	function renderMarketingTestimonials() {
@@ -958,16 +1017,182 @@
 
 	// Call the rendering function on window load to ensure all scripts (including the data) are ready
 	$window.on('load', function(){
-		renderTestimonials();
+		if ($('#testimonial-grid').length) renderTestimonialsToGrid();
+		if ($('.testimonial-slider .swiper-wrapper').length) renderTestimonialsToSlider();
 		renderMarketingTestimonials();
+		renderMarketingPlans();
 		$(".preloader").fadeOut(600);
 	});
 
 	/* ----------------------------------------------------
-   Isotope + Typewriter Sync (with "plan" suffix)
-   - Sorts by data-plan-type weight
-   - Typewriter says "marketing plan", "financial plan", etc.
+   Custom Carousel Logic (Marquee Style Infinite Loop)
 ---------------------------------------------------- */
+	/* ----------------------------------------------------
+       Custom Carousel Logic (Marquee Style Infinite Loop)
+    ---------------------------------------------------- */
+
+	function initializeCustomCarousel() {
+		const $track = $("#carouselTrack");
+		const IMAGE_FILES = [
+			{
+				simple: "marketing-plan-market-collateral.svg",
+				detailed: "VP_MarketingPlan_Block1_EmailMarketingPlan.svg"
+			},
+			{
+				simple: "business-plan-market-data.svg",
+				detailed: "VP_MarketingPlan_Block1_SEOPlan.svg"
+			},
+			{
+				simple: "business-plan-financial-charts.svg",
+				detailed: "VP_MarketingPlan_Block1_SocialMediaPlan.svg"
+			}
+		];
+
+		const VISIBLE_SLOTS = 6;
+		const HEAD_CLONES = VISIBLE_SLOTS + 2;
+		const TAIL_CLONES = VISIBLE_SLOTS + 2;
+		const ASPECT_RATIO = 1.414;
+		const ITEM_MARGIN_REM = 1.5;
+		const ITEM_MARGIN_PX = ITEM_MARGIN_REM * 16;
+		const AUTO_ADVANCE_MS = 5000;
+		const $container = $(".carousel-rotation-wrapper");
+		$container.addClass("no-transition");
+
+
+		let customCarouselIndex = HEAD_CLONES + 3;       // Start in the middle, keeps large card on the right
+		let itemWidth = 0;
+		let itemHeight = 0;
+		let CARD_COUNT = 15;
+		CARD_COUNT = Math.round(CARD_COUNT / IMAGE_FILES.length) * IMAGE_FILES.length;
+
+		function generateCards() {
+			let cards = "";
+			for (let i = 0; i < CARD_COUNT; i++) {
+				const img = IMAGE_FILES[i % IMAGE_FILES.length];
+				cards += `
+					<div class="card-item card-ratio-base" 
+						data-idx="${i}"
+						style="background-image:url('/static/images/${img.detailed}')">
+						<img src="/static/images/${img.simple}" />
+					</div>
+				`;
+			}
+
+			$track.html(cards);
+
+			// Clone tail
+			const tailClones = $track.children().slice(-TAIL_CLONES).clone(true);
+			tailClones.addClass("is-clone");
+			$track.prepend(tailClones);
+
+			// Clone head
+			const headClones = $track.children().slice(TAIL_CLONES, TAIL_CLONES + HEAD_CLONES).clone(true);
+			headClones.addClass("is-clone");
+			$track.append(headClones);
+		}
+
+		function resizeCards() {
+			const containerWidth = $container.width();
+			const slotFraction = 1 / VISIBLE_SLOTS;
+
+			itemWidth = (((containerWidth / 160) * 100) * slotFraction) - ITEM_MARGIN_PX;
+			itemHeight = itemWidth * ASPECT_RATIO;
+
+			const featuredHeight = itemHeight * 2;
+
+			$track.children().each(function () {
+				$(this).css({
+					width: itemWidth + "px",
+					height: itemHeight + "px",
+					marginRight: ITEM_MARGIN_REM + "rem",
+					marginTop: (itemHeight / 2) + "px"
+				});
+			});
+
+			$container.css("padding-top", (featuredHeight / 2 + 20) + "px");
+		}
+
+		function updateCarousel(animate = true) {
+			const cards = $track.children();
+			const featuredWidth = itemWidth * 2;
+			const featuredHeight = itemHeight * 2;
+
+			const FEATURED_VISUAL_POSITION = 3;   // The big card sits visually on the right
+
+			cards.each(function (i) {
+				const isFeatured = (i === customCarouselIndex);
+				$(this).toggleClass("featured", isFeatured);
+
+				$(this).css({
+					width: isFeatured ? featuredWidth : itemWidth,
+					height: isFeatured ? featuredHeight : itemHeight,
+					marginTop: isFeatured ? "0px" : (itemHeight / 2) + "px",
+					opacity: isFeatured ? 1 : 0.6,
+					zIndex: isFeatured ? 10 : 1
+				});
+			});
+
+			let shift = 0;
+			for (let i = 0; i < customCarouselIndex - FEATURED_VISUAL_POSITION; i++) {
+				const isFeatured = (i === customCarouselIndex);
+				const w = isFeatured ? featuredWidth : itemWidth;
+				shift += w + ITEM_MARGIN_PX;
+			}
+
+			const viewportOffsetFix = ($container.width() * 0.35);
+
+			$track.css({
+				transition: animate ? "transform 0.8s ease" : "none",
+				transform: `translateX(calc(${viewportOffsetFix}px - ${shift}px))`
+			});
+
+			if (customCarouselIndex >= CARD_COUNT + HEAD_CLONES) {
+				const naturalIndex = customCarouselIndex - CARD_COUNT;
+				customCarouselIndex = naturalIndex;
+				setTimeout(() => updateCarousel(false), 820);
+			}
+
+			if (customCarouselIndex < HEAD_CLONES) {
+				const naturalIndex = customCarouselIndex + CARD_COUNT;
+				customCarouselIndex = naturalIndex;
+				setTimeout(() => updateCarousel(false), 820);
+			}
+		}
+		generateCards();
+		resizeCards();
+
+		setTimeout(() => $container.removeClass("no-transition"), 50);
+
+		updateCarousel(false);
+		let autoTimer = setInterval(() => {
+			customCarouselIndex++;
+			updateCarousel(true);
+		}, AUTO_ADVANCE_MS);
+
+		$track.on("click", ".card-item:not(.featured)", function () {
+			customCarouselIndex = $(this).index();
+			updateCarousel(true);
+
+			clearInterval(autoTimer);
+			autoTimer = setInterval(() => {
+				customCarouselIndex++;
+				updateCarousel(true);
+			}, AUTO_ADVANCE_MS);
+		});
+		$(window).on("resize", function () {
+			clearTimeout(window.__carousel_resize_timer);
+			window.__carousel_resize_timer = setTimeout(() => {
+				resizeCards();
+				updateCarousel(false);
+			}, 250);
+		});
+	}
+
+	/* ----------------------------------------------------
+       Isotope + Typewriter Sync (with "plan" suffix)
+       - Sorts by data-plan-type weight
+       - Typewriter says "marketing plan", "financial plan", etc.
+    ---------------------------------------------------- */
 
 // --- Cycle logic ---
 	const centerTypes = ['marketing', 'financial', 'business'];
@@ -1082,10 +1307,68 @@
 		currentText = "";
 		typeNextLetter(phrase);
 	}
+	function defaultPlanTemplate(plan) {
+		return `
+            <div class="plan-option ${plan.type || "marketing"}">
+                <div class="plan-option__inner">
 
+                    <!-- Left Visual -->
+                    <div class="plan-option__inner--render">
+                        <img src="${plan.thumb || "/static/images/business-plan-financial-charts.svg"}" alt="${plan.label}">
 
-// --- Start the cycle ---
+                        ${plan.popular ? `
+                            <div class="popular-badge">
+                                <div class="badge-text">Popular</div>
+                            </div>
+                        ` : ""}
+                    </div>
+
+                    <!-- Right Panel -->
+                    <div class="plan-option__inner--overlay">
+                        <div class="plan-option__inner--overlay__title">
+                            ${plan.label}
+                            ${plan.subTitle ? `<span class="fw-light d-block">${plan.subTitle}</span>` : ""}
+                        </div>
+
+                        <div class="plan-option__inner--overlay__for">
+                            ${plan.shortDescription}
+                        </div>
+
+                        <div class="plan-option__inner--overlay__time">
+
+                            <div class="plans-time-needed">
+                                <i class="fi fi-tr-pending"></i>${plan.estimatedTime}
+                            </div>
+                        </div>
+
+                        <div class="plan-option__inner--overlay__icon">
+                            <img class="icon" src="/static/images/icon-mp.svg" alt="marketing plan icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+	}
+
+	function renderMarketingPlans(options = {}) {
+		const {
+			containerSelector = '.right-panel-grid',
+			data = window.MARKETING_PLAN_DATA,
+			template = defaultPlanTemplate
+		} = options;
+
+		const container = document.querySelector(containerSelector);
+		if (!container) return;
+		if (!data || !Array.isArray(data) || data.length === 0) return;
+
+		container.innerHTML = ""; // clear static cards
+
+		data.forEach(plan => container.insertAdjacentHTML("beforeend", template(plan)));
+	}
+
+	if ($("#carouselTrack").length) {
+		initializeCustomCarousel();
+	}
 	changeSortFocus();
 	setInterval(changeSortFocus, CYCLE);
-
 })(jQuery);

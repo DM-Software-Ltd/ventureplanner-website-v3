@@ -35,7 +35,7 @@
 
                         <!-- Hero Button Start -->
                         <div class="hero-btn wow fadeInUp" data-wow-delay="0.8s">
-                            <a href="{% url 'contact' %}" class="btn-default">Start Free Trial</a>
+                            <a href="{% url 'contact' %}" class="btn-default">{{ MAIN_CTA_TEXT }}</a>
                             <!--                            <a href="{% url 'services' %}" class="btn-default btn-highlighted">Start Your Marketing Plan</a>-->
                         </div>
                         <!-- Hero Button End -->
@@ -221,35 +221,7 @@
                         <!-- Google Rating Box Start -->
                         <div class="google-rating-box wow fadeInUp" data-wow-delay="0.2s">
                             <!-- Satisfy Client Images Start -->
-                            <div class="satisfy-client-images">
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/Mervyn-profile.jpg' %}" alt="Decorative image"
-                                             loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/Rohan-profile.jpg' %}" alt="Decorative image"
-                                             loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/Richard-profile.jpg' %}" alt="Decorative image"
-                                             loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{% static 'images/leona-profile.jpg' %}" alt="Decorative image"
-                                             loading="lazy">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image add-more">
-                                    <i class="fa-solid fa-plus"></i>
-                                </div>
-                            </div>
+                            {% include "partials/satisfied-clients.html" %}
                             <!-- Satisfy Client Images End -->
 
                             <!-- Google Review Content Start -->
