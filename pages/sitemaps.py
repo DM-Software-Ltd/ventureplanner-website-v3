@@ -1,6 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 from .models import Blog
+from .plan_data import load_plan_data
 
 
 class BlogSitemap(Sitemap):
@@ -15,6 +16,18 @@ class BlogSitemap(Sitemap):
 
     def location(self, obj):
         return reverse('blog_single', args=[obj.slug])
+
+
+class PlanSitemap(Sitemap):
+    """Sitemap for dynamic plan pages"""
+    changefreq = "monthly"
+    priority = 0.9
+
+    def items(self):
+        return load_plan_data()
+
+    def location(self, obj):
+        return reverse('plan_detail', args=[obj['subTypeKey']])
 
 
 class StaticViewSitemap(Sitemap):

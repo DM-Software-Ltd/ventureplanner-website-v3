@@ -1,0 +1,940 @@
+{
+    "business": {
+        "label": "Business Plan",
+        "subTypes": {
+            "startup": {
+                "label": "Startup Business Plan",
+                "subTitle": null,
+                "shortDescription": "The essential roadmap for entrepreneurs to define strategy, guide launch, and attract investors.",
+                "description": "This plan is essential for building a strong foundation and a clear go-to-market strategy. It helps you define your target market, unique value proposition, business model, and critical financial forecasts.",
+                "for": [
+                    "New entrepreneurs who need to validate a business concept.",
+                    "Early-stage founders building their core strategy.",
+                    "Anyone seeking seed funding, angel investment, or a startup loan."
+                ],
+                "estimatedTime": "1 - 4+ Hours",
+                "projectionTimescales": "1 - 7 Years",
+                "priority": 1,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": true,
+                "aiInputText": "startup business plan",
+                "detailLevel": {
+                    "strategic": "high",
+                    "tactical": "medium"
+                },
+                "generatorFunction": null,
+                "thumb": "/images/icon-startup.svg",
+                "forecastLength": 3,
+                "pageCount": "10 - 30"
+            },
+            "internal": {
+                "label": "Internal Business Plan",
+                "subTitle": null,
+                "shortDescription": "A focused internal plan to align your team, define strategy, and track progress toward company goals.",
+                "description": "A focused document used primarily for internal decision-making, such as launching a new product line, optimizing a business, or defining next year's goals. It concentrates on strategy and detailed key performance indicators (KPIs).",
+                "for": [
+                    "Managers and department heads needing to align their team.",
+                    "Company leaders who are launching a new internal project or initiative.",
+                    "Any team that needs a plan to manage strategy and track performance."
+                ],
+                "estimatedTime": "1 - 3 Hours",
+                "priority": 3,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": "internal business plan",
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "generatorFunction": null,
+                "thumb": "/images/icon-internal.svg",
+                "forecastLength": 3,
+                "pageCount": "10 - 30"
+            },
+            "growth": {
+                "label": "Growth / Expansion Business Plan",
+                "subTitle": null,
+                "shortDescription": "A comprehensive plan for established businesses to map out expansion, enter markets, or secure funding.",
+                "description": "This plan provides a comprehensive roadmap for scaling a business, entering into new markets or launching new products. It focuses heavily on market analysis, detailed strategic planning, and in-depth financial projections.",
+                "for": [
+                    "Established business owners who are ready to scale up.",
+                    "Companies planning to enter a new market or launch a new product line.",
+                    "Leadership teams seeking a round of funding for growth."
+                ],
+                "estimatedTime": "2 - 5+ Hours",
+                "projectionTimescales": "1 - 7 Years",
+                "priority": 1,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": true,
+                "aiInputText": "growth business plan",
+                "detailLevel": {
+                    "strategic": "high",
+                    "tactical": "medium"
+                },
+                "generatorFunction": null,
+                "thumb": "/images/icon-growth.svg",
+                "forecastLength": 3,
+                "pageCount": "10 - 30"
+            },
+            "basic": {
+                "label": "Simple Business Plan",
+                "subTitle": null,
+                "shortDescription": "A concise, high-level plan designed to quickly define value proposition, strategy and key objectives.",
+                "description": "This plan captures your core strategy in a concise, streamlined format, without extensive financial detail. It helps you quickly outline your business model, value proposition, and key operational targets.",
+                "for": [
+                    "Solopreneurs, freelancers, and consultants.",
+                    "Small business owners who need a quick, high-level guide for their strategy.",
+                    "Anyone testing a business idea or needing a document for internal direction."
+                ],
+                "estimatedTime": "1 - 2 Hours",
+                "projectionTimescales": "1 - 7 Years",
+                "priority": 2,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": "simple business plan",
+                "detailLevel": {
+                    "strategic": "low",
+                    "tactical": "low"
+                },
+                "thumb": "/images/icon-simple.svg",
+                "forecastLength": 3,
+                "pageCount": "10 - 30"
+            }
+        }
+    },
+    "marketing": {
+        "label": "Marketing Plan",
+        "subTypes": {
+            "comprehensive": {
+                "label": "Detailed Multi-Channel Marketing Plan",
+                "subTitle": "Multi Channel",
+                "shortDescription": "An operational plan that includes specific campaign level detail for multiple marketing channels.",
+                "description": "This is your operational, tactical plan (e.g., for 6-12 months) that turns your high-level strategy into concrete action. It breaks down your specific campaigns, content calendars, channel mix (like SEO, social media, PPC, email), and budget allocation. Use this to manage your team's day-to-day marketing activities and measure the performance of your campaigns.",
+                "for": [
+                    "Marketing Managers who need to plan, execute, and track campaigns.",
+                    "Marketing teams who need a detailed document to coordinate their activities.",
+                    "Businesses that need to budget for and track ROI across marketing channels."
+                ],
+                "parentValue": "comprehensive",
+                "estimatedTime": "3 - 10+ Hours",
+                "activitiesCovered": "2 - 25",
+                "priority": 1,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": true,
+                "aiInputText": "multi channel marketing plan",
+                "detailLevel": {
+                    "strategic": "high",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-multi.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "goToMarket": {
+                "label": "Go-to-Market Marketing Plan",
+                "subTitle": null,
+                "shortDescription": "The detailed playbook for launching a business, product or service, outlining both strategy and campaign detail.",
+                "description": "This is a focused, project-based plan for successfully launching a new product or entering a new market. It details the specific strategy for your launch, from target audience messaging and pricing to channel selection and sales team alignment. Use this to create a comprehensive playbook that coordinates all your launch activities for maximum impact.",
+                "for": [
+                    "Product Managers and Marketers who are responsible for a new release.",
+                    "Startup founders who are launching their business.",
+                    "Teams who are introducing a new product, customer segment or region."
+                ],
+                "estimatedTime": "4 - 8 Hours",
+                "priority": 1,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": true,
+                "aiInputText": "go-to-market marketing plan",
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "time": 4,
+                "thumb": "/images/icon-gotomarket.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "campaign": {
+                "label": "Single Channel Plan",
+                "subTitle": "Single Channel",
+                "description": "Focus on creating a detailed plan for a single, specific marketing campaign / activity. Choose this option to map out the execution of one initiative, such as a Social Media campaign, a Paid Search strategy, or an Influencer Marketing programme. This plan will cover all the specific channels, messaging, and timelines for that one focused activity.",
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 1,
+                "showInSetup": true,
+                "showInModal": false,
+                "popular": true,
+                "aiInputText": "single channel marketing plan",
+                "detailLevel": {
+                    "strategic": "high",
+                    "tactical": "high"
+                },
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "strategic": {
+                "label": "Strategic High-Level Marketing Plan",
+                "subTitle": null,
+                "shortDescription": "A long-term plan that defines your target audience, strategy, and objectives to guide overall direction.",
+                "description": "This plan defines your long-term marketing vision and competitive positioning. It focuses on who you are targeting, why your brand is different, and the high-level goals that will guide all your future marketing efforts. Use this foundational document to align your leadership and ensure every marketing decision supports your core business strategy.",
+                "for": [
+                    "CMOs and Marketing Directors who are setting their long-term vision.",
+                    "Business owners and executives who need to align marketing strategy.",
+                    "Businesses that are rebranding, facing new competition, or defining their brand."
+                ],
+                "estimatedTime": "1 - 3+ Hours",
+                "aiInputText": "strategic marketing plan",
+                "parentValue": "strategic",
+                "priority": 3,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": false,
+                "detailLevel": {
+                    "strategic": "high",
+                    "tactical": "low"
+                },
+                "thumb": "/images/icon-strategicmp.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "ppc": {
+                "label": "Paid Search Advertising Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A tactical roadmap defining your keyword targets, bidding limits, and budget allocation for immediate traffic generation.",
+                "description": "This plan outlines your strategy for paid search platforms like Google Ads. It details your keyword selection, bidding strategies, and ad copy designed to capture high-intent users. Use this document to drive immediate traffic, control your budget precisely, and measure ROI on a click-by-click basis.",
+                "for": [
+                    "Performance marketing managers focused on immediate ROI.",
+                    "E-commerce businesses needing to drive instant traffic to specific products.",
+                    "Startups looking to acquire initial customers while organic rankings build."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-ppc.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "seo": {
+                "label": "Search Engine Optimization (SEO) Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A technical and content guide outlining the steps required to improve site health and secure long-term organic rankings",
+                "description": "This plan focuses on increasing your website's visibility without paid ad spend. It covers technical site improvements, on-page keyword optimization, and authority-building content. Use this roadmap to secure sustainable organic traffic, improve site health, and reduce reliance on paid channels over time.",
+                "for": [
+                    "Content strategists looking to build sustainable, long-term traffic.",
+                    "Marketing teams wanting to reduce reliance on paid media budgets.",
+                    "Brand managers aiming to improve online authority and site health."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "affiliate": {
+                "label": "Affiliate Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A partnership framework detailing commission structures, recruitment criteria, and guidelines for third-party promoters.",
+                "description": "This plan defines how you will recruit and manage third-party partners to sell your products. It outlines commission structures, partner guidelines, and promotional assets. Use this framework to expand your reach with low risk, paying only for actual sales or leads generated by your partners.",
+                "for": [
+                    "Partnership managers seeking low-risk, performance-based growth.",
+                    "Brands looking to expand reach through third-party recommendations.",
+                    "E-commerce businesses wanting to scale sales with controlled acquisition costs."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "display": {
+                "label": "Display & Banner Advertising Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A visual campaign plan detailing creative assets, placement targeting, and retargeting logic for web and app audiences.",
+                "description": "This plan details your strategy for visual ads placed on external websites and apps. It focuses on creative assets, audience placements, and retargeting previous visitors. Use this approach to keep your brand top-of-mind and capture attention outside of search engines.",
+                "for": [
+                    "Brand managers looking to increase visibility across the web.",
+                    "Businesses needing to retarget visitors who didn't convert on the first visit.",
+                    "Marketers launching visual campaigns to raise top-of-funnel awareness."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "content": {
+                "label": "Organic Social Media Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A content calendar and community management strategy designed to foster engagement without paid media spend.",
+                "description": "This plan outlines your approach to growing a loyal following without ad spend. It focuses on content pillars, posting schedules, and community management. Use this to humanize your brand, foster genuine relationships, and maintain a consistent presence in your customers' feeds.",
+                "for": [
+                    "Social media managers responsible for daily engagement and community growth.",
+                    "Brands wanting to humanize their voice and build loyalty.",
+                    "Businesses seeking to maintain a consistent presence without ad spend."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "social": {
+                "label": "Paid Social Media Advertising Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A paid media strategy defining audience segmentation, ad spend, and creative formats for social platforms.",
+                "description": "This plan defines how you will invest media budget across platforms like Facebook, LinkedIn, or TikTok. It covers audience segmentation, ad creative, and campaign objectives. Use this to reach highly specific user groups and drive conversions through sponsored content.",
+                "for": [
+                    "Digital advertisers targeting specific demographics or interests.",
+                    "D2C brands looking to drive sales directly from social feeds.",
+                    "Marketers wanting to amplify their best content to a wider audience."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "influencer": {
+                "label": "Influencer Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "An outreach and collaboration strategy outlining creator selection, campaign briefs, and agreement terms.",
+                "description": "This plan structures your partnerships with social media personalities and industry voices. It outlines selection criteria, outreach strategy, and collaboration briefs. Use this to borrow credibility and access niche audiences through authentic, trusted endorsements.",
+                "for": [
+                    "PR and brand teams seeking authentic third-party endorsements.",
+                    "Marketers wanting to access niche audiences through trusted voices.",
+                    "Lifestyle brands looking to generate social proof and user-generated content."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "podcast": {
+                "label": "Podcast Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "An audio strategy plan covering script messaging, show selection, and sponsorship logistics.",
+                "description": "This plan defines how you will utilize the podcast medium to reach listeners. It covers whether you are sponsoring existing shows or launching your own series, including script messaging and host selection. Use this to engage audiences deeply during their passive listening time.",
+                "for": [
+                    "Marketers targeting audiences during commute or passive listening times.",
+                    "Brands with a complex story that benefits from long-form audio formats.",
+                    "Businesses looking to associate with specific thought leaders or niches."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "video": {
+                "label": "Video Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A production and distribution roadmap for visual storytelling assets across platforms like YouTube and social video.",
+                "description": "This plan outlines the production and distribution of video assets. It focuses on scriptwriting, visual style, and platform optimization for reach and retention. Use this to demonstrate products, tell complex stories, and increase engagement rates across all digital channels.",
+                "for": [
+                    "Creative directors focused on visual storytelling and brand emotion.",
+                    "Product teams needing to demonstrate complex features or usage.",
+                    "Marketers aiming for high engagement rates on social and web platforms."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "mail": {
+                "label": "Physical Mail Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A logistics and creative plan for distributing tangible marketing materials to specific mailing lists.",
+                "description": "This plan defines your direct mail strategy, from postcard design to list procurement. It focuses on physical distribution logistics and compelling offers that stand out in a mailbox. Use this to reach local demographics or high-value prospects with a tactile brand experience.",
+                "for": [
+                    "Local businesses targeting specific geographic neighborhoods.",
+                    "Luxury brands wanting to deliver a high-quality, tactile brand experience.",
+                    "CRM managers looking to re-engage customers outside of digital inboxes."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "email": {
+                "label": "Email Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A communication schedule defining segmentation, automation flows, and messaging for subscriber nurturing.",
+                "description": "This plan details your approach to nurturing leads and retaining customers via their inbox. It outlines segmentation, automation flows, and newsletter calendars. Use this to maintain low-cost, high-conversion communication with people who have already engaged with your brand.",
+                "for": [
+                    "CRM and retention specialists focused on customer lifetime value.",
+                    "Businesses with an existing contact list that needs nurturing.",
+                    "Marketers automating the customer journey from lead to repeat buyer."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "messaging": {
+                "label": "Direct Messaging Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "An immediate-response strategy outlining SMS or WhatsApp timing, compliance, and short-form copy.",
+                "description": "This plan outlines your strategy for short, direct mobile communication. It focuses on compliance, timing, and concise copywriting for platforms like SMS or WhatsApp. Use this for time-sensitive offers, appointment reminders, and personalized alerts that demand immediate attention.\n",
+                "for": [
+                    "Mobile marketers needing high open rates for time-sensitive offers.",
+                    "Service businesses sending appointment reminders and alerts.",
+                    "Brands wanting a direct, conversational channel with high-intent customers."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "catalogue": {
+                "label": "Catalogue Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A production plan for showcasing inventory, covering layout design, photography requirements, and distribution cycles.",
+                "description": "This plan manages the creation and distribution of your product catalogue. It focuses on layout design, product photography, and distribution cycles. Use this to present your comprehensive product range in a format that encourages browsing and bulk ordering.\n",
+                "for": [
+                    "Wholesalers and retailers with extensive product inventories.",
+                    "Mail-order businesses targeting customers who prefer browsing offline.",
+                    "B2B suppliers needing to leave physical references with purchasing agents."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "telemarketing": {
+                "label": "Telemarketing Campaign Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "An outbound call strategy detailing scripts, objection handling, and lead qualification criteria for phone teams.",
+                "description": "This plan structures your outbound calling efforts. It outlines scripts, objection handling, and lead qualification criteria. Use this for high-touch B2B sales, appointment setting, or gathering direct market feedback through personal conversation.",
+                "for": [
+                    "Sales directors managing outbound lead generation teams.",
+                    "B2B companies needing to qualify leads before handing off to closers.",
+                    "Organizations conducting direct market research or customer feedback surveys."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "d2d": {
+                "label": "Door-to-Door Sales Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A field operations plan defining territory mapping, rep training, and pitch structures for in-person sales",
+                "description": "This plan organizes your field sales operations. It covers territory mapping, sales pitches, and rep training for face-to-face interactions. Use this for hyper-local service offerings where personal trust and immediate answers are required to close a sale.\n",
+                "for": [
+                    "Field sales managers coordinating local territory outreach.",
+                    "Home service providers (solar, internet, utilities) needing face-to-face trust.",
+                    "Political or community campaigns requiring direct constituent engagement."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "tv": {
+                "label": "TV Advertising Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A media buying and production plan focusing on channel slots, creative direction, and airtime scheduling.",
+                "description": "This plan defines your approach to linear or connected TV advertising. It focuses on high-production creative, channel selection, and day-parting. Use this to build massive brand awareness and prestige by appearing alongside premium entertainment content.\n",
+                "for": [
+                    "Brand directors with significant budget aiming for mass-market reach.",
+                    "Consumer goods companies needing to establish household name status.",
+                    "Businesses launching major national campaigns alongside premium content."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "radio": {
+                "label": "Radio Advertising Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "An audio campaign plan detailing station selection, frequency, and script creative for broadcast or digital radio.",
+                "description": "This plan outlines your audio advertising buy. It focuses on jingles, voiceovers, and station demographics to target listeners by location or interest. Use this for cost-effective, high-frequency local awareness or to target commuters during peak hours.",
+                "for": [
+                    "Regional marketing managers targeting local communities efficiently.",
+                    "Businesses wanting to reach commuters and drivers at specific times.",
+                    "Campaigns relying on high-frequency repetition to build memory."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "print": {
+                "label": "Printed Media Advertising Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A publication strategy outlining media selection, artwork specifications, and insertion schedules for print media.",
+                "description": "This plan details your media buying in physical publications. It focuses on ad design, publication relevance, and circulation data. Use this to reach specific demographics who trust traditional media or to target niche industry professionals through trade journals.",
+                "for": [
+                    "Luxury brands wishing to appear in high-gloss, prestigious publications.",
+                    "Local businesses targeting older demographics or specific communities.",
+                    "B2B companies advertising in niche industry trade journals."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "outdoor": {
+                "label": "Outdoor Advertising Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A location-based plan defining high-impact visual placements for billboards, transit, and public signage.",
+                "description": "This plan outlines your Out-of-Home (OOH) strategy. It focuses on high-impact visuals, location selection, and footfall traffic analysis. Use this to build local dominance and brand recognition among commuters and pedestrians in specific geographic areas.",
+                "for": [
+                    "Regional directors wanting to dominate a specific physical location.",
+                    "Event promoters needing to drive awareness in high-traffic areas.",
+                    "Brands looking to build familiarity among daily commuters."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "retail": {
+                "label": "Retail / In-Store Advertising Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A merchandising strategy for point-of-sale displays and in-store promotions to influence shopper behavior.",
+                "description": "This plan optimizes the physical customer experience within retail environments. It focuses on shelf talkers, window displays, and point-of-sale offers. Use this to capture impulse buyers and maximize basket size at the critical moment of purchase.",
+                "for": [
+                    "Trade marketers focused on maximizing shelf visibility.",
+                    "FMCG brands needing to influence decisions at the point of purchase.",
+                    "Retailers looking to increase average basket size through in-store prompts."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "sponsorships": {
+                "label": "Sponsorships Marketing Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A partnership agreement plan defining activation rights, brand placement, and ROI measurement for sponsored events.",
+                "description": "This plan defines how you select and leverage sponsorship opportunities. It focuses on brand alignment, logo placement, and activation rights. Use this to build goodwill and brand affinity by supporting the teams, causes, or events your target audience loves.",
+                "for": [
+                    "Brand heads seeking alignment with specific values, teams, or causes.",
+                    "Corporations looking to build goodwill within a community or industry.",
+                    "Marketers wanting long-term brand visibility rather than direct response."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "trade": {
+                "label": "Trade Shows & Exhibitions Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "An event logistics plan covering booth design, staffing requirements, and lead capture processes for industry expos.",
+                "description": "This plan organizes your presence at large-scale industry events. It details booth design, staffing, collateral, and lead capture mechanisms. Use this to meet a high volume of qualified buyers and scout the competition in a consolidated timeframe.",
+                "for": [
+                    "B2B sales teams needing to generate a high volume of leads quickly.",
+                    "Product managers launching new solutions to an industry audience.",
+                    "Companies looking to scout competition and meet partners face-to-face."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "workshops": {
+                "label": "Seminars & Workshops Events Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "An educational event strategy outlining curriculum, venue logistics, and attendee follow-up protocols.",
+                "description": "This plan outlines the delivery of value-first educational events. It focuses on curriculum, venue logistics, and attendee follow-up. Use this to position your brand as an authority and nurture high-value leads by solving their problems before they buy.",
+                "for": [
+                    "Consultants and agencies using education to demonstrate expertise.",
+                    "B2B companies selling complex solutions that require explanation.",
+                    "Businesses looking to nurture high-value prospects into clients."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "network": {
+                "label": "Networking Events Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A relationship development plan detailing elevator pitches, event calendars, and follow-up strategies for personal connections.",
+                "description": "This plan structures your team's approach to professional socializing. It covers elevator pitches, event selection, and relationship management. Use this to find partners, referrals, and opportunities that only arise through personal, one-on-one connections.",
+                "for": [
+                    "Founders and solopreneurs relying on referrals for growth.",
+                    "Sales professionals building personal relationships in their sector.",
+                    "Service providers looking for partnerships and collaboration opportunities."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "media": {
+                "label": "Reputation Building PR Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A PR roadmap defining story angles, press release schedules, and journalist outreach for editorial coverage.",
+                "description": "This plan outlines your efforts to get featured in news and industry publications. It focuses on press releases, journalist relationships, and storytelling angles. Use this to build third-party credibility and manage your public reputation without paying for advertising space.",
+                "for": [
+                    "PR managers aiming to secure earned media coverage.",
+                    "Founders seeking to establish themselves as industry thought leaders.",
+                    "Startups needing credibility for fundraising or hiring efforts."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            },
+            "crisis": {
+                "label": "Crisis Management Communications Plan",
+                "subTitle": "Single Channel Plan",
+                "shortDescription": "A contingency protocol outlining communication chains, response templates, and damage control for emergencies.",
+                "description": "This plan prepares your team for worst-case scenarios. It outlines communication chains, holding statements, and rapid response protocols. Use this critical document to mitigate damage, maintain public trust, and control the narrative when unforeseen problems occur.",
+                "for": [
+                    "Executive teams preparing for potential reputational threats.",
+                    "PR directors managing communication during sensitive situations.",
+                    "Businesses in regulated or high-risk industries requiring safety protocols."
+                ],
+                "parentValue": "campaign",
+                "estimatedTime": "1 - 2+ Hours",
+                "activitiesCovered": "1",
+                "priority": 3,
+                "showInSetup": false,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": null,
+                "detailLevel": {
+                    "strategic": "medium",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-email.svg",
+                "forecastLength": null,
+                "pageCount": "10 - 30"
+            }
+        }
+    },
+    "financial": {
+        "label": "Financial Plan",
+        "subTypes": {
+            "standard": {
+                "label": "Detailed Financial Model",
+                "subTitle": null,
+                "shortDescription": "A comprehensive, multi-year forecast for in-depth analysis, investment, or M&A.",
+                "description": "A complex, granular financial model typically projecting 3-7 years. It includes P&L, Balance Sheet, Cash Flow, and detailed assumptions. Used for raising capital, complex budgeting, or acquisition valuation.",
+                "for": [
+                    "CFOs and finance teams needing granular budget control.",
+                    "Businesses preparing for a large funding round (Series A+).",
+                    "Companies undergoing due diligence for an acquisition or sale."
+                ],
+                "estimatedTime": "1 - 2 Hours",
+                "projectionTimescales": "1 - 7 Years",
+                "priority": 1,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": true,
+                "aiInputText": "financial forecast plan",
+                "detailLevel": {
+                    "strategic": "high",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-model.svg",
+                "forecastLength": 3,
+                "pageCount": "10 - 30"
+            },
+            "funding": {
+                "label": "Startup Financial Projections",
+                "subTitle": null,
+                "shortDescription": "A 1-5 year forecast for new businesses to validate ideas and secure seed funding.",
+                "description": "An essential forecast for any new venture. This plan focuses on key revenue drivers, startup costs, cash flow (burn rate), and break-even analysis. It's designed to be lean, assumption-driven, and perfect for a pitch deck or a pre-seed/seed funding round.",
+                "for": [
+                    "Entrepreneurs and founders seeking pre-seed or seed funding.",
+                    "New businesses testing the viability of their idea.",
+                    "Startups applying to accelerators or writing their first business plan."
+                ],
+                "estimatedTime": "1 - 2 Hours",
+                "projectionTimescales": "1 - 7 Years",
+                "priority": 2,
+                "showInSetup": true,
+                "showInModal": true,
+                "popular": false,
+                "aiInputText": "raise finding financial plan",
+                "detailLevel": {
+                    "strategic": "high",
+                    "tactical": "high"
+                },
+                "thumb": "/images/icon-startup-financial.svg",
+                "forecastLength": 1,
+                "pageCount": "10 - 30"
+            }
+        }
+    }
+}
