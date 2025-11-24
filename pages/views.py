@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponse
 from .models import Blog
 from .forms import ContactForm
+from .plan_data import get_plan_by_slug
 
 # This line creates the logger object. It was missing before.
 logger = logging.getLogger(__name__)
@@ -133,6 +134,23 @@ def for_agencies(request):
 
 def service_single(request):
     return render(request, "pages/service-single.html")
+
+def plan_detail(request, slug):
+    """Dynamic plan detail page based on slug from plan data JSON"""
+    plan = get_plan_by_slug(slug)
+
+    if not plan:
+        # If plan not found, return 404
+        from django.http import Http404
+        raise Http404("Plan not found")
+
+    context = {
+        'plan': plan,
+        'page_title': plan['label'],
+        'meta_description': plan.get('shortDescription', plan.get('description', ''))[:160],
+    }
+
+    return render(request, "pages/service-single.html", context)
 
 def faq(request):
     return render(request, "pages/faq.html")

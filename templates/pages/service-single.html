@@ -1,43 +1,32 @@
 {% extends "base.html" %}
-{% block title %}Service Single - Venture Planner{% endblock %}
+{% block title %}{{ page_title|default:"Service" }} - Venture Planner{% endblock %}
+
+{% block meta_description %}{{ meta_description|default:"Expert business planning services to help your venture grow. Strategic planning and business development solutions." }}{% endblock %}
+
+{% block og_title_content %}{{ page_title|default:"Service" }} - Venture Planner{% endblock %}
+{% block og_description %}{{ meta_description|default:"Expert business planning services to help your venture grow." }}{% endblock %}
+{% block twitter_title %}{{ page_title|default:"Service" }} - Venture Planner{% endblock %}
+{% block twitter_description %}{{ meta_description|default:"Expert business planning services to help your venture grow." }}{% endblock %}
+
 {% block content %}
 {% load static %}
 
-<div class="page-header bg-section dark-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12">
-                <!-- Page Header Box Start -->
-                <div class="page-header-box">
-                    <h1 class="text-anime-style-3" data-cursor="-opaque">Startup Business Plan</h1>
-                    <nav class="wow fadeInUp">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="./">home</a></li>
-                            <li class="breadcrumb-item"><a href="services.html">plans</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Startup Business Plan</li>
-                        </ol>
-                    </nav>
-                </div>
-                <!-- Page Header Box End -->
-            </div>
-        </div>
-    </div>
-</div>
+{% include "partials/sitewide/generic-hero-columns.html" with hero_image=plan.thumb short_description=plan.shortDescription %}
 
 <div class="page-service-single">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-sm-6 col-md-5 col-lg-4">
                 <!-- Page Single Sidebar Start -->
                 <div class="page-single-sidebar">
                     <!-- Page Category List Start -->
                     <div class="page-category-list wow fadeInUp">
                         <h3>Plan Details</h3>
                         <ul>
-                            <li><a href="#">Description</a></li>
-                            <li><a href="#">Perfect For</a></li>
-                            <li><a href="#">Core Plan Sections</a></li>
-                            <li><a href="#">Detail Level</a></li>
+                            <li><a href="#description">Description</a></li>
+                            <li><a href="#perfectfor">Perfect For</a></li>
+                            <li><a href="#coreplansection">Core Plan Sections</a></li>
+                            <li><a href="#detaillevel">Detail Level</a></li>
                         </ul>
                     </div>
                     <!-- Page Category List End -->
@@ -45,103 +34,68 @@
                     <!-- Sidebar CTA Box Start -->
                     <div class="sidebar-cta-box wow fadeInUp" data-wow-delay="0.25s">
                         <div class="sidebar-cta-content">
-                            <h3>Ready to build your Startup Business Plan?</h3>
+                            <h3>Ready to build your {{ plan.label|default:"Plan" }}?</h3>
                             <p>Our AI-driven platform guides you through every step. Start your journey today.</p>
                         </div>
                         <div class="sidebar-cta-btn">
-                            <a href="contact.html" class="btn-default">Try it Yourself</a>
+                            <a href="{% url 'contact' %}" class="btn-default">Try it Yourself</a>
                         </div>
                     </div>
                     <!-- Sidebar CTA Box End -->
                 </div>
             </div>
 
-            <div class="col-lg-8">
+            <div class="col-sm-6 col-md-7 col-lg-8">
                 <!-- Service Single Content Start -->
                 <div class="service-single-content">
                     <!-- Service Entry Start -->
-                    <div id="description" class="service-entry">
+                    <div class="service-entry">
 
-                        <div class="page-single-top">
-                            <!-- Page Single Image Start -->
-                            <div class="page-single-image">
-                                <figure class="image-anime reveal">
-                                    <img src="{% static 'images/plan-page-img.png' %}" alt="">
-                                </figure>
-                            </div>
-                            <!-- Page Single Image End -->
+                        <div id="description"  class="page-single-top anchor-offset">
 
-                            <h5 class="wow fadeInUp">A startup business plan is your roadmap to success. It's the
-                                critical
-                                document you'll use to secure funding, attract talent, and guide your launch. Our
-                                intelligent platform moves beyond simple templates. We use a dynamic, AI-driven process
-                                that asks hundreds of highly specific questions about your vision, market, and
-                                operations.
-                                By linking every data point, we generate a deeply sophisticated, fully-integrated, and
-                                professional business plan tailored specifically to your unique startup.</h5>
+                            <!-- Plan description -->
+                            <h5 class="wow fadeInUp">{{ plan.description }}</h5>
 
                         </div>
                         <!-- Service solution Box Start -->
-                        <div class="service-solution-box">
+                        {% if plan.for %}
+                        <div id="perfectfor" class="service-solution-box anchor-offset">
                             <h2 class="text-anime-style-3">Perfect For...</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.2s">Our Startup Business Plan service is
-                                engineered for ambitious founders and early-stage companies who are serious about
-                                building a scalable venture. This is not a simple fill-in-the-blanks tool; it's a
-                                strategic partner for:</p>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">This {{ plan.label }} is designed for:</p>
                             <!-- Solution Body Box Start -->
                             <div class="solution-body-box">
                                 <!-- Solution Body Image Start -->
                                 <div class="solution-body-image">
                                     <figure class="image-anime reveal">
-                                        <img src="{% static 'images/perfect-for.png' %}" alt="">
+                                        <img src="{% static 'images/perfect-for.png' %}" alt="Perfect for" loading="lazy">
                                     </figure>
                                 </div>
                                 <!-- Solution Body Image End -->
 
                                 <!-- Solution Body Content Start -->
                                 <div class="solution-body-content">
+                                    {% for item in plan.for %}
                                     <!-- Solution Body Item Start -->
-                                    <div class="solution-body-item wow fadeInUp">
+                                    <div class="solution-body-item wow fadeInUp" data-wow-delay="{{ forloop.counter0|add:0.0|floatformat:1 }}s">
                                         <div class="icon-box">
-                                            <img src="{% static 'images/icon-solution-body-1.svg' %}" alt="">
+                                            <img src="{% static 'images/icon-solution-body-1.svg' %}" alt="" loading="lazy">
                                         </div>
                                         <div class="solution-body-item-content">
-                                            <p>Create a compelling, data-backed narrative that investors and VCs need to
-                                                see.</p>
+                                            <p>{{ item }}</p>
                                         </div>
                                     </div>
                                     <!-- Solution Body Item End -->
-
-                                    <!-- Solution Body Item Start -->
-                                    <div class="solution-body-item wow fadeInUp" data-wow-delay="0.2s">
-                                        <div class="icon-box">
-                                            <img src="{% static 'images/icon-solution-body-1.svg' %}" alt="">
-                                        </div>
-                                        <div class="solution-body-item-content">
-                                            <p>Our AI challenges your assumptions and helps you identify market fit and
-                                                revenue streams.</p></div>
-                                    </div>
-                                    <!-- Solution Body Item End -->
-
-                                    <!-- Solution Body Item Start -->
-                                    <div class="solution-body-item wow fadeInUp" data-wow-delay="0.4s">
-                                        <div class="icon-box">
-                                            <img src="{% static 'images/icon-solution-body-3.svg' %}" alt="">
-                                        </div>
-                                        <div class="solution-body-item-content">
-                                            <p>Stop staring at a blank page. Our guided process breaks down complex
-                                                strategy into manageable questions.</p></div>
-                                    </div>
-                                    <!-- Solution Body Item End -->
+                                    {% endfor %}
                                 </div>
                                 <!-- Solution Body Content End -->
                             </div>
                             <!-- Solution Body Box End -->
                         </div>
+                        {% endif %}
                         <!-- Service solution Box End -->
 
                         <!-- Service Features Box Start -->
-                        <div class="service-features-box">
+                        <div id="coreplansection"  class="service-features-box anchor-offset">
                             <!-- Service Feature Content Start -->
                             <div class="service-feature-content">
                                 <h2 class="text-anime-style-3">Core Plan Sections</h2>
@@ -267,48 +221,28 @@
                         <!-- Service Features Box End -->
 
                         <!-- Service Feature Body Start -->
-                        <div class="service-feature-body">
-                            <!-- Service Feature image Box Start -->
-                            <!--                            <div class="service-feature-image-box wow fadeInUp">-->
-                            <!--                                &lt;!&ndash; Service Feature Image Start &ndash;&gt;-->
-                            <!--                                <div class="service-feature-body-image">-->
-                            <!--                                    <figure>-->
-                            <!--                                        <img src="{% static 'images/service-feature-body-img.jpg" alt="">-->
-                            <!--                                    </figure>-->
-                            <!--                                </div>-->
-                            <!--                                &lt;!&ndash; Service Feature Image End &ndash;&gt;-->
-
-                            <!--                                &lt;!&ndash; Service Feature Body List Start &ndash;&gt;-->
-                            <!--                                <div class="service-feature-body-list">-->
-                            <!--                                    <ul>-->
-                            <!--                                        <li>Traditional office rentals drain budgets</li>-->
-                            <!--                                        <li>Long-term leases make scaling up</li>-->
-                            <!--                                    </ul>-->
-                            <!--                                </div>-->
-                            <!--                                &lt;!&ndash; Service Feature Body List End &ndash;&gt;-->
-                            <!--                            </div>-->
-                            <!-- Service Feature image Box End -->
-
+                        <div id="detaillevel" class="service-feature-body anchor-offset">
+                            {% if plan.detailLevel %}
                             <div class="service-feature-detail-box wow fadeInUp" data-wow-delay="0.2s">
                                 <div class="service-feature-detail">
-                                    <h2><span>High</span></h2>
+                                    <h2><span>{{ plan.detailLevel.strategic|title }}</span></h2>
                                 </div>
                                 <div class="service-feature-detail-content">
                                     <h3>Strategic Detail</h3>
-                                    <p>Standard Strategic Analysis</p>
+                                    <p>{{ plan.detailLevel.strategic|title }} level strategic analysis</p>
                                 </div>
                             </div>
 
-
-                            <div class="service-feature-detail-box wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="service-feature-detail-box wow fadeInUp" data-wow-delay="0.4s">
                                 <div class="service-feature-detail">
-                                    <h2><span>Low</span></h2>
+                                    <h2><span>{{ plan.detailLevel.tactical|title }}</span></h2>
                                 </div>
                                 <div class="service-feature-detail-content">
                                     <h3>Tactical Detail</h3>
-                                    <p> Execution-Ready Blueprint</p>
+                                    <p>{{ plan.detailLevel.tactical|title }} level tactical execution</p>
                                 </div>
                             </div>
+                            {% endif %}
                             <!-- Service Feature Counter Box End -->
                         </div>
                         <!-- Service Feature Body End -->

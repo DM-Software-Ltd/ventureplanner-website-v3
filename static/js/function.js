@@ -1283,7 +1283,7 @@
 	function renderMarketingPlans(options = {}) {
 		const {
 			containerSelector = '.right-panel-grid',
-			data = window.MARKETING_PLAN_DATA,
+			data = window.PLAN_DATA,
 			template = defaultPlanTemplate
 		} = options;
 
