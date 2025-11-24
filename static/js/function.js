@@ -1289,11 +1289,49 @@
 
 		const container = document.querySelector(containerSelector);
 		if (!container) return;
+
+		if (container.children.length > 0) return;
+
 		if (!data || !Array.isArray(data) || data.length === 0) return;
 
 		container.innerHTML = ""; // clear static cards
 
 		data.forEach(plan => container.insertAdjacentHTML("beforeend", template(plan)));
+	}
+	function initMarketingPlansToggle() {
+		const toggleBtn = document.getElementById('togglePlansBtn');
+
+		if (!toggleBtn) return; // Exit if button doesn't exist (less than 6 plans)
+
+		const hiddenPlans = document.querySelectorAll('.plan-hidden');
+		const showText = toggleBtn.querySelector('.show-text');
+		const hideText = toggleBtn.querySelector('.hide-text');
+
+		toggleBtn.addEventListener('click', () => {
+			const isExpanded = toggleBtn.classList.contains('expanded');
+
+			if (isExpanded) {
+				hiddenPlans.forEach((plan) => plan.classList.add("plan-hidden"));
+				showText.style.display = "inline";
+				hideText.style.display = "none";
+				toggleBtn.classList.remove("expanded");
+
+				const grid = document.getElementById("marketingPlansGrid");
+				if (grid) {
+					const offset = 100;
+					const elementPosition = grid.getBoundingClientRect().top + window.pageYOffset;
+					const offsetPosition = elementPosition - offset;
+
+					window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+				}
+			} else {
+				// Expand - show all plans
+				hiddenPlans.forEach((plan) => plan.classList.remove("plan-hidden"));
+				showText.style.display = "none";
+				hideText.style.display = "inline";
+				toggleBtn.classList.add("expanded");
+			}
+		});
 	}
 
 	if ($("#carouselTrack").length) {
@@ -1301,4 +1339,5 @@
 	}
 	changeSortFocus();
 	setInterval(changeSortFocus, CYCLE);
+	initMarketingPlansToggle();
 })(jQuery);

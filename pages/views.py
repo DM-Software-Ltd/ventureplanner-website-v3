@@ -172,7 +172,13 @@ def case_study_single(request):
     return render(request, "pages/case-study-single.html")
 
 def marketing_plans(request):
-    return render(request, "pages/marketing-plans.html")
+    from .plan_data import get_plans_by_type
+    marketing_plans_list = get_plans_by_type('marketing')
+    context = {
+        'marketing_plans': marketing_plans_list
+    }
+
+    return render(request, "pages/marketing-plans.html", context)
 
 def business_plans(request):
     latest_posts = Blog.objects.filter(draft=False)[:4]
