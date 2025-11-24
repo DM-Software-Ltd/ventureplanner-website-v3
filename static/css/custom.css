@@ -3169,6 +3169,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 .page-header-columns {
     padding: 0;
     position: relative;
+    overflow: hidden;
 }
 
 .page-header-columns  [class^="col-"] {
@@ -3178,10 +3179,15 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
 
 .page-header-columns .hero-plan {
     position: absolute;
-    top:60px;
+    top:85%;
+    transform: translateY(-50%);
     left:15px;
     right: 15px;
     z-index: 3;
+}
+
+.hero-plan-wrapper {
+    position: relative;
 }
 
 .page-header-columns .plan-ribbon {
@@ -5299,7 +5305,8 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
         right: -15px;
     }
 
-    .page-single-sidebar {
+    .page-single-sidebar,
+    .page-header-columns .hero-plan img {
         margin: 0;
     }
 }
@@ -6076,7 +6083,7 @@ header.main-header:has(.header-sticky.active) .navbar-brand img.sticky-visible {
     }
 
     .page-header {
-        padding: 90px 0;
+        padding: 0;
     }
 
     .page-header-box h1 {
@@ -9564,6 +9571,8 @@ header.main-header:has(.header-sticky.active) .navbar {
 
 @media only screen and (max-width: 991px) {
 
+
+
     header.main-header .header-sticky.active {
         border-radius: 0;
     }
@@ -9724,6 +9733,15 @@ header.main-header:has(.header-sticky.active) .navbar {
 }
 
 @media only screen and (max-width: 767px) {
+
+    .page-header-columns .hero-plan {
+        top: 62.5%;
+        transform: translateY(0);
+    }
+
+    .hero-plan-wrapper {
+        position: absolute;
+    }
 
     .hero-elite {
         margin-bottom: 110px;
