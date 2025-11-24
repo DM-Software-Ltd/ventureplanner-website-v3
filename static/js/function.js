@@ -1025,14 +1025,21 @@
 	});
 
 	/* ----------------------------------------------------
-   Custom Carousel Logic (Marquee Style Infinite Loop)
----------------------------------------------------- */
-	/* ----------------------------------------------------
        Custom Carousel Logic (Marquee Style Infinite Loop)
     ---------------------------------------------------- */
 
-	function initializeCustomCarousel() {
-		const $track = $("#carouselTrack");
+    function initializeCustomCarousel(){
+       const cardCount = 10;
+
+        const CONFIG = {
+            cardCount: cardCount,
+            animationSpeed: 800,
+            intervalDelay: 3000,
+            gap: 24,
+            cardWidthPercent: 100 / (cardCount - 1),
+            featuredCard: 6
+        };
+
 		const IMAGE_FILES = [
 			{
 				simple: "marketing-plan-market-collateral.svg",
@@ -1048,139 +1055,68 @@
 			}
 		];
 
-		const VISIBLE_SLOTS = 6;
-		const HEAD_CLONES = VISIBLE_SLOTS + 2;
-		const TAIL_CLONES = VISIBLE_SLOTS + 2;
-		const ASPECT_RATIO = 1.414;
-		const ITEM_MARGIN_REM = 1.5;
-		const ITEM_MARGIN_PX = ITEM_MARGIN_REM * 16;
-		const AUTO_ADVANCE_MS = 5000;
-		const $container = $(".carousel-rotation-wrapper");
-		$container.addClass("no-transition");
+        const $track = $("#carouselTrack");
 
+        function init() {
+            generateCards();
+            $track.children().eq(CONFIG.featuredCard).addClass('featured');
+            startCarousel();
+        }
 
-		let customCarouselIndex = HEAD_CLONES + 3;       // Start in the middle, keeps large card on the right
-		let itemWidth = 0;
-		let itemHeight = 0;
-		let CARD_COUNT = 15;
-		CARD_COUNT = Math.round(CARD_COUNT / IMAGE_FILES.length) * IMAGE_FILES.length;
+        function generateCards() {
+            let html = "";
+            for (let i = 0; i < CONFIG.cardCount; i++) {
+              	const img = IMAGE_FILES[i % IMAGE_FILES.length];
+                html += `
+                <div class="card-item"
+                     style="background-image:url('/static/images/${img.detailed}');
+                            flex: 0 0 ${CONFIG.cardWidthPercent}%">
+                   <img src="/static/images/${img.simple}" />
+                </div>
+                `;
+            }
+            $track.html(html);
+        }
 
-		function generateCards() {
-			let cards = "";
-			for (let i = 0; i < CARD_COUNT; i++) {
-				const img = IMAGE_FILES[i % IMAGE_FILES.length];
-				cards += `
-					<div class="card-item card-ratio-base" 
-						data-idx="${i}"
-						style="background-image:url('/static/images/${img.detailed}')">
-						<img src="/static/images/${img.simple}" />
-					</div>
-				`;
-			}
+        function moveLeft() {
+            const $firstCard = $track.children().first();
+            const itemWidth = $firstCard.outerWidth();
+            const moveDistance = itemWidth + CONFIG.gap;
 
-			$track.html(cards);
+            // --- HIGHLIGHT LOGIC ---
+            // Before we move, we switch the highlight to the card that WILL land in spot #3.
+            // Currently, that is the card at index 3 (the 4th card).
+            $(".card-item").removeClass("featured");
+            $track.children().eq(CONFIG.featuredCard + 1).addClass("featured");
 
-			// Clone tail
-			const tailClones = $track.children().slice(-TAIL_CLONES).clone(true);
-			tailClones.addClass("is-clone");
-			$track.prepend(tailClones);
+            // --- ANIMATION ---
+            $track.css({
+                transition: `transform ${CONFIG.animationSpeed}ms ease-in-out`,
+                transform: `translateX(-${moveDistance}px)`
+            });
 
-			// Clone head
-			const headClones = $track.children().slice(TAIL_CLONES, TAIL_CLONES + HEAD_CLONES).clone(true);
-			headClones.addClass("is-clone");
-			$track.append(headClones);
-		}
+            // --- RESET DOM ---
+            setTimeout(() => {
+                $track.css({
+                    transition: 'none',
+                    transform: 'translateX(0)'
+                });
 
-		function resizeCards() {
-			const containerWidth = $container.width();
-			const slotFraction = 1 / VISIBLE_SLOTS;
+                // Move first card to the end
+                $track.append($firstCard);
 
-			itemWidth = (((containerWidth / 220) * 100) * slotFraction) - ITEM_MARGIN_PX;
-			itemHeight = itemWidth * ASPECT_RATIO;
+                // Note: After this append, the card we highlighted (originally index 3)
+                // naturally shifts to index 2, so it remains the "3rd" card in the DOM.
 
-			const featuredHeight = itemHeight * 2;
+            }, CONFIG.animationSpeed);
+        }
 
-			$track.children().each(function () {
-				$(this).css({
-					width: itemWidth + "px",
-					height: itemHeight + "px",
-					marginRight: ITEM_MARGIN_REM + "rem",
-				});
-			});
+        function startCarousel() {
+            setInterval(moveLeft, CONFIG.intervalDelay);
+        }
 
-			$container.css("padding-top", (featuredHeight / 2 + 20) + "px");
-		}
-
-		function updateCarousel(animate = true) {
-			const cards = $track.children();
-			const FEATURED_VISUAL_POSITION = 3;   // The big card sits visually on the right
-
-			cards.each(function (i) {
-				const isFeatured = (i === customCarouselIndex);
-				$(this).toggleClass("featured", isFeatured);
-
-				$(this).css({
-					transform: isFeatured ? 'scale(2.5)' : 'scale(1)',
-					opacity: isFeatured ? 1 : 0.6,
-					zIndex: isFeatured ? 10 : 1
-				});
-			});
-
-			let shift = 0;
-			for (let i = 0; i < customCarouselIndex - FEATURED_VISUAL_POSITION; i++) {
-				const isFeatured = (i === customCarouselIndex);
-				const w = isFeatured ? featuredWidth : itemWidth;
-				shift += w + ITEM_MARGIN_PX;
-			}
-
-			const viewportOffsetFix = ($container.width() * 0.35);
-
-			$track.css({
-				transition: animate ? "transform 0.8s ease" : "none",
-				transform: `translateX(calc(${viewportOffsetFix}px - ${shift}px))`
-			});
-
-			if (customCarouselIndex >= CARD_COUNT + HEAD_CLONES) {
-				const naturalIndex = customCarouselIndex - CARD_COUNT;
-				customCarouselIndex = naturalIndex;
-				setTimeout(() => updateCarousel(false), 820);
-			}
-
-			if (customCarouselIndex < HEAD_CLONES) {
-				const naturalIndex = customCarouselIndex + CARD_COUNT;
-				customCarouselIndex = naturalIndex;
-				setTimeout(() => updateCarousel(false), 820);
-			}
-		}
-		generateCards();
-		resizeCards();
-
-		setTimeout(() => $container.removeClass("no-transition"), 50);
-
-		updateCarousel(false);
-		let autoTimer = setInterval(() => {
-			customCarouselIndex++;
-			updateCarousel(true);
-		}, AUTO_ADVANCE_MS);
-
-		$track.on("click", ".card-item:not(.featured)", function () {
-			customCarouselIndex = $(this).index();
-			updateCarousel(true);
-
-			clearInterval(autoTimer);
-			autoTimer = setInterval(() => {
-				customCarouselIndex++;
-				updateCarousel(true);
-			}, AUTO_ADVANCE_MS);
-		});
-		$(window).on("resize", function () {
-			clearTimeout(window.__carousel_resize_timer);
-			window.__carousel_resize_timer = setTimeout(() => {
-				resizeCards();
-				updateCarousel(false);
-			}, 250);
-		});
-	}
+        init();
+    }
 
 	/* ----------------------------------------------------
        Isotope + Typewriter Sync (with "plan" suffix)
