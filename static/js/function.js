@@ -1172,7 +1172,7 @@
 	let typeTimeout = null;
 
 // These are the full phrases
-	const phrases = ['Marketing Plans', 'Financial Plans', 'Business Plans'];
+	const phrases = ['Marketing Plans', 'Financial Projections', 'Business Plans'];
 
 // Timing constants
 	const CYCLE = 5000;      // must match isotope interval

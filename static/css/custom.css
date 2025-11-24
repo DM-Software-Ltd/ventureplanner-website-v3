@@ -7193,7 +7193,7 @@ header.main-header:has(.header-sticky.active) .navbar {
 }
 
 .hero-elite {
-    padding: 240px 0 0;
+    padding: 180px 0 0;
     background-image: linear-gradient(0deg, rgba(5, 68, 66, 0.90) 14.06%, transparent 58.63%), url('../images/our-contact-us-bg.png');
     background-repeat: no-repeat;
     background-position: top center;
@@ -7243,7 +7243,6 @@ header.main-header:has(.header-sticky.active) .navbar {
 }
 
 .hero-intro-video-box-elite {
-    margin-top: 30px;
     margin-bottom: -300px;
 }
 
@@ -8302,7 +8301,6 @@ header.main-header:has(.header-sticky.active) .navbar {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    gap: 30px;
     border-radius: 40px;
 }
 
@@ -8314,7 +8312,7 @@ header.main-header:has(.header-sticky.active) .navbar {
 .what-we-do-item-elite-2 {
     overflow: hidden;
     background: var(--accent-color);
-    padding: 40px 40px 0;
+    padding: 40px 20px 0;
 }
 
 .what-we-do-item-content-elite h3 {
@@ -8365,7 +8363,7 @@ header.main-header:has(.header-sticky.active) .navbar {
     min-height: 420px;
     height: calc(100% - 30px);
     gap: 40px;
-    background: var(--light-green);
+    background: var(--secondary-color);
     border-radius: 40px;
     padding: 30px;
     margin-bottom: 30px;
@@ -13640,3 +13638,63 @@ i[class*="fi-tr"].yellow {
 
 
 
+
+
+
+
+/* Enable container queries on the item */
+.how-works-item {
+    container-type: inline-size;
+    container-name: work-item;
+    transition: all 0.4s ease;
+    cursor: pointer; /* Indicate interactability */
+    height: 100%; /* Ensure full height alignment */
+    position: relative;
+}
+
+/* Hide the expanded content by default */
+.expanded-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    margin-top: 20px;
+}
+
+/* Hide close button by default */
+.close-btn-wrapper {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.btn-close-custom {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* CONTAINER QUERY: When width is greater than 600px (indicating expansion) */
+@container work-item (min-width: 600px) {
+    .expanded-content {
+        display: block;
+        opacity: 1;
+        animation: fadeIn 0.6s ease-in forwards;
+    }
+
+    .close-btn-wrapper {
+        display: block;
+    }
+
+    /* Optional: Make the title bigger when expanded */
+    .how-works-body h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
