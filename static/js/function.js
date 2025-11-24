@@ -1334,10 +1334,90 @@
 		});
 	}
 
+	function initPlansSorting() {
+		const sortToggleBtn = document.getElementById("sortToggleBtn");
+		const sortDropdown = document.getElementById("sortDropdown");
+		const sortOptions = document.querySelectorAll(".sort-option");
+		const plansGrid = document.getElementById("allPlansGrid");
+
+		if (!sortToggleBtn || !sortDropdown || !plansGrid) return;
+
+		sortToggleBtn.addEventListener("click", (e) => {
+			e.stopPropagation();
+			sortDropdown.classList.toggle("active");
+		});
+
+		document.addEventListener("click", (e) => {
+			if (!sortDropdown.contains(e.target) && e.target !== sortToggleBtn) {
+				sortDropdown.classList.remove("active");
+			}
+		});
+
+		function parseTime(timeString) {
+			if (!timeString) return 0;
+			const match = timeString.match(/(\d+)\s*(hr|hour|hours?|min|minute|minutes?|day|days?|week|weeks?)/i);
+			if (!match) return 0;
+
+			const value = parseInt(match[1]);
+			const unit = match[2].toLowerCase();
+
+			if (unit.startsWith("min")) return value;
+			if (unit.startsWith("hr") || unit.startsWith("hour")) return value * 60;
+			if (unit.startsWith("day")) return value * 60 * 24;
+			if (unit.startsWith("week")) return value * 60 * 24 * 7;
+			return value;
+		}
+
+		sortOptions.forEach(option => {
+			option.addEventListener("click", () => {
+				const sortType = option.getAttribute("data-sort");
+				const plans = Array.from(plansGrid.querySelectorAll('.plan-option'));
+
+				sortOptions.forEach(opt => opt.classList.remove("active"));
+				option.classList.add("active");
+				if (sortType === "default") {
+					plans.sort((a, b) => {
+						return Array.from(plansGrid.children).indexOf(a) - Array.from(plansGrid.children).indexOf(b);
+					});
+				} else if (sortType === "time") {
+					plans.sort((a, b) => {
+						const timeA = parseTime(a.getAttribute("data-time"));
+						const timeB = parseTime(b.getAttribute("data-time"));
+						return timeA - timeB;
+					});
+				} else if (sortType === "popularity") {
+					plans.sort((a, b) => {
+						const popA = parseInt(a.getAttribute("data-popular")) || 0;
+						const popB = parseInt(b.getAttribute("data-popular")) || 0;
+						return popB - popA;
+					});
+				} else if (sortType === "marketing" || sortType === "business" || sortType === "financial") {
+					plans.sort((a, b) => {
+						const typeA = a.getAttribute("data-plan-type");
+						const typeB = b.getAttribute("data-plan-type");
+						if (typeA === sortType && typeB !== sortType) return -1;
+						if (typeB === sortType && typeA !== sortType) return 1;
+
+						return 0;
+					});
+				}
+
+				plans.forEach(plan => {
+					plan.style.display = "block";
+					plan.style.order = "0";
+				});
+
+				plans.forEach(plan => plansGrid.appendChild(plan));
+				sortDropdown.classList.remove("active");
+			});
+		});
+	}
+
 	if ($("#carouselTrack").length) {
 		initializeCustomCarousel();
 	}
 	changeSortFocus();
 	setInterval(changeSortFocus, CYCLE);
 	initMarketingPlansToggle();
+	initPlansSorting();
 })(jQuery);

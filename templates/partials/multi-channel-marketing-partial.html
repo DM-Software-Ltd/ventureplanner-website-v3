@@ -49,11 +49,13 @@
                             </div>
                         </div>
                         <div class="plan-option__inner--overlay__icon">
-                            <img
-                                class="icon" src="{% static 'images/icon-mp.svg' %}"
-                                alt="marketing plan icon"
-                                loading="lazy"
-                            >
+                            {% if plan.planKey == 'business' %}
+                            <img class="icon" src="{% static 'images/icon-bp.svg' %}" alt="business plan icon" loading="lazy">
+                            {% elif plan.planKey == 'financial' %}
+                            <img class="icon" src="{% static 'images/icon-fp.svg' %}" alt="financial plan icon" loading="lazy">
+                            {% else %}
+                            <img class="icon" src="{% static 'images/icon-mp.svg' %}" alt="marketing plan icon" loading="lazy">
+                            {% endif %}
                         </div>
                     </div>
                 </div>

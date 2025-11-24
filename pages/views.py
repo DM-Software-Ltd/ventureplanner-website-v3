@@ -127,7 +127,16 @@ def blog(request):
     return render(request, "pages/blog.html", context)
 
 def services(request):
-    return render(request, "pages/services.html")
+    from .plan_data import load_plan_data
+
+    # Get all plans
+    all_plans = load_plan_data()
+
+    context = {
+        'all_plans': all_plans
+    }
+
+    return render(request, "pages/services.html", context)
 
 def for_agencies(request):
     return render(request, "pages/for-agencies.html")

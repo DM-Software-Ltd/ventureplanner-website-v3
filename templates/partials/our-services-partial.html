@@ -1,236 +1,353 @@
 {% load static %}
-<div class="page-services">
+<div class="our-services-silver bg-section">
     <div class="container">
+        <div class="row section-row">
+            <div class="col-lg-12">
+                {% include 'partials/sitewide/section-title.html' with center=True subtitle="Our Plans" title="Choose the Perfect Plan for Your Business Needs" %}
+            </div>
+        </div>
+
+        <!-- Sort Controls -->
         <div class="row">
             <div class="col-lg-12">
-                <!-- Service List Start -->
-                <div class="services-list">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp">
-                        <!-- Service Image Start -->
-                        <div class="service-image">
-                            <a href="{% url 'service-single' %}" data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/service-img-1.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Service Image Start -->
-
-                        <!-- Service Item Content Start -->
-                        <div class="service-item-content">
-                            <!-- Service Title Box Start -->
-                            <div class="service-item-body">
-                                <h3><a href="{% url 'service-single' %}" >Private Office Spaces</a></h3>
-                                <p>Perfect for businesses that need quiet dedicated space.</p>
-                            </div>
-                            <!-- Service Title Box End -->
-                            <div class="service-btn">
-                                <a href="{% url 'service-single' %}"  class="readmore-btn">learn more</a>
-                            </div>
-                        </div>
-                        <!-- Service Item Content End -->
+                <div class="sort-controls">
+                    <button id="sortToggleBtn" class="sort-toggle-btn">
+                        <i class="fi fi-tr-sort-alt"></i>
+                        <span>Sort</span>
+                    </button>
+                    <div id="sortDropdown" class="sort-dropdown">
+                        <button class="sort-option" data-sort="default">Default</button>
+                        <button class="sort-option" data-sort="time">Time (Shortest First)</button>
+                        <button class="sort-option" data-sort="popularity">Popularity</button>
+                        <button class="sort-option" data-sort="marketing">Marketing Plans</button>
+                        <button class="sort-option" data-sort="business">Business Plans</button>
+                        <button class="sort-option" data-sort="financial">Financial Plans</button>
                     </div>
-                    <!-- Service Item End -->
-
-                    <!-- Service Item Start -->
-                    <div class="service-item active wow fadeInUp" data-wow-delay="0.2s">
-                        <!-- Service Image Start -->
-                        <div class="service-image">
-                            <a href="{% url 'service-single' %}"  data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/service-img-2.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Service Image Start -->
-
-                        <!-- Service Item Content Start -->
-                        <div class="service-item-content">
-                            <!-- Service Title Box Start -->
-                            <div class="service-item-body">
-                                <h3><a href="{% url 'service-single' %}" >Meeting Rooms</a></h3>
-                                <p>Perfect for businesses that need quiet dedicated space.</p>
-                            </div>
-                            <!-- Service Title Box End -->
-                            <div class="service-btn">
-                                <a href="{% url 'service-single' %}"  class="readmore-btn">learn more</a>
-                            </div>
-                        </div>
-                        <!-- Service Item Content End -->
-                    </div>
-                    <!-- Service Item End -->
-
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.4s">
-                        <!-- Service Image Start -->
-                        <div class="service-image">
-                            <a href="{% url 'service-single' %}"  data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/service-img-3.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Service Image Start -->
-
-                        <!-- Service Item Content Start -->
-                        <div class="service-item-content">
-                            <!-- Service Title Box Start -->
-                            <div class="service-item-body">
-                                <h3><a href="{% url 'service-single' %}" >Virtual Office</a></h3>
-                                <p>Perfect for businesses that need quiet dedicated space.</p>
-                            </div>
-                            <!-- Service Title Box End -->
-                            <div class="service-btn">
-                                <a href="{% url 'service-single' %}"  class="readmore-btn">learn more</a>
-                            </div>
-                        </div>
-                        <!-- Service Item Content End -->
-                    </div>
-                    <!-- Service Item End -->
-
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.6s">
-                        <!-- Service Image Start -->
-                        <div class="service-image">
-                            <a href="{% url 'service-single' %}"  data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/service-img-4.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Service Image Start -->
-
-                        <!-- Service Item Content Start -->
-                        <div class="service-item-content">
-                            <!-- Service Title Box Start -->
-                            <div class="service-item-body">
-                                <h3><a href="{% url 'service-single' %}" >Dedicated Desks</a></h3>
-                                <p>Perfect for businesses that need quiet dedicated space.</p>
-                            </div>
-                            <!-- Service Title Box End -->
-                            <div class="service-btn">
-                                <a href="{% url 'service-single' %}"  class="readmore-btn">learn more</a>
-                            </div>
-                        </div>
-                        <!-- Service Item Content End -->
-                    </div>
-                    <!-- Service Item End -->
-
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.8s">
-                        <!-- Service Image Start -->
-                        <div class="service-image">
-                            <a href="{% url 'service-single' %}" data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/service-img-5.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Service Image Start -->
-
-                        <!-- Service Item Content Start -->
-                        <div class="service-item-content">
-                            <!-- Service Title Box Start -->
-                            <div class="service-item-body">
-                                <h3><a href="{% url 'service-single' %}" >Mentorship Programs</a></h3>
-                                <p>Connect with like-minded professionals.</p>
-                            </div>
-                            <!-- Service Title Box End -->
-                            <div class="service-btn">
-                                <a href="{% url 'service-single' %}"  class="readmore-btn">learn more</a>
-                            </div>
-                        </div>
-                        <!-- Service Item Content End -->
-                    </div>
-                    <!-- Service Item End -->
-
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="1s">
-                        <!-- Service Image Start -->
-                        <div class="service-image">
-                            <a href="{% url 'service-single' %}"  data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/service-img-6.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Service Image Start -->
-
-                        <!-- Service Item Content Start -->
-                        <div class="service-item-content">
-                            <!-- Service Title Box Start -->
-                            <div class="service-item-body">
-                                <h3><a href="{% url 'service-single' %}" >Event & Work Space</a></h3>
-                                <p>Perfect for seminars, training and networking events.</p>
-                            </div>
-                            <!-- Service Title Box End -->
-                            <div class="service-btn">
-                                <a href="{% url 'service-single' %}"  class="readmore-btn">learn more</a>
-                            </div>
-                        </div>
-                        <!-- Service Item Content End -->
-                    </div>
-                    <!-- Service Item End -->
-
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="1.2s">
-                        <!-- Service Image Start -->
-                        <div class="service-image">
-                            <a href="{% url 'service-single' %}"  data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/service-img-7.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Service Image Start -->
-
-                        <!-- Service Item Content Start -->
-                        <div class="service-item-content">
-                            <!-- Service Title Box Start -->
-                            <div class="service-item-body">
-                                <h3><a href="{% url 'service-single' %}" >Community Lounges</a></h3>
-                                <p>Collaborative space for inform meeting & socializing.</p>
-                            </div>
-                            <!-- Service Title Box End -->
-                            <div class="service-btn">
-                                <a href="{% url 'service-single' %}"  class="readmore-btn">learn more</a>
-                            </div>
-                        </div>
-                        <!-- Service Item Content End -->
-                    </div>
-                    <!-- Service Item End -->
-
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="1.4s">
-                        <!-- Service Image Start -->
-                        <div class="service-image">
-                            <a href="{% url 'service-single' %}"  data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img src="{% static 'images/service-img-8.jpg' %}" alt="Decorative image"  loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Service Image Start -->
-
-                        <!-- Service Item Content Start -->
-                        <div class="service-item-content">
-                            <!-- Service Title Box Start -->
-                            <div class="service-item-body">
-                                <h3><a href="{% url 'service-single' %}" >Wellness & Recreation</a></h3>
-                                <p>Spaces for relaxation, yoga, or quick workouts.</p>
-                            </div>
-                            <!-- Service Title Box End -->
-                            <div class="service-btn">
-                                <a href="{% url 'service-single' %}"  class="readmore-btn">learn more</a>
-                            </div>
-                        </div>
-                        <!-- Service Item Content End -->
-                    </div>
-                    <!-- Service Item End -->
                 </div>
-                <!-- Service List End -->
             </div>
+        </div>
+
+        <div class="right-panel-grid" id="allPlansGrid">
+            {% for plan in all_plans %}
+            <a href="{% url 'plan_detail' slug=plan.subTypeKey %}"
+               class="plan-option {{ plan.planKey }}"
+               data-plan-type="{{ plan.planKey }}"
+               data-time="{{ plan.estimatedTime }}"
+               data-popular="{{ plan.popular|yesno:'1,0' }}">
+                <div class="plan-option__inner">
+                    <!-- Left Visual -->
+                    <div class="plan-option__inner--render">
+                        {% if plan.thumb %}
+                        <img
+                           src="{% static plan.thumb %}"
+                           alt="{{ plan.shortDescription }}"
+                           loading="lazy"
+                        >
+                        {% else %}
+                        <img
+                           src="{% static 'images/business-plan-financial-charts.svg' %}"
+                           alt="{{ plan.shortDescription }}"
+                           loading="lazy"
+                        >
+                        {% endif %}
+                        {% if plan.popular %}
+                        <div class="popular-badge">
+                            <div class="badge-text">Popular</div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Right Panel -->
+                    <div class="plan-option__inner--overlay">
+                        <div class="plan-option__inner--overlay__title">
+                            {{ plan.label }}
+                            {% if plan.subTitle %}
+                            <span class="fw-light d-block">{{ plan.subTitle }}</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="plan-option__inner--overlay__for">
+                            {{ plan.shortDescription }}
+                        </div>
+
+                        <div class="plan-option__inner--overlay__time">
+                            <div class="plans-time-needed">
+                                <i class="fi fi-tr-pending"></i>{{ plan.estimatedTime }}
+                            </div>
+                        </div>
+
+                        <div class="plan-option__inner--overlay__icon">
+                            {% if plan.planKey == 'business' %}
+                            <img class="icon" src="{% static 'images/icon-bp.svg' %}" alt="business plan icon" loading="lazy">
+                            {% elif plan.planKey == 'financial' %}
+                            <img class="icon" src="{% static 'images/icon-fp.svg' %}" alt="financial plan icon" loading="lazy">
+                            {% else %}
+                            <img class="icon" src="{% static 'images/icon-mp.svg' %}" alt="marketing plan icon" loading="lazy">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <p>No plans available.</p>
+            {% endfor %}
         </div>
     </div>
 </div>
+
+<style>
+    .right-panel-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1.5rem;
+        justify-content: flex-start;
+        position: relative;
+    }
+    .plan-option {
+        border: 3px solid white;
+        border-radius: 1rem;
+        min-width: 160px;
+        flex-basis: calc(33.333333% - 0.5rem - 6px);
+        cursor: pointer;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    .plan-option:hover {
+        border: 3px solid #000;
+    }
+
+    .plan-option.business {
+        background: #faf6ee;
+    }
+
+    .plan-option.marketing {
+        background: #f9f1f2;
+    }
+
+    .plan-option.financial {
+        background: #ecf4f6;
+    }
+
+    .plan-option__inner {
+        display: flex;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+
+    .plan-option__inner--render {
+        width: 33%;
+        margin: 1.5rem 0.5rem 1.5rem 1.5rem;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .plan-option__inner--render img {
+        width: 100%;
+        background: white;
+    }
+
+    .plan-option__inner--render .popular-badge {
+        top: 0.7rem;
+        right: 0.7rem;
+    }
+
+    .plan-option__inner--overlay {
+        display: flex;
+        position: relative;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.5rem 1rem 1.5rem 0.5rem;
+    }
+
+    .plan-option__inner--overlay__title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .plan-option__inner--overlay__for {
+        font-size: 0.825rem;
+        margin-top: 0.5rem;
+    }
+
+    .plan-option__inner--overlay__time {
+        gap: 1rem;
+        display: flex;
+        justify-content: start;
+        font-size: 0.825rem;
+        margin-top: 1rem;
+        font-weight: 600;
+    }
+
+    .plan-option__inner--overlay__time i {
+        padding-right: 0.5rem;
+        font-size: 1.29rem;
+        color: #6c757d;
+    }
+
+    .plan-option__inner--overlay__icon {
+        position: absolute;
+        bottom: -1.2rem;
+        right: -1rem;
+        height: 85px;
+        width: 85px;
+    }
+
+    .plan-option__inner--overlay__icon img {
+        width: 100%;
+    }
+
+
+    .popular-badge {
+        top: 0.7rem;
+        right: 0.7rem;
+        position: absolute;
+        align-items: center;
+        line-height: 1.6;
+    }
+
+    .popular-badge:before {
+        content: "★";
+        position: absolute;
+        left: 0;
+        width: 22px;
+        height: 22px;
+        background: #000;
+        border-radius: 50%;
+        font-size: 18px;
+        color: #fbc124;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.6;
+    }
+
+    .badge-text {
+        background: #000;
+        color: #fff;
+        padding: 1px 12px 1px 34px;
+        border-radius: 50px;
+        font-size: 0.825rem;
+        mask-image: radial-gradient(circle at 12px 50%, transparent 12px, black 0);
+        -webkit-mask-image: radial-gradient(
+                circle at 12px 50%,
+                transparent 12px,
+                black 0
+        );
+        font-weight: 600;
+    }
+
+    .icon {
+        font-size: 1.29rem;
+        display: inline-flex;
+        margin-left: 0.2rem;
+        color: #6c757d;
+    }
+
+    /* Sort Controls */
+    .sort-controls {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 1.5rem 0;
+        position: relative;
+    }
+
+    .sort-toggle-btn {
+        background: transparent;
+        border: none;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .sort-toggle-btn:hover {
+        border-color: #000;
+        background: #f9f9f9;
+    }
+
+    .sort-toggle-btn i {
+        font-size: 1.1rem;
+    }
+
+    .sort-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 1.5rem;
+        margin-top: 8px;
+        background: #fff;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        z-index: 1000;
+        display: none;
+        overflow: hidden;
+    }
+
+    .sort-dropdown.active {
+        display: block;
+    }
+
+    .sort-option {
+        width: 100%;
+        padding: 12px 16px;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: background 0.2s ease;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .sort-option:last-child {
+        border-bottom: none;
+    }
+
+    .sort-option:hover {
+        background: #f5f5f5;
+    }
+
+    .sort-option.active {
+        background: #000;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .plan-option {
+            flex-basis: calc(50% - 0.5rem - 6px);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .plan-option {
+            flex-basis: 100%;
+        }
+
+        .sort-controls {
+            justify-content: center;
+        }
+
+        .sort-dropdown {
+            right: 50%;
+            transform: translateX(50%);
+        }
+    }
+</style>
