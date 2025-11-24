@@ -1,5 +1,4 @@
 {% load static %}
-<script src="{% static 'js/plan-data.js' %}"></script>
 <div class="our-services-silver bg-section">
     <div class="container">
         <div class="row section-row">
@@ -7,174 +6,73 @@
                 {% include 'partials/sitewide/section-title.html' with center=True subtitle="Multi-Channel Marketing" title="Build Your Complete Roadmap to Multi-Channel Success" %}
             </div>
         </div>
-        <div class="right-panel-grid">
-            <!-- dynamic marketing plan cards render here -->
+        <div id="marketingPlansGrid" class="right-panel-grid">
+            {% for plan in marketing_plans %}
+            <a
+                href="{% url 'plan_detail' slug=plan.subTypeKey %}"
+                class="plan-option {{ plan.planKey|default:'marketing' }} {% if forloop.counter > 6 %}plan-hidden{% endif %}"
+            >
+                <div class="plan-option__inner">
+                    <div class="plan-option__inner--render">
+                        {% if plan.thumb  %}
+                        <img
+                           src="{% static plan.thumb %}"
+                           alt="{{ plan.shortDescription }}"
+                           loading="lazy"
+                        >
+                        {% else %}
+                        <img
+                           src="{% static 'images/business-plan-financial-charts.svg' %}"
+                           alt="{{ plan.shortDescription }}"
+                           loading="lazy"
+                        >
+                        {% endif %}
+                        {% if plan.popular %}
+                        <div class="popular-badge">
+                            <div class="badge-text">Popular</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="plan-option__inner--overlay">
+                        <div class="plan-option__inner--overlay__title">
+                            {{ plan.label }}
+                            {% if plan.subTitle %}
+                            <span class="fw-light d-block">{{ plan.subTitle }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="plan-option__inner--overlay__for">
+                            {{ plan.shortDescription }}
+                        </div>
+                        <div class="plan-option__inner--overlay__time">
+                            <div class="plans-time-needed">
+                                <i class="fi fi-tr-pending"></i>{{ plan.estimatedTime }}
+                            </div>
+                        </div>
+                        <div class="plan-option__inner--overlay__icon">
+                            {% if plan.planKey == 'business' %}
+                            <img class="icon" src="{% static 'images/icon-bp.svg' %}" alt="business plan icon" loading="lazy">
+                            {% elif plan.planKey == 'financial' %}
+                            <img class="icon" src="{% static 'images/icon-fp.svg' %}" alt="financial plan icon" loading="lazy">
+                            {% else %}
+                            <img class="icon" src="{% static 'images/icon-mp.svg' %}" alt="marketing plan icon" loading="lazy">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <p>No marketing plans available.</p>
+            {% endfor %}
         </div>
-
+        {% if marketing_plans|length > 6 %}
         <div class="col-lg-12">
-            <!-- Section Footer Text Start -->
-            <div class="section-footer-text wow fadeInUp" data-wow-delay="1.2s">
-                <p><span>Free Trial</span> Let's Make A Plan - <a href="#">Get Started</a></p>
+            <div class="show-more-btn-container">
+                <button id="togglePlansBtn" class="btn-show-more btn-default">
+                    <span class="show-text">Show All Plans</span>
+                    <span class="hide-text" style="display: none;">Show Less</span>
+                </button>
             </div>
-            <!-- Section Footer Text End -->
         </div>
+        {% endif %}
     </div>
 </div>
-
-
-
-<style>
-    .right-panel-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        padding: 1.5rem;
-        justify-content: flex-start;
-        position: relative;
-    }
-    .plan-option {
-        border: 3px solid white;
-        border-radius: 1rem;
-        min-width: 160px;
-        flex-basis: calc(33.333333% - 0.5rem - 6px);
-        cursor: pointer;
-        overflow: hidden;
-    }
-
-    .plan-option:hover {
-        border: 3px solid #000;
-    }
-
-    .plan-option.business {
-        background: #faf6ee;
-    }
-
-    .plan-option.marketing {
-        background: #f9f1f2;
-    }
-
-    .plan-option.financial {
-        background: #ecf4f6;
-    }
-
-    .plan-option__inner {
-        display: flex;
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-        position: relative;
-    }
-
-    .plan-option__inner--render {
-        width: 33%;
-        margin: 1.5rem 0.5rem 1.5rem 1.5rem;
-        border-radius: 0.5rem;
-        overflow: hidden;
-        flex-shrink: 0;
-    }
-
-    .plan-option__inner--render img {
-        width: 100%;
-        background: white;
-    }
-
-    .plan-option__inner--render .popular-badge {
-        top: 0.7rem;
-        right: 0.7rem;
-    }
-
-    .plan-option__inner--overlay {
-        display: flex;
-        position: relative;
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1.5rem 1rem 1.5rem 0.5rem;
-    }
-
-    .plan-option__inner--overlay__title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        line-height: 1.5rem;
-        margin-top: 0.5rem;
-    }
-
-    .plan-option__inner--overlay__for {
-        font-size: 0.825rem;
-        margin-top: 0.5rem;
-    }
-
-    .plan-option__inner--overlay__time {
-        gap: 1rem;
-        display: flex;
-        justify-content: start;
-        font-size: 0.825rem;
-        margin-top: 1rem;
-        font-weight: 600;
-    }
-
-    .plan-option__inner--overlay__time i {
-        padding-right: 0.5rem;
-        font-size: 1.29rem;
-        color: #6c757d;
-    }
-
-    .plan-option__inner--overlay__icon {
-        position: absolute;
-        bottom: -1.2rem;
-        right: -1rem;
-        height: 85px;
-        width: 85px;
-    }
-
-    .plan-option__inner--overlay__icon img {
-        width: 100%;
-    }
-
-
-    .popular-badge {
-        top: 0.7rem;
-        right: 0.7rem;
-        position: absolute;
-        align-items: center;
-        line-height: 1.6;
-    }
-
-    .popular-badge:before {
-        content: "★";
-        position: absolute;
-        left: 0;
-        width: 22px;
-        height: 22px;
-        background: #000;
-        border-radius: 50%;
-        font-size: 18px;
-        color: #fbc124;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1.6;
-    }
-
-    .badge-text {
-        background: #000;
-        color: #fff;
-        padding: 1px 12px 1px 34px;
-        border-radius: 50px;
-        font-size: 0.825rem;
-        mask-image: radial-gradient(circle at 12px 50%, transparent 12px, black 0);
-        -webkit-mask-image: radial-gradient(
-                circle at 12px 50%,
-                transparent 12px,
-                black 0
-        );
-        font-weight: 600;
-    }
-
-    .icon {
-        font-size: 1.29rem;
-        display: inline-flex;
-        margin-left: 0.2rem;
-        color: #6c757d;
-    }
-</style>

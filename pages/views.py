@@ -127,7 +127,16 @@ def blog(request):
     return render(request, "pages/blog.html", context)
 
 def services(request):
-    return render(request, "pages/services.html")
+    from .plan_data import load_plan_data
+
+    # Get all plans
+    all_plans = load_plan_data()
+
+    context = {
+        'all_plans': all_plans
+    }
+
+    return render(request, "pages/services.html", context)
 
 def for_agencies(request):
     return render(request, "pages/for-agencies.html")
@@ -146,7 +155,6 @@ def plan_detail(request, slug):
 
     context = {
         'plan': plan,
-        'page_title': plan['label'],
         'meta_description': plan.get('shortDescription', plan.get('description', ''))[:160],
     }
 
@@ -172,7 +180,13 @@ def case_study_single(request):
     return render(request, "pages/case-study-single.html")
 
 def marketing_plans(request):
-    return render(request, "pages/marketing-plans.html")
+    from .plan_data import get_plans_by_type
+    marketing_plans_list = get_plans_by_type('marketing')
+    context = {
+        'marketing_plans': marketing_plans_list
+    }
+
+    return render(request, "pages/marketing-plans.html", context)
 
 def business_plans(request):
     latest_posts = Blog.objects.filter(draft=False)[:4]

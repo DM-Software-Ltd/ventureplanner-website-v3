@@ -40,7 +40,7 @@ class StaticViewSitemap(Sitemap):
             'about',
             'contact',
             'blog',
-            'services',
+            'plans',
             'service-single',
             'for-agencies',
             'faq',
