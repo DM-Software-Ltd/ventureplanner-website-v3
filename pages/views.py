@@ -146,7 +146,6 @@ def plan_detail(request, slug):
 
     context = {
         'plan': plan,
-        'page_title': plan['label'],
         'meta_description': plan.get('shortDescription', plan.get('description', ''))[:160],
     }
 

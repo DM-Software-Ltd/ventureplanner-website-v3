@@ -13463,15 +13463,6 @@ i[class*="fi-tr"].yellow {
     color: var(--accent-color);
 }
 
-
-/* ============================================================================
-   SEO Heading Hierarchy Fix - Homepage Hero Section
-   ============================================================================
-   DOM order: H1 → H2 → P (correct for SEO)
-   Visual order: H2 → H1 → P (matches original design)
-   Method: Flexbox with order property to reverse H1/H2 visual appearance
-   ========================================================================= */
-
 /* Make section-title a flex container to control visual order */
 .hero-content .section-title {
     display: flex;

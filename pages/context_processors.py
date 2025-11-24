@@ -5,8 +5,10 @@ def breadcrumbs(request):
     try:
         match = resolve(request.path_info)
         view_name = match.url_name  # e.g. "service_single"
+        kwargs = match.kwargs
     except:
         view_name = "page_not_found"  # fallback for 404s
+        kwargs = {}
 
     # Titles for headings
     titles = {
@@ -14,8 +16,9 @@ def breadcrumbs(request):
         "about": "About Us",
         "contact": "Contact",
         "blog": "Blog",
-        "services": "Our Services",
+        "plans": "Plans",
         "service_single": "Service Details",
+        "plan_detail": "Plan Details",
         "marketing_plans": "Marketing Plans",
         "business_plans": "Business Plans",
         "case_study": "Case Study",
@@ -30,10 +33,11 @@ def breadcrumbs(request):
         "about": ["index"],
         "contact": ["index"],
         "blog": ["index"],
-        "services": ["index"],
-        "service_single": ["index", "services"],
-        "marketing_plans": ["index", "services"],
-        "business_plans": ["index", "services"],
+        "plans": ["index"],
+        "service_single": ["index", "plans"],
+        "plan_detail": ["index", "plans"],
+        "marketing_plans": ["index", "plans"],
+        "business_plans": ["index", "plans"],
         "case_study_single": ["index", "case_study"],
         "faq": ["index"],
     }
@@ -45,6 +49,19 @@ def breadcrumbs(request):
                 "name": titles.get(parent, parent.title()),
                 "url": parent,  # named URL
             })
+
+    if view_name == "plan_detail" and "slug" in kwargs:
+        from .plan_data import get_plan_by_slug
+        plan = get_plan_by_slug(kwargs["slug"])
+        if plan:
+            crumbs.append({
+                "name": plan['label'],
+                "url": None,
+            })
+            return {
+                "page_title": plan['label'],
+                "breadcrumbs": crumbs,
+            }
 
     if view_name and view_name != "index":
         crumbs.append({
