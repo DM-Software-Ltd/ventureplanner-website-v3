@@ -12,11 +12,21 @@ from django.http import JsonResponse, HttpResponse
 from .models import Blog
 from .forms import ContactForm
 from .plan_data import get_plan_by_slug
+import json
+import os
 
-# This line creates the logger object. It was missing before.
+# This line creates the logger object.
 logger = logging.getLogger(__name__)
 
-@csrf_exempt  # optional if using AJAX + CSRF token properly
+def get_level_meta(level):
+    """Helper to determine badge color and text."""
+    if level <= 2:
+        return {'text': 'Low', 'class': 'coral', 'bars': 1}
+    if level == 3:
+        return {'text': 'Medium', 'class': 'gold', 'bars': 2}
+    return {'text': 'High', 'class': 'teal', 'bars': 3}
+
+@csrf_exempt
 def support_submit(request):
     if request.method == 'POST':
         token = request.POST.get("cf-turnstile-response")
@@ -182,8 +192,61 @@ def case_study_single(request):
 def marketing_plans(request):
     from .plan_data import get_plans_by_type
     marketing_plans_list = get_plans_by_type('marketing')
+    latest_posts = Blog.objects.filter(draft=False)[:4]
+    file_path = os.path.join(settings.BASE_DIR, 'static', 'data', 'plans.json')
+    examples = []
+
+    logger.info(f"Looking for plans.json at: {file_path}")
+    logger.info(f"File exists: {os.path.exists(file_path)}")
+
+    try:
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+
+        logger.info(f"Successfully loaded plans.json")
+
+        # Transform nested JSON structure into flat array for template
+        # Map detail levels to numeric values
+        level_map = {'low': 2, 'medium': 3, 'high': 4}
+
+        for plan_type, type_data in data.items():
+            for subtype_key, subtype_data in type_data.get('subTypes', {}).items():
+                # Map the JSON structure to template fields
+                plan = {
+                    'title': subtype_data.get('label', ''),
+                    'subtitle': subtype_data.get('subTitle', ''),
+                    'description': subtype_data.get('shortDescription', ''),
+                    'type': type_data.get('label', plan_type.capitalize()),
+                    'type_slug': plan_type,  # Use the key directly for CSS classes (business, marketing, financial)
+                    'strategicLevel': level_map.get(subtype_data.get('detailLevel', {}).get('strategic', 'medium'), 3),
+                    'tacticalLevel': level_map.get(subtype_data.get('detailLevel', {}).get('tactical', 'medium'), 3),
+                    'time': subtype_data.get('estimatedTime', 'N/A'),
+                    'pages': subtype_data.get('pageCount', 'N/A'),
+                }
+
+                # Add meta information for badges
+                plan['strat_meta'] = get_level_meta(plan['strategicLevel'])
+                plan['tact_meta'] = get_level_meta(plan['tacticalLevel'])
+
+                examples.append(plan)
+
+        logger.info(f"Transformed {len(examples)} plans from JSON")
+
+    except FileNotFoundError:
+        logger.error(f"plans.json not found at {file_path}")
+        examples = []
+    except Exception as e:
+        logger.error(f"Error loading plans.json: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
+        examples = []
+
+    logger.info(f"Context 'plans' will have {len(examples)} items")
+
     context = {
-        'marketing_plans': marketing_plans_list
+        'marketing_plans': marketing_plans_list, # Your original "plans"
+        'latest_posts': latest_posts,
+        'plans': examples,                       # Business plan examples for the table
     }
 
     return render(request, "pages/marketing-plans.html", context)

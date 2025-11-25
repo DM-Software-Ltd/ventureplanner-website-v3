@@ -65,6 +65,8 @@
     --error-color: rgb(230, 87, 87);
     --default-font: "Sora", sans-serif;
     --display-font: "Raleway", sans-serif;
+    --slate-50: #f8fafc;
+    --slate-200: #e2e8f0;
 }
 
 /************************************/
@@ -13982,12 +13984,228 @@ i[class*="fi-tr"].yellow {
     }
 }
 
+.table-card {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    overflow: hidden;
+}
 
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table thead {
+    background-color: var(--slate-50);
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.data-table thead th {
+    padding: 1rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--slate-200);
+    transition: background-color 0.15s ease;
+    cursor: pointer;
+}
+.data-table tbody tr:last-child {
+    border-bottom: none;
+}
+.data-table tbody tr:hover {
+    background-color: var(--slate-50);
+}
+
+.data-table tbody tr td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+}
+
+.data-table .btn-default {
+    padding: 12px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.data-table .btn-default:before {
+    display: none;
+}
+
+.details-wrapper {
+    max-width: 28rem;
+}
+.details-title {
+    font-weight: 600;
+    color: #054442;
+    margin-bottom: 0.25rem;
+}
+.details-desc {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.badge-business {
+    background-color: #faf6ee;
+    color: #f1ac04;
+}
+.badge-marketing {
+    background-color: #f9f1f2;
+    color: #ff747b;
+}
+.badge-financial {
+    background-color: #ecf4f6;
+    color: #1d61a9;
+}
+
+.cell-center { text-align: center; }
+.signal-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.signal-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.signal-bars {
+    display: flex;
+    gap: 0.25rem;
+    align-items: flex-end;
+    height: 24px;
+}
+
+.signal-bar {
+    width: 6px;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+}
+
+.signal-bar:nth-child(1) {
+    height: 8px;
+}
+.signal-bar:nth-child(2) {
+    height: 16px;
+}
+.signal-bar:nth-child(3) {
+    height: 24px;
+}
+
+.signal-bar-empty {
+    background-color: var(--slate-200);
+}
+
+.text-teal {
+    color: #4c8f86;
+}
+.text-coral {
+    color: #fb757e;
+}
+.text-gold {
+    color: #ffbc25;
+}
+
+.signal-bar-filled-teal {
+    background-color: #4c8f86;
+}
+.signal-bar-filled-coral {
+    background-color: #fb757e;
+}
+.signal-bar-filled-gold {
+    background-color: #ffbc25;
+}
 
 /* Responsive adjustments */
 @media (max-width: 991px) {
     .plan-option {
         flex-basis: calc(50% - 0.5rem - 6px);
+    }
+    .data-table,
+    .data-table tbody {
+        display: block;
+    }
+
+    .data-table thead {
+        display: none;
+    }
+
+    .data-table tbody tr {
+        display: block;
+        border: 1px solid var(--slate-200);
+        margin-top: 20px;
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    }
+
+    .data-table tbody tr td {
+        display: flex;
+        flex-direction: row;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    .data-table tbody tr td:nth-of-type(1) {
+        padding: 2rem 1.5rem;
+    }
+
+    .data-table tbody tr td:before {
+        width: 25%;
+        min-width: 100px;
+        text-align: left;
+        padding: 1rem 1.5rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .data-table tbody tr td:nth-of-type(1):before {
+        padding: 0 1.5rem;
+        content: "Plan Details";
+    }
+    .data-table tbody tr td:nth-of-type(2):before {
+        content: "Type";
+    }
+    .data-table tbody tr td:nth-of-type(3):before {
+        content: "Strategic";
+    }
+    .data-table tbody tr td:nth-of-type(4):before {
+        content: "Tactical";
+    }
+    .data-table tbody tr td:nth-of-type(5):before {
+        content: "Time";
+    }
+    .data-table tbody tr td:nth-of-type(6):before {
+        content: "Pages";
+    }
+    .data-table tbody tr td:nth-of-type(7):before {
+        content: "Action";
     }
 }
 
