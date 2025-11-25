@@ -1,78 +1,84 @@
 {% load static %}
-<div class="our-services-silver bg-section">
+{% load text_utils %}
+<div class="our-services-silver">
     <div class="container">
         <div class="row section-row">
             <div class="col-lg-12">
-                {% include 'partials/sitewide/section-title.html' with center=True subtitle="Multi-Channel Marketing" title="Build Your Complete Roadmap to Multi-Channel Success" %}
+                {% include 'partials/sitewide/section-title.html' with center=True subtitle="Multi-Channel Marketing" title="Expert-Grade Plans for 25+ Marketing Channels" extra_classes="max-width: 550px" %}
             </div>
         </div>
-        <div id="marketingPlansGrid" class="right-panel-grid">
-            {% for plan in marketing_plans %}
-            <a
-                href="{% url 'plan_detail' slug=plan.subTypeKey %}"
-                class="plan-option {{ plan.planKey|default:'marketing' }} {% if forloop.counter > 6 %}plan-hidden{% endif %}"
-            >
-                <div class="plan-option__inner">
-                    <div class="plan-option__inner--render">
-                        {% if plan.thumb  %}
-                        <img
-                           src="{% static plan.thumb %}"
-                           alt="{{ plan.shortDescription }}"
-                           loading="lazy"
-                        >
-                        {% else %}
-                        <img
-                           src="{% static 'images/business-plan-financial-charts.svg' %}"
-                           alt="{{ plan.shortDescription }}"
-                           loading="lazy"
-                        >
-                        {% endif %}
-                        {% if plan.popular %}
-                        <div class="popular-badge">
-                            <div class="badge-text">Popular</div>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="plan-option__inner--overlay">
-                        <div class="plan-option__inner--overlay__title">
-                            {{ plan.label }}
-                            {% if plan.subTitle %}
-                            <span class="fw-light d-block">{{ plan.subTitle }}</span>
-                            {% endif %}
-                        </div>
-                        <div class="plan-option__inner--overlay__for">
-                            {{ plan.shortDescription }}
-                        </div>
-                        <div class="plan-option__inner--overlay__time">
-                            <div class="plans-time-needed">
-                                <i class="fi fi-tr-pending"></i>{{ plan.estimatedTime }}
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="marketingPlansGrid" class="right-panel-grid ">
+                    {% for plan in marketing_plans %}
+                    <a
+                            href="{% url 'plan_detail' slug=plan.subTypeKey %}"
+                            class="plan-option {{ plan.planKey|default:'marketing' }} {% if forloop.counter > 6 %}plan-hidden{% endif %}"
+                    >
+                        <div class="plan-option__inner">
+                            <div class="plan-option__inner--render">
+                                {% if plan.thumb %}
+                                <img
+                                        src="{% static plan.thumb %}"
+                                        alt="{{ plan.shortDescription }}"
+                                        loading="lazy"
+                                >
+                                {% else %}
+                                <img
+                                        src="{% static 'images/business-plan-financial-charts.svg' %}"
+                                        alt="{{ plan.shortDescription }}"
+                                        loading="lazy"
+                                >
+                                {% endif %}
+                                {% if plan.popular %}
+                                <div class="popular-badge">
+                                    <div class="badge-text">Popular</div>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="plan-option__inner--overlay">
+                                <div class="plan-option__inner--overlay__title">
+                                    {{ plan.label|all_except_last_two }}
+                                    <span class="fw-light d-block">{{ plan.label|last_two_words }}</span>
+                                </div>
+                                <div class="plan-option__inner--overlay__for">
+                                    {{ plan.shortDescription }}
+                                </div>
+<!--                                <div class="plan-option__inner&#45;&#45;overlay__time">-->
+<!--                                    <div class="plans-time-needed">-->
+<!--                                        <i class="fi fi-tr-pending"></i>{{ plan.estimatedTime }}-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="plan-option__inner--overlay__icon">
+                                    {% if plan.planKey == 'business' %}
+                                    <img class="icon" src="{% static 'images/icon-bp.svg' %}" alt="business plan icon"
+                                         loading="lazy">
+                                    {% elif plan.planKey == 'financial' %}
+                                    <img class="icon" src="{% static 'images/icon-fp.svg' %}" alt="financial plan icon"
+                                         loading="lazy">
+                                    {% else %}
+                                    <img class="icon" src="{% static 'images/icon-mp.svg' %}" alt="marketing plan icon"
+                                         loading="lazy">
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                        <div class="plan-option__inner--overlay__icon">
-                            {% if plan.planKey == 'business' %}
-                            <img class="icon" src="{% static 'images/icon-bp.svg' %}" alt="business plan icon" loading="lazy">
-                            {% elif plan.planKey == 'financial' %}
-                            <img class="icon" src="{% static 'images/icon-fp.svg' %}" alt="financial plan icon" loading="lazy">
-                            {% else %}
-                            <img class="icon" src="{% static 'images/icon-mp.svg' %}" alt="marketing plan icon" loading="lazy">
-                            {% endif %}
-                        </div>
-                    </div>
+                    </a>
+                    {% empty %}
+                    <p>No marketing plans available.</p>
+                    {% endfor %}
                 </div>
-            </a>
-            {% empty %}
-            <p>No marketing plans available.</p>
-            {% endfor %}
-        </div>
-        {% if marketing_plans|length > 6 %}
-        <div class="col-lg-12">
-            <div class="show-more-btn-container">
-                <button id="togglePlansBtn" class="btn-show-more btn-default">
-                    <span class="show-text">Show All Plans</span>
-                    <span class="hide-text" style="display: none;">Show Less</span>
-                </button>
+                {% if marketing_plans|length > 6 %}
             </div>
+            <div class="col-lg-12">
+                <div class="show-more-btn-container">
+                    <button id="togglePlansBtn" class="btn-show-more btn-default">
+                        <span class="show-text">Show All Plans</span>
+                        <span class="hide-text" style="display: none;">Show Less</span>
+                    </button>
+                </div>
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
     </div>
 </div>

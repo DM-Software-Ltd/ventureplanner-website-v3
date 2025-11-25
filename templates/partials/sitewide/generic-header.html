@@ -10,22 +10,49 @@
                 <div class="collapse navbar-collapse main-menu">
                     <div class="nav-menu-wrapper">
                         <ul class="navbar-nav mr-auto" id="menu">
-                            <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'business-plans' %}">Business Plans</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{% url 'marketing-plans' %}">Marketing Plans</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active-bold{% endif %}"
+                                   href="{% url 'index' %}">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active-bold{% endif %}"
+                                   href="{% url 'about' %}">About</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'business-plans' %}active-bold{% endif %}"
+                                   href="{% url 'business-plans' %}">Business Plans</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'marketing-plans' %}active-bold{% endif %}"
+                                   href="{% url 'marketing-plans' %}">Marketing Plans</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'blog' %}active-bold{% endif %}"
+                                   href="{% url 'blog' %}">Blog</a>
+                            </li>
                             <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
                                 <ul>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'service-single' %}">Service Details</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'case-study' %}">Case Study</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'case-study-single' %}">Case Study Details</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'service-single' %}">Service
+                                        Details</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'case-study' %}">Case
+                                        Study</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'case-study-single' %}">Case
+                                        Study Details</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{% url 'team' %}">Our Team</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'team-single' %}">Team Details</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'pricing' %}">Pricing Plan</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'testimonials' %}">Testimonials</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'image-gallery' %}">Image Gallery</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'video-gallery' %}">Video Gallery</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'team-single' %}">Team
+                                        Details</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'pricing' %}">Pricing Plan</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'testimonials' %}">Testimonials</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'image-gallery' %}">Image
+                                        Gallery</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'video-gallery' %}">Video
+                                        Gallery</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{% url 'faq' %}">FAQs</a></li>
                                 </ul>
                             </li>
@@ -35,13 +62,14 @@
 
                     <!-- Header Btn Start -->
 
-                          <div class="header-btn me-3">
-                            <a class="btn-default btn-login btn-highlighted" href="https://app.ventureplanner.ai/sign_in">Login</a>
-                        </div>
+                    <div class="header-btn me-3">
+                        <a class="btn-default btn-login btn-highlighted" href="https://app.ventureplanner.ai/sign_in">Login</a>
+                    </div>
 
-                        <div class="header-btn">
-                            <a class="btn-default" href="https://app.ventureplanner.ai/business_register">{{ MAIN_CTA_TEXT }}</a>
-                        </div>
+                    <div class="header-btn">
+                        <a class="btn-default" href="https://app.ventureplanner.ai/business_register">{{ MAIN_CTA_TEXT
+                            }}</a>
+                    </div>
 
                     <!-- Header Btn End -->
                 </div>

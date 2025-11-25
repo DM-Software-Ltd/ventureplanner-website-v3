@@ -110,7 +110,7 @@
         "label": "Marketing Plan",
         "subTypes": {
             "comprehensive": {
-                "label": "Detailed Multi-Channel Marketing Plan",
+                "label": "Multi-Channel Marketing Plan",
                 "subTitle": "Multi Channel",
                 "shortDescription": "An operational plan that includes specific campaign level detail for multiple marketing channels.",
                 "description": "This is your operational, tactical plan (e.g., for 6-12 months) that turns your high-level strategy into concrete action. It breaks down your specific campaigns, content calendars, channel mix (like SEO, social media, PPC, email), and budget allocation. Use this to manage your team's day-to-day marketing activities and measure the performance of your campaigns.",
@@ -157,25 +157,6 @@
                 },
                 "time": 4,
                 "thumb": "/images/icon-gotomarket.svg",
-                "forecastLength": null,
-                "pageCount": "10 - 30"
-            },
-            "campaign": {
-                "label": "Single Channel Plan",
-                "subTitle": "Single Channel",
-                "description": "Focus on creating a detailed plan for a single, specific marketing campaign / activity. Choose this option to map out the execution of one initiative, such as a Social Media campaign, a Paid Search strategy, or an Influencer Marketing programme. This plan will cover all the specific channels, messaging, and timelines for that one focused activity.",
-                "parentValue": "campaign",
-                "estimatedTime": "1 - 2+ Hours",
-                "activitiesCovered": "1",
-                "priority": 1,
-                "showInSetup": true,
-                "showInModal": false,
-                "popular": true,
-                "aiInputText": "single channel marketing plan",
-                "detailLevel": {
-                    "strategic": "high",
-                    "tactical": "high"
-                },
                 "forecastLength": null,
                 "pageCount": "10 - 30"
             },
