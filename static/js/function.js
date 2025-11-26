@@ -1385,6 +1385,7 @@
 		const sortDropdown = document.getElementById("plansTableSortDropdown");
 		const sortOptions = document.querySelectorAll("#plansTableSortDropdown .sort-option");
 		const tableBody = document.getElementById("plansTableBody");
+		const sortControlsRow = document.getElementById("plansTableSortControlsRow");
 
 		if (!sortToggleBtn || !sortDropdown || !tableBody) return;
 
@@ -1417,62 +1418,87 @@
 			return value;
 		}
 
-		// Handle sort option clicks
+		// Function to apply sort
+		function applySort(sortType) {
+			const rows = Array.from(tableBody.querySelectorAll('tr'));
+
+			// Sort the rows based on selected type
+			if (sortType === "default") {
+				rows.sort((a, b) => {
+					const orderA = parseInt(a.getAttribute("data-original-order")) || 0;
+					const orderB = parseInt(b.getAttribute("data-original-order")) || 0;
+					return orderA - orderB;
+				});
+			} else if (sortType === "type") {
+				rows.sort((a, b) => {
+					const typeA = a.getAttribute("data-type") || "";
+					const typeB = b.getAttribute("data-type") || "";
+					return typeA.localeCompare(typeB);
+				});
+			} else if (sortType === "time") {
+				rows.sort((a, b) => {
+					const timeA = parseTime(a.getAttribute("data-time"));
+					const timeB = parseTime(b.getAttribute("data-time"));
+					return timeA - timeB; // Ascending - shortest first
+				});
+			} else if (sortType === "pages") {
+				rows.sort((a, b) => {
+					const pagesA = parseInt(a.getAttribute("data-pages")) || 0;
+					const pagesB = parseInt(b.getAttribute("data-pages")) || 0;
+					return pagesA - pagesB; // Ascending - fewest first
+				});
+			} else if (sortType === "strategic") {
+				rows.sort((a, b) => {
+					const stratA = parseInt(a.getAttribute("data-strategic")) || 0;
+					const stratB = parseInt(b.getAttribute("data-strategic")) || 0;
+					return stratB - stratA; // Descending - highest first
+				});
+			} else if (sortType === "tactical") {
+				rows.sort((a, b) => {
+					const tactA = parseInt(a.getAttribute("data-tactical")) || 0;
+					const tactB = parseInt(b.getAttribute("data-tactical")) || 0;
+					return tactB - tactA; // Descending - highest first
+				});
+			}
+
+			// Re-append rows in sorted order
+			rows.forEach(row => tableBody.appendChild(row));
+		}
+
 		sortOptions.forEach(option => {
 			option.addEventListener("click", () => {
 				const sortType = option.getAttribute("data-sort");
-				const rows = Array.from(tableBody.querySelectorAll('tr'));
-
-				// Update active state
 				sortOptions.forEach(opt => opt.classList.remove("active"));
 				option.classList.add("active");
 
-				// Sort the rows based on selected type
-				if (sortType === "default") {
-					rows.sort((a, b) => {
-						const orderA = parseInt(a.getAttribute("data-original-order")) || 0;
-						const orderB = parseInt(b.getAttribute("data-original-order")) || 0;
-						return orderA - orderB;
-					});
-				} else if (sortType === "type") {
-					rows.sort((a, b) => {
-						const typeA = a.getAttribute("data-type") || "";
-						const typeB = b.getAttribute("data-type") || "";
-						return typeA.localeCompare(typeB);
-					});
-				} else if (sortType === "time") {
-					rows.sort((a, b) => {
-						const timeA = parseTime(a.getAttribute("data-time"));
-						const timeB = parseTime(b.getAttribute("data-time"));
-						return timeA - timeB; // Ascending - shortest first
-					});
-				} else if (sortType === "pages") {
-					rows.sort((a, b) => {
-						const pagesA = parseInt(a.getAttribute("data-pages")) || 0;
-						const pagesB = parseInt(b.getAttribute("data-pages")) || 0;
-						return pagesA - pagesB; // Ascending - fewest first
-					});
-				} else if (sortType === "strategic") {
-					rows.sort((a, b) => {
-						const stratA = parseInt(a.getAttribute("data-strategic")) || 0;
-						const stratB = parseInt(b.getAttribute("data-strategic")) || 0;
-						return stratB - stratA; // Descending - highest first
-					});
-				} else if (sortType === "tactical") {
-					rows.sort((a, b) => {
-						const tactA = parseInt(a.getAttribute("data-tactical")) || 0;
-						const tactB = parseInt(b.getAttribute("data-tactical")) || 0;
-						return tactB - tactA; // Descending - highest first
-					});
-				}
-
-				// Re-append rows in sorted order
-				rows.forEach(row => tableBody.appendChild(row));
-
-				// Close dropdown
+				applySort(sortType);
 				sortDropdown.classList.remove("active");
 			});
 		});
+
+		// Apply default sort on load if specified
+		if (sortControlsRow) {
+			const defaultSort = sortControlsRow.getAttribute("data-default-sort") || "default";
+
+			if (defaultSort !== "default") {
+				// Find and activate the corresponding sort option
+				sortOptions.forEach(opt => {
+					if (opt.getAttribute("data-sort") === defaultSort) {
+						opt.classList.add("active");
+					} else {
+						opt.classList.remove("active");
+					}
+				});
+
+				applySort(defaultSort);
+			} else {
+				sortOptions.forEach(opt => {
+					if (opt.getAttribute("data-sort") === "default") {
+						opt.classList.add("active");
+					}
+				});
+			}
+		}
 	}
 
 	function initPlansSorting() {

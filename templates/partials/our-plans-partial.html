@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <div class="row" id="plansTableSortControlsRow" style="display: none;">
+        <div class="row" id="plansTableSortControlsRow" style="display: {% if show_all %}block{% else %}none{% endif %};" data-default-sort="{{ default_sort|default:'default' }}">
             <div class="col-lg-12">
                 <div class="sort-controls">
                     <button id="plansTableSortToggleBtn" class="sort-toggle-btn">
@@ -44,7 +44,7 @@
                     </thead>
                     <tbody id="plansTableBody">
                     {% for plan in plans %}
-                    <tr class="{% if forloop.counter > 6 %}plan-row-hidden{% endif %}"
+                    <tr class="{% if not show_all and forloop.counter > 6 %}plan-row-hidden{% endif %}"
                         data-original-order="{{ forloop.counter }}"
                         data-type="{{ plan.type }}"
                         data-time="{{ plan.time }}"
@@ -119,9 +119,9 @@
         {% if plans|length > 6 %}
         <div class="col-lg-12">
             <div class="show-more-btn-container">
-                <button id="togglePlansTableBtn" class="btn-show-more btn-default">
-                    <span class="show-text">Show All Plans</span>
-                    <span class="hide-text" style="display: none;">Show Less</span>
+                <button id="togglePlansTableBtn" class="btn-show-more btn-default {% if show_all %}expanded{% endif %}">
+                    <span class="show-text" style="display: {% if show_all %}none{% else %}inline{% endif %};">Show All Plans</span>
+                    <span class="hide-text" style="display: {% if show_all %}inline{% else %}none{% endif %};">Show Less</span>
                 </button>
             </div>
         </div>
