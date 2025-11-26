@@ -1334,6 +1334,147 @@
 		});
 	}
 
+	function initPlansTableToggle() {
+		const toggleBtn = document.getElementById('togglePlansTableBtn');
+
+		if (!toggleBtn) return;
+
+		const hiddenRows = document.querySelectorAll('.plan-row-hidden');
+		const showText = toggleBtn.querySelector('.show-text');
+		const hideText = toggleBtn.querySelector('.hide-text');
+		const sortControlsRow = document.getElementById('plansTableSortControlsRow');
+
+		toggleBtn.addEventListener('click', () => {
+			const isExpanded = toggleBtn.classList.contains('expanded');
+
+			if (isExpanded) {
+				// Collapse - hide extra rows and sort controls
+				hiddenRows.forEach((row) => row.classList.add("plan-row-hidden"));
+				showText.style.display = "inline";
+				hideText.style.display = "none";
+				toggleBtn.classList.remove("expanded");
+
+				if (sortControlsRow) {
+					sortControlsRow.style.display = "none";
+				}
+
+				const table = document.querySelector('.our-project-silver .table-card');
+				if (table) {
+					const offset = 100;
+					const elementPosition = table.getBoundingClientRect().top + window.pageYOffset;
+					const offsetPosition = elementPosition - offset;
+
+					window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+				}
+			} else {
+				// Expand - show all rows and sort controls
+				hiddenRows.forEach((row) => row.classList.remove("plan-row-hidden"));
+				showText.style.display = "none";
+				hideText.style.display = "inline";
+				toggleBtn.classList.add("expanded");
+
+				if (sortControlsRow) {
+					sortControlsRow.style.display = "block";
+				}
+			}
+		});
+	}
+
+	function initPlansTableSorting() {
+		const sortToggleBtn = document.getElementById("plansTableSortToggleBtn");
+		const sortDropdown = document.getElementById("plansTableSortDropdown");
+		const sortOptions = document.querySelectorAll("#plansTableSortDropdown .sort-option");
+		const tableBody = document.getElementById("plansTableBody");
+
+		if (!sortToggleBtn || !sortDropdown || !tableBody) return;
+
+		// Toggle dropdown visibility
+		sortToggleBtn.addEventListener("click", (e) => {
+			e.stopPropagation();
+			sortDropdown.classList.toggle("active");
+		});
+
+		// Close dropdown when clicking outside
+		document.addEventListener("click", (e) => {
+			if (!sortDropdown.contains(e.target) && e.target !== sortToggleBtn) {
+				sortDropdown.classList.remove("active");
+			}
+		});
+
+		// Helper function to parse time strings
+		function parseTime(timeString) {
+			if (!timeString) return 0;
+			const match = timeString.match(/(\d+)\s*(hr|hour|hours?|min|minute|minutes?|day|days?|week|weeks?)/i);
+			if (!match) return 0;
+
+			const value = parseInt(match[1]);
+			const unit = match[2].toLowerCase();
+
+			if (unit.startsWith("min")) return value;
+			if (unit.startsWith("hr") || unit.startsWith("hour")) return value * 60;
+			if (unit.startsWith("day")) return value * 60 * 24;
+			if (unit.startsWith("week")) return value * 60 * 24 * 7;
+			return value;
+		}
+
+		// Handle sort option clicks
+		sortOptions.forEach(option => {
+			option.addEventListener("click", () => {
+				const sortType = option.getAttribute("data-sort");
+				const rows = Array.from(tableBody.querySelectorAll('tr'));
+
+				// Update active state
+				sortOptions.forEach(opt => opt.classList.remove("active"));
+				option.classList.add("active");
+
+				// Sort the rows based on selected type
+				if (sortType === "default") {
+					rows.sort((a, b) => {
+						const orderA = parseInt(a.getAttribute("data-original-order")) || 0;
+						const orderB = parseInt(b.getAttribute("data-original-order")) || 0;
+						return orderA - orderB;
+					});
+				} else if (sortType === "type") {
+					rows.sort((a, b) => {
+						const typeA = a.getAttribute("data-type") || "";
+						const typeB = b.getAttribute("data-type") || "";
+						return typeA.localeCompare(typeB);
+					});
+				} else if (sortType === "time") {
+					rows.sort((a, b) => {
+						const timeA = parseTime(a.getAttribute("data-time"));
+						const timeB = parseTime(b.getAttribute("data-time"));
+						return timeA - timeB; // Ascending - shortest first
+					});
+				} else if (sortType === "pages") {
+					rows.sort((a, b) => {
+						const pagesA = parseInt(a.getAttribute("data-pages")) || 0;
+						const pagesB = parseInt(b.getAttribute("data-pages")) || 0;
+						return pagesA - pagesB; // Ascending - fewest first
+					});
+				} else if (sortType === "strategic") {
+					rows.sort((a, b) => {
+						const stratA = parseInt(a.getAttribute("data-strategic")) || 0;
+						const stratB = parseInt(b.getAttribute("data-strategic")) || 0;
+						return stratB - stratA; // Descending - highest first
+					});
+				} else if (sortType === "tactical") {
+					rows.sort((a, b) => {
+						const tactA = parseInt(a.getAttribute("data-tactical")) || 0;
+						const tactB = parseInt(b.getAttribute("data-tactical")) || 0;
+						return tactB - tactA; // Descending - highest first
+					});
+				}
+
+				// Re-append rows in sorted order
+				rows.forEach(row => tableBody.appendChild(row));
+
+				// Close dropdown
+				sortDropdown.classList.remove("active");
+			});
+		});
+	}
+
 	function initPlansSorting() {
 		const sortToggleBtn = document.getElementById("sortToggleBtn");
 		const sortDropdown = document.getElementById("sortDropdown");
@@ -1419,5 +1560,7 @@
 	changeSortFocus();
 	setInterval(changeSortFocus, CYCLE);
 	initMarketingPlansToggle();
+	initPlansTableToggle();
+	initPlansTableSorting();
 	initPlansSorting();
 })(jQuery);

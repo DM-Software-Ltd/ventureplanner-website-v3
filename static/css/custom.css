@@ -12760,6 +12760,10 @@ i[class*="fi-tr"].yellow {
     display: none;
 }
 
+.plan-row-hidden {
+    display: none;
+}
+
 .sort-controls {
     display: flex;
     justify-content: flex-end;
@@ -14006,7 +14010,7 @@ i[class*="fi-tr"].yellow {
 }
 
 .data-table thead th {
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -14043,12 +14047,61 @@ i[class*="fi-tr"].yellow {
     font-size: 0.75rem;
 }
 
+.data-table .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.data-table .actions a {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+
+    font-size: 0.875rem;
+    text-transform: capitalize;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.data-table .actions a span {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.data-table .actions a:hover {
+    color: var(--accent-color);
+}
+
+.sectors-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
 .data-table .btn-default:before {
     display: none;
 }
+.data-table tbody tr td.cell-details {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    align-items: center;
+    gap: 11px;
+    padding: 1rem 1.5rem;
+}
+
+.data-table tbody tr td.cell-details img {
+    height: 70px;
+    width: 70px;
+    margin-left: -5px;
+}
 
 .details-wrapper {
-    max-width: 28rem;
+    max-width: 22rem;
 }
 .details-title {
     font-weight: 600;
@@ -14170,9 +14223,23 @@ i[class*="fi-tr"].yellow {
         flex-direction: row;
         border: none;
         border-bottom: 1px solid #eee;
+        align-items: center;
     }
+    .data-table .actions {
+        flex-direction: row;
+    }
+
+    .data-table tbody tr td.cell-details img {
+        display: none;
+    }
+
     .data-table tbody tr td:nth-of-type(1) {
         padding: 2rem 1.5rem;
+    }
+
+    .sectors-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .data-table tbody tr td:before {
@@ -14205,7 +14272,7 @@ i[class*="fi-tr"].yellow {
         content: "Pages";
     }
     .data-table tbody tr td:nth-of-type(7):before {
-        content: "Action";
+        content: "Actions";
     }
 }
 

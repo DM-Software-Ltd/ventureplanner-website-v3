@@ -193,50 +193,55 @@ def marketing_plans(request):
     from .plan_data import get_plans_by_type
     marketing_plans_list = get_plans_by_type('marketing')
     latest_posts = Blog.objects.filter(draft=False)[:4]
-    file_path = os.path.join(settings.BASE_DIR, 'static', 'data', 'plans.json')
+    file_path = os.path.join(settings.BASE_DIR, 'static', 'data', 'examples.json')
     examples = []
 
-    logger.info(f"Looking for plans.json at: {file_path}")
+    logger.info(f"Looking for examples.json at: {file_path}")
     logger.info(f"File exists: {os.path.exists(file_path)}")
 
     try:
         with open(file_path, 'r') as f:
-            data = json.load(f)
+            examples_data = json.load(f)
 
-        logger.info(f"Successfully loaded plans.json")
-
-        # Transform nested JSON structure into flat array for template
         # Map detail levels to numeric values
         level_map = {'low': 2, 'medium': 3, 'high': 4}
 
-        for plan_type, type_data in data.items():
-            for subtype_key, subtype_data in type_data.get('subTypes', {}).items():
-                # Map the JSON structure to template fields
-                plan = {
-                    'title': subtype_data.get('label', ''),
-                    'subtitle': subtype_data.get('subTitle', ''),
-                    'description': subtype_data.get('shortDescription', ''),
-                    'type': type_data.get('label', plan_type.capitalize()),
-                    'type_slug': plan_type,  # Use the key directly for CSS classes (business, marketing, financial)
-                    'strategicLevel': level_map.get(subtype_data.get('detailLevel', {}).get('strategic', 'medium'), 3),
-                    'tacticalLevel': level_map.get(subtype_data.get('detailLevel', {}).get('tactical', 'medium'), 3),
-                    'time': subtype_data.get('estimatedTime', 'N/A'),
-                    'pages': subtype_data.get('pageCount', 'N/A'),
-                }
+        for example in examples_data:
+            # Determine type_slug based on type
+            type_name = example.get('type', '')
+            if 'Business' in type_name:
+                type_slug = 'business'
+            elif 'Marketing' in type_name:
+                type_slug = 'marketing'
+            elif 'Financial' in type_name:
+                type_slug = 'financial'
+            else:
+                type_slug = 'business'  # default
 
-                # Add meta information for badges
-                plan['strat_meta'] = get_level_meta(plan['strategicLevel'])
-                plan['tact_meta'] = get_level_meta(plan['tacticalLevel'])
+            detail_level = example.get('detailLevel', {})
+            strategic_level = level_map.get(detail_level.get('strategic', 'medium'), 3)
+            tactical_level = level_map.get(detail_level.get('tactical', 'medium'), 3)
 
-                examples.append(plan)
+            plan = {
+                'title': example.get('plan-title', ''),
+                'subtitle': example.get('template', ''),
+                'description': example.get('shortDescription', ''),
+                'type': type_name,
+                'type_slug': type_slug,
+                'sectors': example.get('sectors', []),
+                'time': example.get('time', 'N/A'),
+                'pages': example.get('pageCount', 'N/A'),
+                'strategicLevel': strategic_level,
+                'tacticalLevel': tactical_level,
+                'strat_meta': get_level_meta(strategic_level),
+                'tact_meta': get_level_meta(tactical_level),
+            }
 
-        logger.info(f"Transformed {len(examples)} plans from JSON")
+            examples.append(plan)
 
     except FileNotFoundError:
-        logger.error(f"plans.json not found at {file_path}")
         examples = []
     except Exception as e:
-        logger.error(f"Error loading plans.json: {e}")
         import traceback
         logger.error(traceback.format_exc())
         examples = []

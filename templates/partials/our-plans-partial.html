@@ -9,6 +9,25 @@
             </div>
         </div>
 
+        <div class="row" id="plansTableSortControlsRow" style="display: none;">
+            <div class="col-lg-12">
+                <div class="sort-controls">
+                    <button id="plansTableSortToggleBtn" class="sort-toggle-btn">
+                        <i class="fi fi-tr-sort-alt"></i>
+                        <span>Sort</span>
+                    </button>
+                    <div id="plansTableSortDropdown" class="sort-dropdown">
+                        <button class="sort-option" data-sort="default">Default</button>
+                        <button class="sort-option" data-sort="type">Plan Type</button>
+                        <button class="sort-option" data-sort="time">Time (Shortest First)</button>
+                        <button class="sort-option" data-sort="pages">Pages (Fewest First)</button>
+                        <button class="sort-option" data-sort="strategic">Strategic Level</button>
+                        <button class="sort-option" data-sort="tactical">Tactical Level</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="table-card">
             <div class="table-responsive">
                 <table class="data-table">
@@ -20,13 +39,26 @@
                         <th class="text-center">Tactical</th>
                         <th class="text-center">Time</th>
                         <th class="text-center">Pages</th>
-                        <th class="text-center">Action</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="plansTableBody">
                     {% for plan in plans %}
-                    <tr>
+                    <tr class="{% if forloop.counter > 6 %}plan-row-hidden{% endif %}"
+                        data-original-order="{{ forloop.counter }}"
+                        data-type="{{ plan.type }}"
+                        data-time="{{ plan.time }}"
+                        data-pages="{{ plan.pages }}"
+                        data-strategic="{{ plan.strat_meta.bars }}"
+                        data-tactical="{{ plan.tact_meta.bars }}">
                         <td class="cell-details">
+                            {% if plan.type == "Business Plan" %}
+                            <img class="icon" src="/static/images/icon-bp.svg" alt="business plan icon">
+                            {% elif plan.type == "Marketing Plan" %}
+                            <img class="icon" src="/static/images/icon-mp.svg" alt="marketing plan icon">
+                            {% else %}
+                            <img class="icon" src="/static/images/icon-fp.svg" alt="financial plan icon">
+                            {% endif  %}
                             <div class="details-wrapper">
                                 <div class="details-title">{{ plan.title }}</div>
                                 <div class="details-desc">{{ plan.description }}</div>
@@ -34,7 +66,11 @@
                         </td>
 
                         <td>
-                            <span class="badge badge-{{ plan.type_slug }}">{{ plan.type }}</span>
+                            <div class="sectors-wrapper">
+                                {% for sector in plan.sectors %}
+                                <span class="badge badge-{{ plan.type_slug }}">{{ sector }}</span>
+                                {% endfor %}
+                            </div>
                         </td>
 
                         <td class="cell-center">
@@ -64,9 +100,14 @@
                         <td class="cell-center">{{ plan.time }}</td>
                         <td class="cell-center">{{ plan.pages }}</td>
                         <td class="cell-center">
-                            <a href="/contact/" class="btn-default btn-sm">
-                                View
-                            </a>
+                            <div class="actions">
+                                <a href="/contact/" class="d-flex flex-row gap-1">
+                                    <i class="fi fi-tr-file-download"></i> <span>Download</span>
+                                </a>
+                                <a href="/contact/" class="d-flex flex-row gap-1 text-sm">
+                                    <i class="fi fi-tr-overview"></i> <span>View</span>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                     {% endfor %}
@@ -74,6 +115,17 @@
                 </table>
             </div>
         </div>
+
+        {% if plans|length > 6 %}
+        <div class="col-lg-12">
+            <div class="show-more-btn-container">
+                <button id="togglePlansTableBtn" class="btn-show-more btn-default">
+                    <span class="show-text">Show All Plans</span>
+                    <span class="hide-text" style="display: none;">Show Less</span>
+                </button>
+            </div>
+        </div>
+        {% endif %}
 
         <div class="col-lg-12">
             <div class="section-footer-text wow fadeInUp" data-wow-delay="0.4s">
@@ -85,219 +137,3 @@
         </div>
     </div>
 </div>
-
-<style>
-/*    .table-card {*/
-/*        background-color: #fff;*/
-/*        border-radius: 0.75rem;*/
-/*        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);*/
-/*        overflow: hidden;*/
-/*    }*/
-
-/*    .table-responsive {*/
-/*        overflow-x: auto;*/
-/*    }*/
-
-/*    .data-table {*/
-/*        width: 100%;*/
-/*        border-collapse: collapse;*/
-/*    }*/
-
-/*    .data-table thead {*/
-/*        background-color: var(--slate-50);*/
-/*        border-bottom: 1px solid var(--slate-200);*/
-/*    }*/
-
-/*    .data-table thead th {*/
-/*        padding: 1rem 1.5rem;*/
-/*        font-size: 0.75rem;*/
-/*        font-weight: 600;*/
-/*        text-transform: uppercase;*/
-/*        letter-spacing: 0.05em;*/
-/*    }*/
-
-/*    .text-left {*/
-/*        text-align: left;*/
-/*    }*/
-/*    .text-center {*/
-/*        text-align: center;*/
-/*    }*/
-
-/*    .data-table tbody tr {*/
-/*        border-bottom: 1px solid var(--slate-200);*/
-/*        transition: background-color 0.15s ease;*/
-/*        cursor: pointer;*/
-/*    }*/
-/*    .data-table tbody tr:last-child {*/
-/*        border-bottom: none;*/
-/*    }*/
-/*    .data-table tbody tr:hover {*/
-/*        background-color: var(--slate-50);*/
-/*    }*/
-
-/*    .data-table tbody tr td {*/
-/*        padding: 1rem 1.5rem;*/
-/*        vertical-align: middle;*/
-/*    }*/
-
-/*    .data-table .btn-default {*/
-/*        padding: 18px;*/
-/*        text-align: center;*/
-/*    }*/
-
-/*    .data-table .btn-default:before {*/
-/*        display: none;*/
-/*    }*/
-
-/*    .details-wrapper {*/
-/*        max-width: 28rem;*/
-/*    }*/
-/*    .details-title {*/
-/*        font-weight: 600;*/
-/*        color: #054442;*/
-/*        margin-bottom: 0.25rem;*/
-/*    }*/
-/*    .details-desc {*/
-/*        margin-top: 0.5rem;*/
-/*        font-size: 0.875rem;*/
-/*        line-height: 1.25rem;*/
-/*    }*/
-
-/*    .badge {*/
-/*        display: inline-flex;*/
-/*        align-items: center;*/
-/*        padding: 0.25rem 0.625rem;*/
-/*        border-radius: 9999px;*/
-/*        font-size: 0.75rem;*/
-/*        font-weight: 500;*/
-/*    }*/
-/*    .badge-business {*/
-/*        background-color: #faf6ee;*/
-/*        color: #f1ac04;*/
-/*    }*/
-/*    .badge-marketing {*/
-/*        background-color: #f9f1f2;*/
-/*        color: #ff747b;*/
-/*    }*/
-/*    .badge-financial {*/
-/*        background-color: #ecf4f6;*/
-/*        color: #1d61a9;*/
-/*    }*/
-
-/*    .cell-center { text-align: center; }*/
-/*    .signal-wrapper {*/
-/*        display: flex;*/
-/*        flex-direction: column;*/
-/*        align-items: center;*/
-/*        gap: 0.5rem;*/
-/*    }*/
-
-/*    .signal-label {*/
-/*        font-size: 0.75rem;*/
-/*        font-weight: 600;*/
-/*        text-transform: uppercase;*/
-/*    }*/
-
-/*    .signal-bars {*/
-/*        display: flex;*/
-/*        gap: 0.25rem;*/
-/*        align-items: flex-end;*/
-/*        height: 24px;*/
-/*    }*/
-
-/*    .signal-bar {*/
-/*        width: 6px;*/
-/*        border-radius: 2px;*/
-/*        transition: background-color 0.2s ease;*/
-/*    }*/
-
-/*    .signal-bar:nth-child(1) {*/
-/*        height: 8px;*/
-/*    }*/
-/*    .signal-bar:nth-child(2) {*/
-/*        height: 16px;*/
-/*    }*/
-/*    .signal-bar:nth-child(3) {*/
-/*        height: 24px;*/
-/*    }*/
-
-/*    .signal-bar-empty {*/
-/*        background-color: var(--slate-200);*/
-/*    }*/
-
-/*    .text-teal {*/
-/*        color: #4c8f86;*/
-/*    }*/
-/*    .text-coral {*/
-/*        color: #fb757e;*/
-/*    }*/
-/*    .text-gold {*/
-/*        color: #ffbc25;*/
-/*    }*/
-
-/*    .signal-bar-filled-teal {*/
-/*        background-color: #4c8f86;*/
-/*    }*/
-/*    .signal-bar-filled-coral {*/
-/*        background-color: #fb757e;*/
-/*    }*/
-/*    .signal-bar-filled-gold {*/
-/*        background-color: #ffbc25;*/
-/*    }*/
-
-/*@media only screen and (max-width: 991px) {*/
-/*    .data-table,*/
-/*    .data-table tbody {*/
-/*        display: block;*/
-/*    }*/
-
-/*    .data-table thead {*/
-/*        display: none;*/
-/*    }*/
-
-/*    .data-table tbody tr {*/
-/*        display: block;*/
-/*        border: 1px solid #ccc;*/
-/*        margin-top: 20px;*/
-/*    }*/
-
-/*    .data-table tbody tr td {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        border: none;*/
-/*        border-bottom: 1px solid #eee;*/
-/*    }*/
-
-/*    .data-table tbody tr td:before {*/
-/*        width: 25%;*/
-/*        min-width: 100px;*/
-/*        text-align: left;*/
-/*        padding: 1rem 1.5rem;*/
-/*        font-size: 0.75rem;*/
-/*        font-weight: 600;*/
-/*        text-transform: uppercase;*/
-/*        letter-spacing: 0.05em;*/
-/*    }*/
-/*    .data-table tbody tr td:nth-of-type(1):before {*/
-/*        content: "Plan Details";*/
-/*    }*/
-/*    .data-table tbody tr td:nth-of-type(2):before {*/
-/*        content: "Type";*/
-/*    }*/
-/*    .data-table tbody tr td:nth-of-type(3):before {*/
-/*        content: "Strategic";*/
-/*    }*/
-/*    .data-table tbody tr td:nth-of-type(4):before {*/
-/*        content: "Tactical";*/
-/*    }*/
-/*    .data-table tbody tr td:nth-of-type(5):before {*/
-/*        content: "Time";*/
-/*    }*/
-/*    .data-table tbody tr td:nth-of-type(6):before {*/
-/*        content: "Pages";*/
-/*    }*/
-/*    .data-table tbody tr td:nth-of-type(7):before {*/
-/*        content: "Action";*/
-/*    }*/
-/*}*/
-</style>

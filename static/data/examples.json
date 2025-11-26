@@ -1,0 +1,982 @@
+[
+  {
+    "id": 1,
+    "plan-title": "Organic Coffee Roastery Startup",
+    "shortDescription": "Complete startup plan for a specialty coffee roasting business targeting eco-conscious millennials in urban markets",
+    "type": "Business Plan",
+    "template": "Startup Business Plan",
+    "sectors": ["Food & Beverage", "Retail", "Sustainability"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "medium"
+    },
+    "time": "4 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 2,
+    "plan-title": "Mobile Pet Grooming Service Launch",
+    "shortDescription": "Comprehensive startup roadmap for a mobile pet grooming service covering 3 metropolitan areas with franchise potential",
+    "type": "Business Plan",
+    "template": "Startup Business Plan",
+    "sectors": ["Pet Services", "Mobile Business", "Franchise"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "medium"
+    },
+    "time": "5 Hours",
+    "pageCount": "32"
+  },
+  {
+    "id": 3,
+    "plan-title": "Manufacturing Process Optimization Initiative",
+    "shortDescription": "Internal strategic plan for optimizing production workflow and reducing operational costs by 25% over 18 months",
+    "type": "Business Plan",
+    "template": "Internal Business Plan",
+    "sectors": ["Manufacturing", "Operations", "Process Improvement"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "26"
+  },
+  {
+    "id": 4,
+    "plan-title": "HR Technology Implementation Plan",
+    "shortDescription": "Department-level plan for implementing new HRIS system across 500+ employees with change management protocols",
+    "type": "Business Plan",
+    "template": "Internal Business Plan",
+    "sectors": ["Human Resources", "Technology", "Enterprise Software"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 5,
+    "plan-title": "Regional Bakery Chain Expansion",
+    "shortDescription": "Multi-location expansion strategy for established bakery brand entering 5 new markets with franchising model",
+    "type": "Business Plan",
+    "template": "Growth / Expansion Business Plan",
+    "sectors": ["Food & Beverage", "Retail", "Franchise"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "medium"
+    },
+    "time": "7 Hours",
+    "pageCount": "42"
+  },
+  {
+    "id": 6,
+    "plan-title": "SaaS Platform International Growth",
+    "shortDescription": "Strategic expansion plan for B2B software company entering European and Asian markets with localization strategy",
+    "type": "Business Plan",
+    "template": "Growth / Expansion Business Plan",
+    "sectors": ["SaaS", "Technology", "International Business"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "medium"
+    },
+    "time": "6 Hours",
+    "pageCount": "48"
+  },
+  {
+    "id": 7,
+    "plan-title": "Freelance Consulting Practice Setup",
+    "shortDescription": "Streamlined business plan for independent management consultant establishing solo practice and client acquisition",
+    "type": "Business Plan",
+    "template": "Simple Business Plan",
+    "sectors": ["Professional Services", "Consulting", "Solopreneur"],
+    "detailLevel": {
+      "strategic": "low",
+      "tactical": "low"
+    },
+    "time": "3 Hours",
+    "pageCount": "22"
+  },
+  {
+    "id": 8,
+    "plan-title": "Home-Based E-commerce Store",
+    "shortDescription": "Simplified plan for individual launching handmade jewelry business through Etsy and Shopify platforms",
+    "type": "Business Plan",
+    "template": "Simple Business Plan",
+    "sectors": ["E-commerce", "Crafts", "Retail"],
+    "detailLevel": {
+      "strategic": "low",
+      "tactical": "low"
+    },
+    "time": "4 Hours",
+    "pageCount": "24"
+  },
+  {
+    "id": 9,
+    "plan-title": "Fitness Studio Multi-Channel Campaign",
+    "shortDescription": "12-month integrated marketing plan covering SEO, PPC, social media, email, and local partnerships for boutique gym",
+    "type": "Marketing Plan",
+    "template": "Multi-Channel Marketing Plan",
+    "sectors": ["Fitness", "Health & Wellness", "Local Business"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "50"
+  },
+  {
+    "id": 10,
+    "plan-title": "Restaurant Group Annual Marketing Strategy",
+    "shortDescription": "Comprehensive omnichannel plan for 8-location restaurant group including delivery apps, social, PR, and loyalty programs",
+    "type": "Marketing Plan",
+    "template": "Multi-Channel Marketing Plan",
+    "sectors": ["Food & Beverage", "Hospitality", "Multi-Location"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "high"
+    },
+    "time": "8 Hours",
+    "pageCount": "55"
+  },
+  {
+    "id": 11,
+    "plan-title": "AI-Powered CRM Software Launch",
+    "shortDescription": "Product launch strategy for enterprise CRM platform targeting mid-market sales teams with freemium model",
+    "type": "Marketing Plan",
+    "template": "Go-to-Market Marketing Plan",
+    "sectors": ["SaaS", "Technology", "Sales Enablement"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "40"
+  },
+  {
+    "id": 12,
+    "plan-title": "Sustainable Fashion Brand Debut",
+    "shortDescription": "Market entry plan for eco-friendly clothing line targeting Gen-Z consumers through DTC channels and pop-ups",
+    "type": "Marketing Plan",
+    "template": "Go-to-Market Marketing Plan",
+    "sectors": ["Fashion", "Sustainability", "Direct-to-Consumer"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "44"
+  },
+  {
+    "id": 13,
+    "plan-title": "Medical Device Company 3-Year Vision",
+    "shortDescription": "Long-term brand positioning and competitive strategy for medical equipment manufacturer entering home healthcare",
+    "type": "Marketing Plan",
+    "template": "Strategic High-Level Marketing Plan",
+    "sectors": ["Healthcare", "Medical Devices", "B2B"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "low"
+    },
+    "time": "5 Hours",
+    "pageCount": "34"
+  },
+  {
+    "id": 14,
+    "plan-title": "Professional Services Firm Rebrand",
+    "shortDescription": "High-level marketing strategy for accounting firm modernizing brand identity and targeting younger business owners",
+    "type": "Marketing Plan",
+    "template": "Strategic High-Level Marketing Plan",
+    "sectors": ["Professional Services", "Accounting", "Branding"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "low"
+    },
+    "time": "3 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 15,
+    "plan-title": "E-commerce Electronics Store PPC Campaign",
+    "shortDescription": "Google Ads strategy for consumer electronics retailer focusing on high-margin product categories and seasonal peaks",
+    "type": "Marketing Plan",
+    "template": "Paid Search Advertising Plan",
+    "sectors": ["E-commerce", "Electronics", "Retail"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 16,
+    "plan-title": "Legal Services Firm Google Ads Strategy",
+    "shortDescription": "Paid search plan for personal injury law firm targeting local injury-related keywords with call tracking",
+    "type": "Marketing Plan",
+    "template": "Paid Search Advertising Plan",
+    "sectors": ["Legal Services", "Personal Injury", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 17,
+    "plan-title": "Plumbing Company Local SEO Strategy",
+    "shortDescription": "12-month SEO roadmap for multi-location plumbing service focusing on local pack rankings and service pages",
+    "type": "Marketing Plan",
+    "template": "Search Engine Optimization (SEO) Plan",
+    "sectors": ["Home Services", "Plumbing", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "32"
+  },
+  {
+    "id": 18,
+    "plan-title": "B2B SaaS Content Marketing & SEO",
+    "shortDescription": "Technical SEO and content strategy for project management software targeting organic growth and demo signups",
+    "type": "Marketing Plan",
+    "template": "Search Engine Optimization (SEO) Plan",
+    "sectors": ["SaaS", "Technology", "Content Marketing"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "36"
+  },
+  {
+    "id": 19,
+    "plan-title": "Online Course Platform Affiliate Program",
+    "shortDescription": "Partner recruitment and management strategy for education platform targeting bloggers and content creators in learning space",
+    "type": "Marketing Plan",
+    "template": "Affiliate Marketing Plan",
+    "sectors": ["Education", "Online Learning", "Affiliate"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 20,
+    "plan-title": "Web Hosting Company Partner Network",
+    "shortDescription": "Tiered commission structure and promotional asset plan for web hosting provider building affiliate channel",
+    "type": "Marketing Plan",
+    "template": "Affiliate Marketing Plan",
+    "sectors": ["Web Hosting", "Technology", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 21,
+    "plan-title": "Real Estate Agency Display Advertising",
+    "shortDescription": "Programmatic display campaign targeting homebuyers in specific zip codes with retargeting for property viewers",
+    "type": "Marketing Plan",
+    "template": "Display & Banner Advertising Plan",
+    "sectors": ["Real Estate", "Property", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "3 Hours",
+    "pageCount": "26"
+  },
+  {
+    "id": 22,
+    "plan-title": "Travel Agency Retargeting Campaign",
+    "shortDescription": "Multi-platform display strategy retargeting vacation package browsers across GDN and social display networks",
+    "type": "Marketing Plan",
+    "template": "Display & Banner Advertising Plan",
+    "sectors": ["Travel", "Tourism", "E-commerce"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 23,
+    "plan-title": "Craft Brewery Social Media Content Plan",
+    "shortDescription": "Year-long content calendar for craft brewery building community through Instagram, Facebook, and TikTok engagement",
+    "type": "Marketing Plan",
+    "template": "Organic Social Media Plan",
+    "sectors": ["Food & Beverage", "Alcohol", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "34"
+  },
+  {
+    "id": 24,
+    "plan-title": "Non-Profit Organization Social Strategy",
+    "shortDescription": "Community building and donor engagement plan for environmental charity across organic social channels",
+    "type": "Marketing Plan",
+    "template": "Organic Social Media Plan",
+    "sectors": ["Non-Profit", "Environmental", "Charity"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "3 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 25,
+    "plan-title": "DTC Skincare Brand Facebook Ads",
+    "shortDescription": "Meta advertising strategy for skincare startup targeting women 25-45 with UGC content and strategic partnerships",
+    "type": "Marketing Plan",
+    "template": "Paid Social Media Advertising Plan",
+    "sectors": ["Beauty", "Direct-to-Consumer", "E-commerce"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "32"
+  },
+  {
+    "id": 26,
+    "plan-title": "B2B Software LinkedIn Campaign",
+    "shortDescription": "LinkedIn Ads strategy for HR software targeting C-suite and HR directors with lead magnet and webinar funnel",
+    "type": "Marketing Plan",
+    "template": "Paid Social Media Advertising Plan",
+    "sectors": ["SaaS", "Human Resources", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "36"
+  },
+  {
+    "id": 27,
+    "plan-title": "Fitness Apparel Brand Ambassador Campaign",
+    "shortDescription": "Micro and macro creator partnership strategy for activewear brand targeting fitness enthusiasts on Instagram",
+    "type": "Marketing Plan",
+    "template": "Influencer Marketing Plan",
+    "sectors": ["Fashion", "Fitness", "E-commerce"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 28,
+    "plan-title": "Gaming Accessory Company Streamer Strategy",
+    "shortDescription": "Gaming streamer collaboration plan for peripheral manufacturer targeting Twitch and YouTube gaming audiences",
+    "type": "Marketing Plan",
+    "template": "Influencer Marketing Plan",
+    "sectors": ["Gaming", "Technology", "E-commerce"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "34"
+  },
+  {
+    "id": 29,
+    "plan-title": "Business Coaching Podcast Launch",
+    "shortDescription": "Weekly podcast strategy for executive coach building thought leadership and generating high-ticket clients",
+    "type": "Marketing Plan",
+    "template": "Podcast Marketing Plan",
+    "sectors": ["Professional Services", "Coaching", "Consulting"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 30,
+    "plan-title": "Financial Services Podcast Sponsorships",
+    "shortDescription": "Podcast advertising strategy for investment platform targeting business and finance podcast sponsorships",
+    "type": "Marketing Plan",
+    "template": "Podcast Marketing Plan",
+    "sectors": ["Financial Services", "Investment", "B2C"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 31,
+    "plan-title": "Software Tutorial Video Series",
+    "shortDescription": "YouTube and Vimeo strategy for project management tool creating educational content for user acquisition",
+    "type": "Marketing Plan",
+    "template": "Video Marketing Plan",
+    "sectors": ["SaaS", "Technology", "Education"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "38"
+  },
+  {
+    "id": 32,
+    "plan-title": "Home Services Video Ad Campaign",
+    "shortDescription": "Local video advertising plan for HVAC company creating customer testimonials and service explainer content",
+    "type": "Marketing Plan",
+    "template": "Video Marketing Plan",
+    "sectors": ["Home Services", "HVAC", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "32"
+  },
+  {
+    "id": 33,
+    "plan-title": "Dental Practice Direct Mail Campaign",
+    "shortDescription": "Quarterly postcard campaign targeting homeowners in 5-mile radius with new patient specials and dental health tips",
+    "type": "Marketing Plan",
+    "template": "Physical Mail Marketing Plan",
+    "sectors": ["Healthcare", "Dental", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "3 Hours",
+    "pageCount": "26"
+  },
+  {
+    "id": 34,
+    "plan-title": "Insurance Agency Newsletter Strategy",
+    "shortDescription": "Monthly printed newsletter for insurance clients featuring coverage tips, policy updates, and referral incentives",
+    "type": "Marketing Plan",
+    "template": "Physical Mail Marketing Plan",
+    "sectors": ["Insurance", "Financial Services", "B2C"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 35,
+    "plan-title": "E-commerce Welcome Series Automation",
+    "shortDescription": "Automated email nurture sequence for online furniture store with cart abandonment and post-purchase flows",
+    "type": "Marketing Plan",
+    "template": "Email Marketing Plan",
+    "sectors": ["E-commerce", "Furniture", "Retail"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "34"
+  },
+  {
+    "id": 36,
+    "plan-title": "SaaS Customer Retention Email Program",
+    "shortDescription": "Lifecycle email strategy for subscription software with onboarding, engagement, and win-back campaigns",
+    "type": "Marketing Plan",
+    "template": "Email Marketing Plan",
+    "sectors": ["SaaS", "Technology", "Customer Success"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "36"
+  },
+  {
+    "id": 37,
+    "plan-title": "Restaurant SMS Loyalty Program",
+    "shortDescription": "Text message marketing plan for restaurant chain with weekly specials, birthday offers, and VIP member benefits",
+    "type": "Marketing Plan",
+    "template": "Direct Messaging Marketing Plan",
+    "sectors": ["Food & Beverage", "Hospitality", "Multi-Location"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "3 Hours",
+    "pageCount": "24"
+  },
+  {
+    "id": 38,
+    "plan-title": "Salon Appointment Reminder System",
+    "shortDescription": "SMS and WhatsApp strategy for beauty salon reducing no-shows and promoting rebooking with automated reminders",
+    "type": "Marketing Plan",
+    "template": "Direct Messaging Marketing Plan",
+    "sectors": ["Beauty", "Personal Care", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time":  "4 Hours",
+    "pageCount": "22"
+  },
+  {
+    "id": 39,
+    "plan-title": "Industrial Equipment Product Catalog",
+    "shortDescription": "Annual print catalog for manufacturing equipment supplier featuring 200+ products with technical specifications",
+    "type": "Marketing Plan",
+    "template": "Catalogue Marketing Plan",
+    "sectors": ["Manufacturing", "Industrial", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "36"
+  },
+  {
+    "id": 40,
+    "plan-title": "Wholesale Distributor Seasonal Catalog",
+    "shortDescription": "Quarterly product catalog for foodservice distributor showcasing inventory for restaurant and catering buyers",
+    "type": "Marketing Plan",
+    "template": "Catalogue Marketing Plan",
+    "sectors": ["Food & Beverage", "Distribution", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "38"
+  },
+  {
+    "id": 41,
+    "plan-title": "B2B Software Lead Generation Calling",
+    "shortDescription": "Outbound calling strategy for CRM software targeting small business owners with appointment setting scripts",
+    "type": "Marketing Plan",
+    "template": "Telemarketing Campaign Plan",
+    "sectors": ["SaaS", "Technology", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "3 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 42,
+    "plan-title": "Insurance Agency Warm Lead Follow-up",
+    "shortDescription": "Phone campaign for insurance broker following up on online quote requests with objection handling protocols",
+    "type": "Marketing Plan",
+    "template": "Telemarketing Campaign Plan",
+    "sectors": ["Insurance", "Financial Services", "B2C"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 43,
+    "plan-title": "Solar Installation Door-to-Door Campaign",
+    "shortDescription": "Territory-based field sales strategy for residential solar company targeting homeowners in suburban neighborhoods",
+    "type": "Marketing Plan",
+    "template": "Door-to-Door Sales Plan",
+    "sectors": ["Renewable Energy", "Solar", "Home Services"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "32"
+  },
+  {
+    "id": 44,
+    "plan-title": "Home Security System Local Canvassing",
+    "shortDescription": "Neighborhood canvassing plan for security company with rep training and incentive structure for new installations",
+    "type": "Marketing Plan",
+    "template": "Door-to-Door Sales Plan",
+    "sectors": ["Home Services", "Security", "Technology"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "3 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 45,
+    "plan-title": "National Retail Brand TV Campaign",
+    "shortDescription": "Prime-time television strategy for consumer goods brand targeting family audiences across cable and streaming",
+    "type": "Marketing Plan",
+    "template": "TV Advertising Plan",
+    "sectors": ["Consumer Goods", "Retail", "CPG"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "7 Hours",
+    "pageCount": "40"
+  },
+  {
+    "id": 46,
+    "plan-title": "Auto Dealership Local TV Spots",
+    "shortDescription": "Regional TV advertising for car dealership group with seasonal promotions and brand awareness messaging",
+    "type": "Marketing Plan",
+    "template": "TV Advertising Plan",
+    "sectors": ["Automotive", "Retail", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "34"
+  },
+  {
+    "id": 47,
+    "plan-title": "Credit Union Community Radio Campaign",
+    "shortDescription": "Morning and afternoon drive-time radio strategy for local credit union promoting mortgage and auto loan rates",
+    "type": "Marketing Plan",
+    "template": "Radio Advertising Plan",
+    "sectors": ["Financial Services", "Banking", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "3 hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 48,
+    "plan-title": "Furniture Store Holiday Radio Blitz",
+    "shortDescription": "High-frequency radio campaign for furniture retailer during key shopping periods with promotional pricing",
+    "type": "Marketing Plan",
+    "template": "Radio Advertising Plan",
+    "sectors": ["Furniture", "Retail", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 49,
+    "plan-title": "Luxury Watch Brand Magazine Advertising",
+    "shortDescription": "Full-page print ads in premium lifestyle magazines targeting affluent consumers with high-net-worth readership",
+    "type": "Marketing Plan",
+    "template": "Printed Media Advertising Plan",
+    "sectors": ["Luxury", "Fashion", "Retail"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 50,
+    "plan-title": "Manufacturing Trade Publication Campaign",
+    "shortDescription": "Industry journal advertising strategy for industrial machinery manufacturer targeting plant managers and procurement",
+    "type": "Marketing Plan",
+    "template": "Printed Media Advertising Plan",
+    "sectors": ["Manufacturing", "Industrial", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "32"
+  },
+  {
+    "id": 51,
+    "plan-title": "Law Firm Billboard Campaign",
+    "shortDescription": "Strategic billboard placement for personal injury attorneys on major highways and high-traffic intersections",
+    "type": "Marketing Plan",
+    "template": "Outdoor Advertising Plan",
+    "sectors": ["Legal Services", "Personal Injury", "Local Business"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 52,
+    "plan-title": "Event Venue Transit Advertising",
+    "shortDescription": "Bus shelter and subway ads for convention center promoting event spaces to corporate meeting planners",
+    "type": "Marketing Plan",
+    "template": "Outdoor Advertising Plan",
+    "sectors": ["Events", "Hospitality", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 53,
+    "plan-title": "CPG Brand In-Store Promotions",
+    "shortDescription": "Point-of-sale strategy for snack food brand with end-cap displays, shelf talkers, and demo sampling program",
+    "type": "Marketing Plan",
+    "template": "Retail / In-Store Advertising Plan",
+    "sectors": ["Consumer Goods", "Food & Beverage", "Retail"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "34"
+  },
+  {
+    "id": 54,
+    "plan-title": "Wine Distributor Retail Merchandising",
+    "shortDescription": "Retail placement strategy for wine brand with POS materials, staff training, and seasonal display planning",
+    "type": "Marketing Plan",
+    "template": "Retail / In-Store Advertising Plan",
+    "sectors": ["Food & Beverage", "Alcohol", "Distribution"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "36"
+  },
+  {
+    "id": 55,
+    "plan-title": "Tech Company Sports Team Sponsorship",
+    "shortDescription": "Stadium signage and activation plan for software company sponsoring minor league baseball team with brand visibility",
+    "type": "Marketing Plan",
+    "template": "Sponsorships Marketing Plan",
+    "sectors": ["Technology", "SaaS", "Sports"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "32"
+  },
+  {
+    "id": 56,
+    "plan-title": "Bank Community Event Sponsorship",
+    "shortDescription": "Local festival and charity event sponsorship strategy for regional bank building community goodwill and brand presence",
+    "type": "Marketing Plan",
+    "template": "Sponsorships Marketing Plan",
+    "sectors": ["Financial Services", "Banking", "Community"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "3 Hours",
+    "pageCount": "30"
+  },
+  {
+    "id": 57,
+    "plan-title": "Cybersecurity Vendor Trade Show Strategy",
+    "shortDescription": "RSA Conference booth strategy for cybersecurity firm with lead capture, demos, and networking plan for 15,000 attendees",
+    "type": "Marketing Plan",
+    "template": "Trade Shows & Exhibitions Plan",
+    "sectors": ["Technology", "Cybersecurity", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "38"
+  },
+  {
+    "id": 58,
+    "plan-title": "Medical Device Industry Event Presence",
+    "shortDescription": "National healthcare conference plan for medical equipment manufacturer with product launches and buyer meetings",
+    "type": "Marketing Plan",
+    "template": "Trade Shows & Exhibitions Plan",
+    "sectors": ["Healthcare", "Medical Devices", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "7 Hours",
+    "pageCount": "42"
+  },
+  {
+    "id": 59,
+    "plan-title": "Marketing Agency Workshop Series",
+    "shortDescription": "Quarterly digital marketing workshops for agency targeting local business owners with lead nurture curriculum",
+    "type": "Marketing Plan",
+    "template": "Seminars & Workshops Events Plan",
+    "sectors": ["Marketing", "Professional Services", "Education"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "34"
+  },
+  {
+    "id": 60,
+    "plan-title": "Financial Advisor Educational Seminars",
+    "shortDescription": "Monthly retirement planning seminars for wealth management firm targeting pre-retirees with high-value follow-up",
+    "type": "Marketing Plan",
+    "template": "Seminars & Workshops Events Plan",
+    "sectors": ["Financial Services", "Wealth Management", "Education"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "32"
+  },
+  {
+    "id": 61,
+    "plan-title": "Architecture Firm Networking Strategy",
+    "shortDescription": "Year-long professional networking plan for architecture practice attending industry events and hosting mixers",
+    "type": "Marketing Plan",
+    "template": "Networking Events Plan",
+    "sectors": ["Architecture", "Professional Services", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 62,
+    "plan-title": "Startup Founder Relationship Building",
+    "shortDescription": "Strategic networking calendar for tech startup CEO targeting investors, partners, and customers at key events",
+    "type": "Marketing Plan",
+    "template": "Networking Events Plan",
+    "sectors": ["Technology", "Startup", "Fundraising"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "28"
+  },
+  {
+    "id": 63,
+    "plan-title": "Tech Startup Media Relations Campaign",
+    "shortDescription": "Press release and journalist outreach strategy for SaaS startup securing TechCrunch and industry publication coverage",
+    "type": "Marketing Plan",
+    "template": "Reputation Building PR Plan",
+    "sectors": ["Technology", "SaaS", "Public Relations"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "6 Hours",
+    "pageCount": "34"
+  },
+  {
+    "id": 64,
+    "plan-title": "CEO Thought Leadership PR Strategy",
+    "shortDescription": "Executive visibility plan positioning manufacturing CEO as industry expert through bylines, speaking, and interviews",
+    "type": "Marketing Plan",
+    "template": "Reputation Building PR Plan",
+    "sectors": ["Manufacturing", "Executive Leadership", "B2B"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "36"
+  },
+  {
+    "id": 65,
+    "plan-title": "Hospital System Crisis Communication Plan",
+    "shortDescription": "Emergency response protocols for healthcare network addressing potential medical incidents, data breaches, and PR crises",
+    "type": "Marketing Plan",
+    "template": "Crisis Management Communications Plan",
+    "sectors": ["Healthcare", "Hospital", "Crisis Management"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "4 hours",
+    "pageCount": "36"
+  },
+  {
+    "id": 66,
+    "plan-title": "Food Manufacturer Recall Protocol",
+    "shortDescription": "Crisis communication framework for food company managing product recalls, contamination scares, and public safety",
+    "type": "Marketing Plan",
+    "template": "Crisis Management Communications Plan",
+    "sectors": ["Food & Beverage", "Manufacturing", "Crisis Management"],
+    "detailLevel": {
+      "strategic": "medium",
+      "tactical": "high"
+    },
+    "time": "5 Hours",
+    "pageCount": "38"
+  },
+  {
+    "id": 67,
+    "plan-title": "E-commerce Platform 5-Year Financial Model",
+    "shortDescription": "Comprehensive financial projections for marketplace platform modeling GMV growth, take rates, and unit economics",
+    "type": "Financial Plan",
+    "template": "Detailed Financial Model",
+    "sectors": ["E-commerce", "Technology", "Marketplace"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "high"
+    },
+    "time": "8 Hours",
+    "pageCount": "48"
+  },
+  {
+    "id": 68,
+    "plan-title": "Manufacturing Acquisition Due Diligence",
+    "shortDescription": "Complex financial model for industrial equipment manufacturer evaluating $50M acquisition with synergy analysis",
+    "type": "Financial Plan",
+    "template": "Detailed Financial Model",
+    "sectors": ["Manufacturing", "Industrial", "M&A"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "high"
+    },
+    "time": "7 Hours",
+    "pageCount": "52"
+  },
+  {
+    "id": 69,
+    "plan-title": "Mobile App Startup Seed Round Projections",
+    "shortDescription": "3-year financial forecast for consumer app targeting pre-seed funding with user acquisition and monetization modeling",
+    "type": "Financial Plan",
+    "template": "Startup Financial Projections",
+    "sectors": ["Technology", "Mobile Apps", "Startup"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "high"
+    },
+    "time": "4 Hours",
+    "pageCount": "36"
+  },
+  {
+    "id": 70,
+    "plan-title": "Hardware Startup Manufacturing Forecast",
+    "shortDescription": "Startup financial plan for IoT device company modeling production costs, inventory, and Series A fundraising needs",
+    "type": "Financial Plan",
+    "template": "Startup Financial Projections",
+    "sectors": ["Technology", "Hardware", "IoT"],
+    "detailLevel": {
+      "strategic": "high",
+      "tactical": "high"
+    },
+    "time": "7 Hours",
+    "pageCount": "40"
+  }
+]
